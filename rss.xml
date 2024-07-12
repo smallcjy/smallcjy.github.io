@@ -10,8 +10,46 @@
         </author>
         <description></description>
         <language>en</language>
-        <pubDate>Sun, 23 Jun 2024 01:16:46 +0800</pubDate>
-        <lastBuildDate>Sun, 23 Jun 2024 01:16:46 +0800</lastBuildDate>
+        <pubDate>Fri, 12 Jul 2024 16:25:35 +0800</pubDate>
+        <lastBuildDate>Fri, 12 Jul 2024 16:25:35 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/</guid>
+            <title>lo网卡注册系统卡滞漏洞分析及其解决</title>
+            <link>http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/</link>
+            <category term="DragonOS" scheme="http://smallcjy.github.io/tags/DragonOS/" />
+            <pubDate>Fri, 12 Jul 2024 16:25:35 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述：&lt;/h2&gt;
+&lt;p&gt;向 kernel 注册 lo 网卡驱动后，启动 kernel 后系统卡滞。&lt;/p&gt;
+&lt;h2 id=&#34;debug过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#debug过程&#34;&gt;#&lt;/a&gt; Debug 过程：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;初步发现系统停滞在用户层，怀疑是内核切换成用户态时出现问题&lt;/li&gt;
+&lt;li&gt;输出用户态的 init 程序发现 proc_name 输出为空，开始怀疑是 free before use&lt;/li&gt;
+&lt;li&gt;free before use 的原因通常为不能正确使用 unsafe 代码块操控内存导致内存错误。&lt;/li&gt;
+&lt;li&gt;开始检查 lo 网卡实现代码中有关 unsafe 的部分&lt;/li&gt;
+&lt;li&gt;检查到问题出现在驱动包裹器上&lt;/li&gt;
+&lt;li&gt;通过输出日志发现代码停滞在 lo 的 NetDerive 层中的 poll 方法，怀疑是内部调用了包裹器内部的驱动的可变引用导致的，这是一个 unsafe 代码&lt;/li&gt;
+&lt;li&gt;检查但没发现存在内存错误的可能，重新把目光放回 poll 方法&lt;/li&gt;
+&lt;li&gt;发现系统会定时重复调用 poll 方法，存在定期调用网卡的 poll 的机制&lt;/li&gt;
+&lt;li&gt;思考如果重复调用 poll 方法，为什么会导致系统停滞&lt;/li&gt;
+&lt;li&gt;通过对系统的网络子系统的学习，发现系统如果发现网卡内的 rxqueue 有未接收的数据包会启用中断来接收，怀疑系统认为 lo 网卡内一直存在未接受的数据包，导致一直中断接收数据包。&lt;/li&gt;
+&lt;li&gt;认识到系统认为网卡没有数据包的手段是调用网卡内部设备驱动时返回 none，所以在 receive 函数中先检查 queue 是否为空，如果为空返回 none&lt;/li&gt;
+&lt;li&gt;重启系统，发现系统正常启动。&lt;/li&gt;
+&lt;li&gt;bug 修复完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;反思&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反思&#34;&gt;#&lt;/a&gt; 反思：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;问题出现的第一场所不是导致问题的第一场所！！！因为操作系统中存在大量的中断和调度活动，并不是顺序执行的，输出日志所定位到的地方并不一定是问题导致的地方，要重新分析问题，思考系统反常的原因。&lt;/li&gt;
+&lt;li&gt;输出日志确实是一个非常有力的工具，但是不能依赖他，不能完全靠他定位！&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/</guid>
+            <title>C++网络编程学习-boost(1)</title>
+            <link>http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/</link>
+            <pubDate>Wed, 10 Jul 2024 13:06:52 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://smallcjy.github.io/2024/06/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Bottom-Up-Paring/</guid>
             <title>编译原理--Bottom-Up Paring</title>
@@ -304,6 +342,7 @@ Let G be a context-free grammar with start symbol S. Then the language of G is:&
 &lt;li&gt;重复这个过程直到每个集合只有一个元素或者无法被继续划分&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;6-scanner的构建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-scanner的构建&#34;&gt;#&lt;/a&gt; 6 scanner 的构建&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;词法分析的错误处理是 panic mode&lt;/strong&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -324,7 +363,7 @@ Let G be a context-free grammar with start symbol S. Then the language of G is:&
 &lt;li&gt;代码生成器&lt;/li&gt;
 &lt;li&gt;机器代码优化&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AAphase.png&#34; alt=&#34;alt text&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;_data%5C%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AAphase.png&#34; alt=&#34;alt text&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;11-lexical-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-lexical-analysis&#34;&gt;#&lt;/a&gt; 1.1 lexical analysis&lt;/h3&gt;
 &lt;p&gt;词法分析器读入组成源程序的字符流，并且将它们组成有意义的 lexeme 的序列，输出 token。token = &amp;lt;token-name，attribute-value&amp;gt;。token-name 是符号表中的使用的抽象符号，比如标识符的抽象符号就是 id，attribute-value 对应源字符串在符号表中对应的条目。条目存放该字符串的信息，比如值。词法分析阶段就是把字符流转化为 token 流。&lt;/p&gt;
 &lt;h3 id=&#34;12-syntax-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12-syntax-analysis&#34;&gt;#&lt;/a&gt; 1.2 syntax analysis&lt;/h3&gt;
@@ -3044,153 +3083,47 @@ S.code = label(B.true)&lt;/p&gt;
 &lt;p&gt;语法 -&amp;gt; 语法规则&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;if-stmt -&amp;gt; if E then S1 else S2&lt;br /&gt;
-if-stmt.next = newLabel()&lt;br /&gt;
-E.true = newLabel()&lt;br /&gt;
-E.false = newLabel()&lt;br /&gt;
+E.true = newLabel&lt;br /&gt;
+E.false = newLabel&lt;br /&gt;
 S1.next = if-stmt.next&lt;br /&gt;
 S2.next = if-stmt.next&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;if-stmt.code = E.code||label E.true||S1.code||goto S1.next||Label E.false||S2.code||label if-stmt.next&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
+&lt;p&gt;if-stmt.code = E.code||goto label E.true||S1.code||goto S1.next||goto Label E.false||S2.code||label if-stmt.next&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;E -&amp;gt; E1 or E2&lt;br /&gt;
 E1.true = E.true;&lt;br /&gt;
-E1.false = newLabel()&lt;br /&gt;
+E1.false = newLabel&lt;br /&gt;
 E2.true = E.true;&lt;br /&gt;
 E2.false = E.false&lt;br /&gt;
 E.code = E1.code||label E1.false||E2.code&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/06/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86--%E8%AF%AD%E5%88%B6%E7%BF%BB%E8%AF%91/</guid>
-            <title>编译原理--语制翻译</title>
-            <link>http://smallcjy.github.io/2024/06/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86--%E8%AF%AD%E5%88%B6%E7%BF%BB%E8%AF%91/</link>
-            <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-            <pubDate>Sun, 02 Jun 2024 10:48:31 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;语制翻译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#语制翻译&#34;&gt;#&lt;/a&gt; 语制翻译&lt;/h2&gt;
-&lt;h3 id=&#34;1-语法制导&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-语法制导&#34;&gt;#&lt;/a&gt; 1 语法制导&lt;/h3&gt;
-&lt;p&gt;上下文无关文法和属性及规则的结合。属性和文法符号相关联，规则和产生式相关联。X.a 表示 X 符号 a 属性在语法树中的值。&lt;/p&gt;
-&lt;h3 id=&#34;11-继承属性和综合属性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-继承属性和综合属性&#34;&gt;#&lt;/a&gt; 1.1 继承属性和综合属性&lt;/h3&gt;
-&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;综合属性：语法树节点值是由其本身的值、子节点的值决定的，即该节点的产生式右部只有其本身和子节点所关联的语义规则。右部产生式的头部如果有本身或子节点的产生式的头部有则为综合属性。&lt;/p&gt;
+&lt;p&gt;E -&amp;gt; E1 and E2&lt;br /&gt;
+E1.true = newLabel&lt;br /&gt;
+E1.false = E.false&lt;br /&gt;
+E2.true = E.true&lt;br /&gt;
+E2.false = E.false&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E.code = E1.code||label E1.true||E2.code&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;E -&amp;gt; id1 &amp;lt; id2&lt;br /&gt;
+E.code=if &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2lkMS5uYW1l&#34;&gt;id1.name&lt;/span&gt; &amp;lt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2lkMi5uYW1l&#34;&gt;id2.name&lt;/span&gt; goto E.true || goto E.false&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;继承属性：语法树节点值是由其本身的值，父节点的值、其兄弟节点的值决定的，该节点的产生式的右部有父节点，如果父节点是非终止符，那么还可能推导到其本身和兄弟节点。本身的产生在父节点的语法规则上。&lt;/p&gt;
+&lt;p&gt;do-stmt -&amp;gt; do S while E&lt;br /&gt;
+do-stmt.begin=newLabel;&lt;br /&gt;
+do-stmt.next=newLabel;&lt;br /&gt;
+E.true=do-stmt.begin;&lt;br /&gt;
+E.false=do-stmt.next;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;12-在语法分析树的节点上对sdd求值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12-在语法分析树的节点上对sdd求值&#34;&gt;#&lt;/a&gt; 1.2 在语法分析树的节点上对 SDD 求值&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;注释语法分析树 annotated parse tree&lt;/strong&gt; ：各节点的值被显示出来的语法树&lt;/p&gt;
-&lt;p&gt;那么如何求得节点属性的值呢，对于综合节点的属性值可以自底而上求值；对于继承节点的属性值可以自上而下求值。&lt;/p&gt;
-&lt;h2 id=&#34;2-sdd的求值顺序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-sdd的求值顺序&#34;&gt;#&lt;/a&gt; 2 SDD 的求值顺序&lt;/h2&gt;
-&lt;p&gt;由上面可以知道，一个语法树的节点求值所相关的节点属性错综复杂，可能在父节点上，也可能在子节点或本身。那么如何确定一颗语法树的节点属性的求值顺序呢？&lt;/p&gt;
-&lt;p&gt;这就需要&lt;strong&gt;依赖图&lt;/strong&gt;了。&lt;/p&gt;
-&lt;p&gt;如何绘制依赖图呢，简单来说就是产生式右部的各个属性指向左部的属性。注意是在源语法树上新画出属性在进行依赖图的绘制而不是绘制在属性上。&lt;/p&gt;
-&lt;p&gt;得到依赖图后，对依赖图进行拓补排序即可得到各个属性值的求值顺序。&lt;/p&gt;
-&lt;p&gt;该方法也可以判断一颗语法树是否存在循环依赖的关系，也就是能否进行 SDD 求值的问题。&lt;/p&gt;
-&lt;h3 id=&#34;21-两种类型的sdd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#21-两种类型的sdd&#34;&gt;#&lt;/a&gt; 2.1 两种类型的 SDD&lt;/h3&gt;
-&lt;h4 id=&#34;211-s属性的sdd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#211-s属性的sdd&#34;&gt;#&lt;/a&gt; 2.1.1 S 属性的 SDD&lt;/h4&gt;
-&lt;p&gt;如果 SDD 的所有属性都是综合属性，则称之为 S 属性的 SDD。&lt;/p&gt;
-&lt;p&gt;可以采用自底向上来求解各个属性的值。&lt;/p&gt;
-&lt;h4 id=&#34;212-l属性的sdd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#212-l属性的sdd&#34;&gt;#&lt;/a&gt; 2.1.2 L 属性的 SDD&lt;/h4&gt;
-&lt;p&gt;这类 SDD 的思想是在一个产生式体所关联的各个属性之间，依赖图的边总是从左到右。也就是说，这些属性要么是一个综合属性，要么是继承属性且其依赖的属性在其左边（&lt;strong&gt;头部或者左边的兄弟属性&lt;/strong&gt;）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;来自左边和上面！！！&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;3-抽象语法树&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-抽象语法树&#34;&gt;#&lt;/a&gt; 3 抽象语法树&lt;/h2&gt;
-&lt;h3 id=&#34;31-抽象语法树的构建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#31-抽象语法树的构建&#34;&gt;#&lt;/a&gt; 3.1 抽象语法树的构建&lt;/h3&gt;
-&lt;p&gt;属性值不在是简单的复制而是带有一定的抽象操作（加减乘除），节点分为 Leaf 节点和 Node 节点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Leaf 节点：（op, val）&lt;/li&gt;
-&lt;li&gt;Node 节点：（op, c1,c2...）（cn 为 node 的属性值）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;32-类型的结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#32-类型的结构&#34;&gt;#&lt;/a&gt; 3.2 类型的结构&lt;/h3&gt;
-&lt;p&gt;节点的属性可以有值 val，也可以有类型 type&lt;/p&gt;
-&lt;h2 id=&#34;4-语法制导的翻译方案sdt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-语法制导的翻译方案sdt&#34;&gt;#&lt;/a&gt; 4 语法制导的翻译方案（SDT）&lt;/h2&gt;
-&lt;p&gt;实现方法：首先建立一颗语法分析树，然后按照从左到右的深度优先顺序来执行这些动作，也就是说在一个前序遍历过程中执行。&lt;/p&gt;
-&lt;p&gt;两类可用 SDT 实现的重要的 SDD：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基本文法可以用 LR 技术分析，且 SDD 是 S 属性的。&lt;/li&gt;
-&lt;li&gt;基本文法可以用 LL 技术分析，且 SDD 是 L 属性的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;41-后缀翻译方案s属性的sdt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#41-后缀翻译方案s属性的sdt&#34;&gt;#&lt;/a&gt; 4.1 后缀翻译方案 (S 属性的 SDT)&lt;/h3&gt;
-&lt;p&gt;** 基本文法可以用 LR 技术分析，且 SDD 是 S 属性的。** 的情况。&lt;/p&gt;
-&lt;p&gt;构造一个把每个动作（一般是给产生式头部的综合属性进行赋值）都放在产生式的最后，并且在按照这个产生式将产生实体归约成产生式头的时候执行这个动作。所有动作都在产生式的最右端的 SDT 称为后缀翻译方案。&lt;/p&gt;
-&lt;h3 id=&#34;42-后缀sdt的语法分析栈的实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#42-后缀sdt的语法分析栈的实现&#34;&gt;#&lt;/a&gt; 4.2 后缀 SDT 的语法分析栈的实现&lt;/h3&gt;
-&lt;p&gt;将属性和文法符号（或者文法符号的 LR 状态）一起放入栈中的记录里。&lt;/p&gt;
-&lt;h3 id=&#34;43-产生式内部带有语义动作的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#43-产生式内部带有语义动作的&#34;&gt;#&lt;/a&gt; 4.3 产生式内部带有语义动作的&lt;/h3&gt;
-&lt;p&gt;当一个动作左边的所有符号都被处理（或者说不可归约后），该动作立即执行。&lt;/p&gt;
-&lt;p&gt;任何 SDT 都可以通过下列方法实现：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;忽略语义动作，对输入进行复发分析，并产生一个语法分析树。&lt;/li&gt;
-&lt;li&gt;然后检查每个内部节点 N，假设她的产生式是 A-&amp;gt;a。将 a 中的各个动作当作 N 的附加子节点加入，使得 N 的子节点从左到右和 a 中的符号及动作完全一致。&lt;/li&gt;
-&lt;li&gt;对这颗语法树进行前序遍历，并且当访问到一个以某个动作为标号的节点时立即执行这个动作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;44-从sdt中消除左递归&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#44-从sdt中消除左递归&#34;&gt;#&lt;/a&gt; 4.4 从 SDT 中消除左递归&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;A-&amp;gt;Aa|b&lt;/strong&gt;  =&amp;gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;A-&amp;gt;A&#39;|R&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;R-&amp;gt;aR|a&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;45-l属性定义的sdt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#45-l属性定义的sdt&#34;&gt;#&lt;/a&gt; 4.5 L 属性定义的 SDT&lt;/h3&gt;
-&lt;p&gt;将一个 L 属性的 SDD 转换为一个 SDT 的规则如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;把计算某个非终结符号 A 的继承属性的动作插入到产生式中紧靠 A 的左边。如果 A 的多个继承属性以五环的形式相互依赖，需要对这些属性的求职动作进行拓补排序，以计算需要的继承属性。&lt;/li&gt;
-&lt;li&gt;将计算一个产生式头的综合属性放在最后。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;5-实现l属性的sdd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-实现l属性的sdd&#34;&gt;#&lt;/a&gt; 5 实现 L 属性的 SDD&lt;/h2&gt;
+&lt;p&gt;do-stmt.code: Label do-stmt.begin || S.code ||E.code || Label do-stmt.next&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;建立语法分析树并注释&lt;/li&gt;
-&lt;li&gt;构造语法分析树&lt;/li&gt;
-&lt;li&gt;使用一个递归下降的语法分析器，为每个非终结符号建立一个函数&lt;/li&gt;
-&lt;li&gt;使用一个递归下降的语法分析器，以边扫描生成的方式代码&lt;/li&gt;
-&lt;li&gt;与 LL 语法分析器结合生成 SDT&lt;/li&gt;
-&lt;li&gt;与 LR 语法分析器结合生成 SDT&lt;/li&gt;
+&lt;li&gt;while-stmt -&amp;gt; while E do S&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;51-在递归下降的语法分析过程中进行翻译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#51-在递归下降的语法分析过程中进行翻译&#34;&gt;#&lt;/a&gt; 5.1 在递归下降的语法分析过程中进行翻译&lt;/h3&gt;
-&lt;p&gt;一个递归下降的语法分析器对每个非终结符号 A 都有一个函数 A。我们可以按照如下方法把这个语法分析器扩展为一个翻译器：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;函数 A 的参数是非终结符 A 的继承属性&lt;/li&gt;
-&lt;li&gt;A 的返回值是非终结符 A 的综合属性的集合&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;52-边扫描边生成代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#52-边扫描边生成代码&#34;&gt;#&lt;/a&gt; 5.2 边扫描边生成代码&lt;/h3&gt;
-&lt;p&gt;TODO：没看懂、看看博客&lt;/p&gt;
-&lt;h3 id=&#34;53-l属性的sdd和ll语法分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#53-l属性的sdd和ll语法分析&#34;&gt;#&lt;/a&gt; 5.3 L 属性的 SDD 和 LL 语法分析&lt;/h3&gt;
-&lt;p&gt;在根据 SDT 进行 LL 语法分析过程中，需要对语法分析栈进行扩展，以存放语义动作和属性求值所需要的某些数据项，一般是某些属性值的拷贝。&lt;/p&gt;
-&lt;p&gt;分别是动作记录和综合记录：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;动作记录：即将被执行的语义动作&lt;/li&gt;
-&lt;li&gt;综合记录：保存非终结符号的综合属性值&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;那么该如何管理栈中的属性，在什么时候如何推入退出栈呢？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;非终结符号 A 的继承属性放在表示这个符号的栈记录中；&lt;/li&gt;
-&lt;li&gt;非终结符号 A 的综合属性放在一个单独的综合记录中，他在栈中紧靠在 A 的记录下。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;LL 语法分析&lt;/strong&gt;（何时需要建立属性的临时拷贝）&lt;/p&gt;
-&lt;h3 id=&#34;54-l属性的sdd的自底向上语法分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#54-l属性的sdd的自底向上语法分析&#34;&gt;#&lt;/a&gt; 5.4 L 属性的 SDD 的自底向上语法分析&lt;/h3&gt;
-&lt;p&gt;方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;定义 L 属性的 SDT 为起点。&lt;/li&gt;
-&lt;li&gt;对每个内嵌的语义动作在文法中引入一个标记非终结符 M 来替换它，M-&amp;gt;E。&lt;/li&gt;
-&lt;li&gt;如果替换了被标记为 M 的语义动作 a 为 a’，这个 a’将动作 a 需要的 A 或 a 中的所有符号的任何属性作为 M 的继承属性进行拷贝；按照 a 中的方法计算各个属性，将这些属性作为 M 的综合属性&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/05/30/%E8%BD%AF%E5%88%86%E5%AE%9E%E8%AE%AD%E5%BC%80%E5%8F%91%E4%B8%AD%E6%9E%B6%E6%9E%84%E6%9C%89%E6%84%9F/</guid>
-            <title>软分实训中架构有感</title>
-            <link>http://smallcjy.github.io/2024/05/30/%E8%BD%AF%E5%88%86%E5%AE%9E%E8%AE%AD%E5%BC%80%E5%8F%91%E4%B8%AD%E6%9E%B6%E6%9E%84%E6%9C%89%E6%84%9F/</link>
-            <category term="架构和设计模式" scheme="http://smallcjy.github.io/tags/%E6%9E%B6%E6%9E%84%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
-            <pubDate>Thu, 30 May 2024 20:23:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;builder建造者模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#builder建造者模式&#34;&gt;#&lt;/a&gt; Builder 建造者模式&lt;/h2&gt;
-&lt;p&gt;提供某种服务的对象如果具备提供一般化的服务功能，应该独立设计为一层，其为不同领域提供不同方向的服务各自设计为一层。&lt;br /&gt;
-比如一个邮件系统，考虑为其添加 ai 服务的功能；但在邮件系统中，ai 服务可以出现在不同的领域，比如邮件领域；前端交互领域&lt;br /&gt;
-等等，这是不能把这些 ai 服务的 builder 写在同一层内，应该抽象一个 ai 服务工厂，提供基本的 ai 服务，具体的 ai 服务调用基本的&lt;br /&gt;
- ai 服务，通过排列组合形成自定义化的 ai 服务 builder，提供服务接口给其他地方使用。&lt;/p&gt;
-&lt;h2 id=&#34;架构模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#架构模式&#34;&gt;#&lt;/a&gt; 架构模式&lt;/h2&gt;
-&lt;p&gt;AIService 层 --&amp;gt; MailAiService 层、AiAssistantService 层等等 --&amp;gt; Mail 层、User 层等等&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
