@@ -8,15 +8,7 @@
     <author>
       <name>Cai Junyuan</name>
     </author>
-    <updated>2024-07-17T06:19:40.235Z</updated>
-    <entry>
-        <id>http://smallcjy.github.io/2024/07/17/README/</id>
-        <title></title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/07/17/README/"/>
-        <content type="html">&lt;h1 id=&#34;blogarticlecollection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#blogarticlecollection&#34;&gt;#&lt;/a&gt; BlogArticleCollection&lt;/h1&gt;
-</content>
-        <updated>2024-07-17T06:19:40.235Z</updated>
-    </entry>
+    <updated>2024-07-12T08:25:35.000Z</updated>
     <entry>
         <id>http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/</id>
         <title>lo网卡注册系统卡滞漏洞分析及其解决</title>
@@ -3061,6 +3053,71 @@ Ctiger* &amp;#x7684;&amp;#x522B;&amp;#x540D; TigerPtr&lt;/p&gt;
 &lt;/ul&gt;
 </content>
         <category term="C++" scheme="http://smallcjy.github.io/tags/C/" />
+        <updated>2024-06-04T02:48:31.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://smallcjy.github.io/2024/06/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86--%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B9%8B%E6%8E%A7%E5%88%B6%E6%B5%81/</id>
+        <title>编译原理--中间代码生成之控制流</title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/06/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86--%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E4%B9%8B%E6%8E%A7%E5%88%B6%E6%B5%81/"/>
+        <content type="html">&lt;h2 id=&#34;1-&amp;#x63A7;&amp;#x5236;&amp;#x6D41;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-&amp;#x63A7;&amp;#x5236;&amp;#x6D41;&#34;&gt;#&lt;/a&gt; 1 &amp;#x63A7;&amp;#x5236;&amp;#x6D41;&lt;/h2&gt;
+&lt;p&gt;&amp;#x63A7;&amp;#x5236;&amp;#x6D41;&amp;#x662F; if-else&amp;#x3001;while&amp;#x3001;for &amp;#x8FD9;&amp;#x7C7B;&amp;#x8BED;&amp;#x53E5;&amp;#xFF0C;&amp;#x8FD9;&amp;#x7C7B;&amp;#x8BED;&amp;#x53E5;&amp;#x7684;&amp;#x7FFB;&amp;#x8BD1;&amp;#x548C;&amp;#x5BF9;&amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x7FFB;&amp;#x8BD1;&amp;#x662F;&amp;#x7ED3;&amp;#x5408;&amp;#x5728;&amp;#x4E00;&amp;#x8D77;&amp;#x7684;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&#34;11-&amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-&amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&#34;&gt;#&lt;/a&gt; 1.1 &amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&lt;/h3&gt;
+&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#x6765;&amp;#x4ECB;&amp;#x7ECD;&amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x7FFB;&amp;#x8BD1;&amp;#x8FC7;&amp;#x7A0B;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5E03;&amp;#x5C14;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7531;&amp;#x5E03;&amp;#x5C14;&amp;#x53D8;&amp;#x91CF;&amp;#x548C;&amp;#x5173;&amp;#x7CFB;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x5E03;&amp;#x5C14;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x6784;&amp;#x6210;&amp;#xFF0C;&amp;#x5173;&amp;#x7CFB;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x4E3A; E1 rel E2&amp;#x3002; &amp;#x5C5E;&amp;#x6027; rel.op &amp;#x8868;&amp;#x793A;&amp;#x5173;&amp;#x7CFB;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x7684;&amp;#x67D0;&amp;#x4E00;&amp;#x79CD;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&#34;12-&amp;#x77ED;&amp;#x8DEF;&amp;#x4EE3;&amp;#x7801;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12-&amp;#x77ED;&amp;#x8DEF;&amp;#x4EE3;&amp;#x7801;&#34;&gt;#&lt;/a&gt; 1.2 &amp;#x77ED;&amp;#x8DEF;&amp;#x4EE3;&amp;#x7801;&lt;/h3&gt;
+&lt;p&gt;&amp;#x5728;&amp;#x77ED;&amp;#x8DEF;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5E03;&amp;#x5C14;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26; &amp;amp;&amp;amp;&amp;#x3001;||&amp;#x3001;&amp;#xFF01;&amp;#x88AB;&amp;#x7FFB;&amp;#x8BD1;&amp;#x6210;&amp;#x8DF3;&amp;#x8F6C;&amp;#x6307;&amp;#x4EE4; goto&amp;#xFF1B;&amp;#x8FD9;&amp;#x4E09;&amp;#x4E2A;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x5728;&amp;#x7FFB;&amp;#x8BD1;&amp;#x4E2D;&amp;#x6CA1;&amp;#x6709;&amp;#x7B26;&amp;#x53F7;&amp;#x663E;&amp;#x793A;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&#34;13-&amp;#x63A7;&amp;#x5236;&amp;#x6D41;&amp;#x8BED;&amp;#x53E5;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#13-&amp;#x63A7;&amp;#x5236;&amp;#x6D41;&amp;#x8BED;&amp;#x53E5;&#34;&gt;#&lt;/a&gt; 1.3 &amp;#x63A7;&amp;#x5236;&amp;#x6D41;&amp;#x8BED;&amp;#x53E5;&lt;/h3&gt;
+&lt;p&gt;&amp;#x6807;&amp;#x53F7;&amp;#x662F;&amp;#x67D0;&amp;#x5173;&amp;#x7CFB;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E3A;&amp;#x771F;&amp;#x65F6;&amp;#x8BE5;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5047;&amp;#x8BBE;&amp;#x6BCF;&amp;#x6B21;&amp;#x8C03;&amp;#x7528; newlabel () &amp;#x90FD;&amp;#x4F1A;&amp;#x4EA7;&amp;#x751F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x6807;&amp;#x53F7;&amp;#xFF0C;&amp;#x5E76;&amp;#x5047;&amp;#x8BBE; label (L) &amp;#x4E3A;&amp;#x5C06;&amp;#x6807;&amp;#x53F7; L &amp;#x9644;&amp;#x52A0;&amp;#x5230;&amp;#x5373;&amp;#x5C06;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x4E0B;&amp;#x4E00;&amp;#x6761;&amp;#x4E09;&amp;#x5730;&amp;#x5740;&amp;#x6307;&amp;#x4EE4;&amp;#x4E0A;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x6BD4;&amp;#x5982;&amp;#xFF1A;B.true = newlabel ()&lt;br&gt;
+S.code = label(B.true)&lt;/p&gt;
+&lt;p&gt;&amp;#x8BF4;&amp;#x660E;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230; B.true &amp;#x7684;&amp;#x6307;&amp;#x4EE4;&amp;#x4F1A;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230; S.code &amp;#x4E0A;&amp;#xFF0C;&amp;#x5C31;&amp;#x662F;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7ED1;&amp;#x5B9A;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x8BED;&amp;#x6CD5; -&amp;gt; &amp;#x8BED;&amp;#x6CD5;&amp;#x89C4;&amp;#x5219;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;if-stmt -&amp;gt; if E then S1 else S2&lt;br&gt;
+E.true = newLabel&lt;br&gt;
+E.false = newLabel&lt;br&gt;
+S1.next = if-stmt.next&lt;br&gt;
+S2.next = if-stmt.next&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;if-stmt.code = E.code||goto label E.true||S1.code||goto S1.next||goto Label E.false||S2.code||label if-stmt.next&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;E -&amp;gt; E1 or E2&lt;br&gt;
+E1.true = E.true;&lt;br&gt;
+E1.false = newLabel&lt;br&gt;
+E2.true = E.true;&lt;br&gt;
+E2.false = E.false&lt;br&gt;
+E.code = E1.code||label E1.false||E2.code&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;E -&amp;gt; E1 and E2&lt;br&gt;
+E1.true = newLabel&lt;br&gt;
+E1.false = E.false&lt;br&gt;
+E2.true = E.true&lt;br&gt;
+E2.false = E.false&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E.code = E1.code||label E1.true||E2.code&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;E -&amp;gt; id1 &amp;lt; id2&lt;br&gt;
+E.code=if &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2lkMS5uYW1l&#34;&gt;id1.name&lt;/span&gt; &amp;lt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2lkMi5uYW1l&#34;&gt;id2.name&lt;/span&gt; goto E.true || goto E.false&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;do-stmt -&amp;gt; do S while E&lt;br&gt;
+do-stmt.begin=newLabel;&lt;br&gt;
+do-stmt.next=newLabel;&lt;br&gt;
+E.true=do-stmt.begin;&lt;br&gt;
+E.false=do-stmt.next;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;do-stmt.code: Label do-stmt.begin || S.code ||E.code || Label do-stmt.next&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;while-stmt -&amp;gt; while E do S&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
         <updated>2024-06-04T02:48:31.000Z</updated>
     </entry>
 </feed>
