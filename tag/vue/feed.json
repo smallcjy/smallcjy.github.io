@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Hexo • All posts by \"vue\" tag",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2024/05/08/%E6%9B%BF%E6%8D%A2vue-cli%E6%88%90vite%E6%A1%86%E6%9E%B6%E8%BF%87%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%B5%85%E8%B0%88/",
+            "url": "http://example.com/2024/05/08/%E6%9B%BF%E6%8D%A2vue-cli%E6%88%90vite%E6%A1%86%E6%9E%B6%E8%BF%87%E7%A8%8B%E7%BB%8F%E9%AA%8C%E6%B5%85%E8%B0%88/",
+            "title": "替换vue-cli成vite框架过程经验浅谈",
+            "date_published": "2024-05-08T12:23:27.000Z",
+            "content_html": "<h2 id=\"替换vue-cli成vite框架过程经验浅析\"><a class=\"anchor\" href=\"#替换vue-cli成vite框架过程经验浅析\">#</a> 替换 vue-cli 成 vite 框架过程经验浅析</h2>\n",
+            "tags": [
+                "vue"
+            ]
+        }
+    ]
+}

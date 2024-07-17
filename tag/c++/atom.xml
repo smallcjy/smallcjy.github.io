@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>Hexo • Posts by &#34;c++&#34; tag</title>
+    <link href="http://example.com" />
+    <updated>2024-06-04T02:48:31.000Z</updated>
+    <category term="C++" />
+    <category term="架构和设计模式" />
+    <category term="操作系统" />
+    <category term="DragonOS" />
+    <category term="计算机网络" />
+    <category term="vue" />
+    <category term="编译原理" />
+    <entry>
+        <id>http://example.com/2024/06/04/C++%E7%BB%83%E4%B9%A0%E9%94%99%E8%AF%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E4%B9%A0%E5%8F%8A%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/</id>
+        <title>C++练习错误知识点复习及知识回顾</title>
+        <link rel="alternate" href="http://example.com/2024/06/04/C++%E7%BB%83%E4%B9%A0%E9%94%99%E8%AF%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E4%B9%A0%E5%8F%8A%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/"/>
+        <content type="html">&lt;ol&gt;
+&lt;li&gt;&amp;#x5728; C++ &amp;#x7C7B;&amp;#x548C;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E2D;&amp;#xFF0C;&amp;#x7F16;&amp;#x8BD1;&amp;#x5668;&amp;#x53EA;&amp;#x4F1A;&amp;#x4E3A;&amp;#x7C7B;&amp;#x7684;&lt;strong&gt;&amp;#x6570;&amp;#x636E;&amp;#x6210;&amp;#x5458;&lt;/strong&gt;&amp;#x5206;&amp;#x914D;&amp;#x5185;&amp;#x5B58;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;C++ &amp;#x4E2D;&amp;#x4E0D;&amp;#x52A0;&amp;#x58F0;&amp;#x660E;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x6210;&amp;#x5458;&amp;#x548C;&amp;#x65B9;&amp;#x6CD5;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x7EE7;&amp;#x627F;&amp;#x65B9;&amp;#x5F0F;&amp;#x662F; private&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x53EF;&amp;#x4EE5;&amp;#x6709;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x6784;&amp;#x6210;&amp;#x6709;&amp;#x53C2;&amp;#x6784;&amp;#x9020;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x662F;&amp;#x4E0D;&amp;#x4F1A;&amp;#x8FD4;&amp;#x56DE;&amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#x7684;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x6CE8;&amp;#x610F;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0D;&amp;#x4F1A;&amp;#x521B;&amp;#x5EFA;&amp;#x7C7B;&amp;#x5B9E;&amp;#x4F8B;&amp;#xFF0C;&amp;#x4E0D;&amp;#x4F1A;&amp;#x5F00;&amp;#x8F9F;&amp;#x4EFB;&amp;#x4F55;&amp;#x7684;&amp;#x5185;&amp;#x5B58;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x5982;&amp;#x4F55;&amp;#x58F0;&amp;#x660E; const &amp;#x7C7B;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A; &lt;code&gt;void print() const&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&amp;#x53CB;&amp;#x5143;&amp;#x4E0D;&amp;#x80FD;&amp;#x4F20;&amp;#x9012;&amp;#xFF0C;A &amp;#x662F; B &amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#xFF0C;B &amp;#x662F; C &amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#xFF0C;A &amp;#x4E5F;&amp;#x4E0D;&amp;#x662F; C &amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x53CB;&amp;#x5143;&amp;#x4E0D;&amp;#x5177;&amp;#x6709;&amp;#x4EA4;&amp;#x6362;&amp;#x6027;&amp;#xFF0C;A &amp;#x662F; B &amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#xFF0C;B &amp;#x4E0D;&amp;#x662F; A &amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x7684;&amp;#x9759;&amp;#x6001;&amp;#x6210;&amp;#x5458;&amp;#xFF0C;&amp;#x8981;&amp;#x5728;&amp;#x7C7B;&amp;#x5916;&amp;#x8FDB;&amp;#x884C;&amp;#x8D4B;&amp;#x503C;&amp;#xFF0C;&amp;#x4E14;&amp;#x4E3A;&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x5B9E;&amp;#x4F8B;&amp;#x5171;&amp;#x4EAB;&amp;#x3002;&amp;#x8BBF;&amp;#x95EE;&amp;#x901A;&amp;#x8FC7;&amp;#x7C7B;&amp;#x540D;&amp;#x8FDB;&amp;#x884C;&amp;#x8BBF;&amp;#x95EE;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x53CB;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x4E0D;&amp;#x5C5E;&amp;#x4E8E;&amp;#x7C7B;&amp;#x5B9E;&amp;#x4F8B;&amp;#x7684;&amp;#x57DF;&amp;#x3002;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x53CB;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x5B9A;&amp;#x4E49;&amp;#x5728;&amp;#x7C7B;&amp;#x5916;&amp;#x90E8;&amp;#x7684;&amp;#x666E;&amp;#x901A;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x4F46;&amp;#x5B83;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x7C7B;&amp;#x4F53;&amp;#x5185;&amp;#x8FDB;&amp;#x884C;&amp;#x58F0;&amp;#x660E;&amp;#xFF0C;&amp;#x8981;&amp;#x4F7F;&amp;#x7528; friend&amp;#x3002;&lt;strong&gt;&amp;#x53CB;&amp;#x5143;&amp;#x4E0D;&amp;#x662F;&amp;#x7C7B;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&lt;/strong&gt;&amp;#xFF0C;&amp;#x4F46;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBF;&amp;#x95EE;&amp;#x7C7B;&amp;#x7684;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x53CB;&amp;#x5143;&amp;#x7C7B;&amp;#xFF0C;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F53;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#x7684;&amp;#x53CB;&amp;#x5143;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBF;&amp;#x95EE;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x53CB;&amp;#x5143;&amp;#x7C7B;&amp;#x7684;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x9759;&amp;#x6001;&amp;#x6210;&amp;#x5458;&amp;#x53D8;&amp;#x91CF;&amp;#x4E5F;&amp;#x9075;&amp;#x5B88; public&amp;#x3001;private&amp;#x3001;protect &amp;#x89C4;&amp;#x5219;&amp;#x3002;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;C++ &amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&amp;#x5C31;&amp;#x662F;&amp;#x5BF9;&amp;#x6587;&amp;#x4EF6;&amp;#x8FDB;&amp;#x884C;&amp;#x589E;&amp;#x5220;&amp;#x67E5;&amp;#x6539;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;&amp;#x53EF;&amp;#x5206;&amp;#x4E3A; oftream&amp;#x3001;ifstream&amp;#x3001;fstream&amp;#x3002;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ofstream&amp;#xFF1A;&amp;#x8F93;&amp;#x51FA;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;&amp;#x6587;&amp;#x4EF6;&amp;#x5E76;&amp;#x5199;&amp;#x5165;&lt;/li&gt;
+&lt;li&gt;ifstream&amp;#xFF1A;&amp;#x8F93;&amp;#x5165;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&amp;#xFF0C;&amp;#x8BFB;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;fstream&amp;#xFF1A;&amp;#x8F93;&amp;#x5165;&amp;#x8F93;&amp;#x51FA;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x90FD;&amp;#x6709;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x5982;&amp;#x4F55;&amp;#x4F7F;&amp;#x7528;&amp;#x5462;&amp;#xFF1F;&lt;/p&gt;
+&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x7C7B;&amp;#x540D;&amp;#x5B9A;&amp;#x4E49;&amp;#x5373;&amp;#x53EF;&lt;/p&gt;
+&lt;p&gt;&amp;#x7136;&amp;#x540E;&amp;#x6253;&amp;#x5F00;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6253;&amp;#x5F00;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ios::in	&amp;#x8BFB;&amp;#x65B9;&amp;#x5F0F;&amp;#x6253;&amp;#x5F00;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;ios::out	&amp;#x5199;&amp;#x65B9;&amp;#x5F0F;&amp;#x6253;&amp;#x5F00;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;ios::trunc	&amp;#x5982;&amp;#x679C;&amp;#x6B64;&amp;#x6587;&amp;#x4EF6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5B58;&amp;#x5728;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x6253;&amp;#x5F00;&amp;#x6587;&amp;#x4EF6;&amp;#x4E4B;&amp;#x524D;&amp;#x628A;&amp;#x6587;&amp;#x4EF6;&amp;#x957F;&amp;#x5EA6;&amp;#x622A;&amp;#x65AD;&amp;#x4E3A; 0&lt;/li&gt;
+&lt;li&gt;ios::app	&amp;#x5C3E;&amp;#x90E8;&amp;#x6700;&amp;#x52A0;&amp;#x65B9;&amp;#x5F0F; (&amp;#x5728;&amp;#x5C3E;&amp;#x90E8;&amp;#x5199;&amp;#x5165;)&lt;/li&gt;
+&lt;li&gt;ios::ate	&amp;#x6587;&amp;#x4EF6;&amp;#x6253;&amp;#x5F00;&amp;#x540E;&amp;#xFF0C;&amp;#x5B9A;&amp;#x4F4D;&amp;#x5230;&amp;#x6587;&amp;#x4EF6;&amp;#x5C3E;&lt;/li&gt;
+&lt;li&gt;ios::binary	&amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x65B9;&amp;#x5F0F; (&amp;#x9ED8;&amp;#x8BA4;&amp;#x662F;&amp;#x6587;&amp;#x672C;&amp;#x65B9;&amp;#x5F0F;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x6253;&amp;#x5F00;&amp;#x5B8C;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x4E00;&amp;#x5B9A;&amp;#x8981;&amp;#x5224;&amp;#x65AD;&amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x6253;&amp;#x5F00;&amp;#x6210;&amp;#x529F;&lt;/p&gt;
+&lt;p&gt;is_open () &amp;#x51FD;&amp;#x6570;&lt;/p&gt;
+&lt;p&gt;&amp;#x5173;&amp;#x95ED;&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
+&lt;p&gt;&amp;#x5199;&amp;#x5165;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6A21;&amp;#x4EFF;&amp;#x8F93;&amp;#x5165;&amp;#x8F93;&amp;#x51FA;&amp;#x6D41;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528; &amp;lt;&amp;lt; &amp;#x6765;&amp;#x5199;&amp;#xFF1B;&lt;/p&gt;
+&lt;p&gt;&amp;#x8BFB;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528; &amp;gt;&amp;gt; &amp;#x6765;&amp;#x5199;&amp;#xFF1B;&lt;strong&gt;&amp;#x5343;&amp;#x4E07;&amp;#x6CE8;&amp;#x610F;&amp;#x8BFB;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0D;&amp;#x80FD;&amp;#x5BF9;&amp;#x6E90;&amp;#x6587;&amp;#x4EF6;&amp;#x8FDB;&amp;#x884C;&amp;#x4FEE;&amp;#x6539;&amp;#xFF01;&amp;#xFF01;&amp;#xFF01;&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x51FD;&amp;#x6570;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x6216;&amp;#x53CB;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x7CFB;&amp;#x7EDF;&amp;#x9ED8;&amp;#x8BA4;&amp;#x63D0;&amp;#x4F9B;&amp;#x91CD;&amp;#x8F7D;&amp;#x7248;&amp;#x672C;&amp;#x7684;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x662F; ** =   &amp;amp;   , **&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x6D41;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#xFF08;&amp;#x6BD4;&amp;#x5982; &amp;gt;&amp;gt; &amp;#x548C; &amp;lt;&amp;lt;&amp;#xFF09;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x53CB;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x8FDB;&amp;#x884C;&amp;#x91CD;&amp;#x8F7D;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x6D41;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x7684;&amp;#x5DE6;&amp;#x503C;&amp;#x4E0D;&amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FEE;&amp;#x6539;&amp;#x7684;&amp;#x7C7B;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x6D41;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x5177;&amp;#x6709;&amp;#x65B9;&amp;#x5411;&amp;#x6027;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x53EA;&amp;#x80FD;&amp;#x5728;&amp;#x7C7B;&amp;#x5916;&amp;#x8FDB;&amp;#x884C;&amp;#x91CD;&amp;#x8F7D;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x4E00;&amp;#x5143;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#x548C;&amp;#x4E8C;&amp;#x5143;&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x7684;&amp;#x5DE6;&amp;#x503C;&amp;#x662F;&amp;#x7C7B;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#xFF0C;&amp;#x91CD;&amp;#x8F7D;&amp;#x4E3A;&amp;#x7C7B;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5BF9;&amp;#x7C7B;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x4FEE;&amp;#x6539;&amp;#x3002;&amp;#x5F53;&amp;#x5BF9;&amp;#x7C7B;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E0D;&amp;#x8FDB;&amp;#x884C;&amp;#x4FEE;&amp;#x6539;&amp;#x65F6;&amp;#xFF0C;&amp;#x91CD;&amp;#x8F7D;&amp;#x4E3A;&amp;#x53CB;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x57FA;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x6307;&amp;#x5411;&amp;#x5B50;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x80FD;&amp;#x8C03;&amp;#x7528;&amp;#x57FA;&amp;#x7C7B;&amp;#x81EA;&amp;#x5DF1;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x5F53;&amp;#x6D3E;&amp;#x751F;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x6307;&amp;#x5411;&amp;#x57FA;&amp;#x7C7B;&amp;#x65F6;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x5C06;&amp;#x6D3E;&amp;#x751F;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x5F3A;&amp;#x8F6C;&amp;#x4E3A;&amp;#x57FA;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x624D;&amp;#x80FD;&amp;#x8C03;&amp;#x7528;&amp;#x57FA;&amp;#x7C7B;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;br&gt;
+ &lt;code&gt;(A)B *b = A &amp;amp;a&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x591A;&amp;#x6001;&amp;#x5B9E;&amp;#x73B0;&amp;#x52A8;&amp;#x6001;&amp;#x8FDE;&amp;#x7F16;&amp;#x662F;&amp;#x4F7F;&amp;#x7528;&amp;#x57FA;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x8C03;&amp;#x7528;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x91CD;&amp;#x8F7D;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&amp;#x65F6;&amp;#xFF0C;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x58F0;&amp;#x660E;&amp;#x8981;&amp;#x76F8;&amp;#x540C;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x62BD;&amp;#x8C61;&amp;#x7C7B;&amp;#x4E0D;&amp;#x80FD;&amp;#x6709;&amp;#x5B9E;&amp;#x4F8B;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x62BD;&amp;#x8C61;&amp;#x7C7B;&amp;#x7684;&amp;#x58F0;&amp;#x660E;&amp;#x9700;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x6307;&amp;#x9488;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;typedef&amp;#xFF1A;&amp;#x7C7B;&amp;#x578B;&amp;#x522B;&amp;#x540D;&lt;br&gt;
+ &lt;code&gt;typedef Ctiger* TigerPtr&lt;/code&gt; &lt;br&gt;
+Ctiger* &amp;#x7684;&amp;#x522B;&amp;#x540D; TigerPtr&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x4E0D;&amp;#x80FD;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528; &amp;lt;&amp;lt;&amp;#x8F93;&amp;#x51FA;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x6307;&amp;#x9488;&amp;#xFF0C;&amp;#x5F97;&amp;#x628A; char* cast &amp;#x6210; void*&amp;#x3002;static_cast&amp;lt; void*&amp;gt;, &amp;#x5C55;&amp;#x793A;&amp;#x7684;&amp;#x662F;&amp;#x6307;&amp;#x9488;&amp;#x6307;&amp;#x5411;&amp;#x7684;&amp;#x5730;&amp;#x5740;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x8F93;&amp;#x51FA;&amp;#x6D41;&amp;#x3001;&amp;#x8F93;&amp;#x5165;&amp;#x6D41;&lt;/strong&gt; iostream&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;streams&lt;/li&gt;
+&lt;li&gt;&amp;#x6D41;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26; &amp;lt;&amp;lt;&amp;#x548C;&amp;gt;&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;formatted I/O&amp;#xFF1A;&amp;#x6807;&amp;#x51C6;&amp;#x5316;&amp;#x7684; IO &amp;#x8F93;&amp;#x5165;&amp;#x8F93;&amp;#x51FA;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; put &amp;#x65B9;&amp;#x6CD5;&amp;#x8FDB;&amp;#x884C;&amp;#x5B57;&amp;#x7B26;&amp;#x8F93;&amp;#x51FA;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cout.put (&amp;apos;A&amp;apos;) &amp;#x6216;&amp;#x8005; cout.put (65) &amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528; ASCLL &amp;#x7F16;&amp;#x7801;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;cin &amp;#x7684; get &amp;#x65B9;&amp;#x6CD5;&amp;#x548C; getline &amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;character = cin.get ()  &amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;&amp;#x53D8;&amp;#x91CF;&amp;#x6765;&amp;#x63A5;&amp;#x6536; cin &amp;#x7684;&amp;#x8F93;&amp;#x5165;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x5982;&amp;#x679C;&amp;#x662F; char &amp;#x7C7B;&amp;#x578B;&amp;#x5219;&amp;#x65E0;&amp;#x6CD5;&amp;#x63A5;&amp;#x6536;&amp;#x5230; EOF&lt;/li&gt;
+&lt;li&gt;cin.get(char a[ size],size)&lt;/li&gt;
+&lt;li&gt;cin.getline(char a[ size],size)&lt;/li&gt;
+&lt;li&gt;&amp;#x6CE8;&amp;#x610F;&amp;#x5F53;&amp;#x8D85;&amp;#x8FC7; size &amp;#x65F6;&amp;#xFF0C;cin &amp;#x4F1A;&amp;#x8BA4;&amp;#x4E3A;&amp;#x53D1;&amp;#x751F;&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x6E05;&amp;#x7A7A;&amp;#x7F13;&amp;#x5B58;&amp;#xFF0C;&amp;#x5FFD;&amp;#x7565;&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x8F93;&amp;#x5165;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eofbit &amp;#x6587;&amp;#x672B;&amp;#x6807;&amp;#x8BC6;&amp;#x7B26;&lt;/p&gt;
+&lt;p&gt;failbit &amp;#x9519;&amp;#x8BEF;&amp;#x6807;&amp;#x8BC6;&amp;#x7B26;&lt;/p&gt;
+&lt;p&gt;badbit &amp;#x5F53;&amp;#x53D1;&amp;#x751F;&amp;#x4E22;&amp;#x5931;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x9519;&amp;#x8BEF;&amp;#x53D1;&amp;#x751F;&amp;#x65F6;&amp;#x88AB;&amp;#x8BBE;&amp;#x7F6E;&lt;/p&gt;
+&lt;p&gt;goodbit &amp;#x5F53;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#x6CA1;&amp;#x6709;&amp;#x53D1;&amp;#x751F;&amp;#x65F6;&amp;#x88AB;&amp;#x8BBE;&amp;#x7F6E;&lt;/p&gt;
+&lt;p&gt;&amp;#x5F53;&amp;#x8FDB;&amp;#x884C;&amp;#x5B8C;&amp;#x4E00;&amp;#x6B21;&amp;#x8F93;&amp;#x5165;&amp;#x540E;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528; rdstate &amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x67E5;&amp;#x770B; cin &amp;#x7684;&amp;#x8F93;&amp;#x5165;&amp;#x72B6;&amp;#x6001;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x91CD;&amp;#x70B9;&amp;#xFF1A;&amp;#x6D41;&amp;#x7684; Manipulators&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x8BBE;&amp;#x7F6E;&amp;#x5BBD;&amp;#x5EA6;&amp;#x3001;&amp;#x7CBE;&amp;#x5EA6;&amp;#x3001;&amp;#x683C;&amp;#x5F0F;&amp;#x72B6;&amp;#x6001;&amp;#x3001;&amp;#x586B;&amp;#x5145;&amp;#x5B57;&amp;#x7B26;&lt;/li&gt;
+&lt;li&gt;&amp;#x5237;&amp;#x65B0;&amp;#x6D41;&lt;/li&gt;
+&lt;li&gt;&amp;#x63D2;&amp;#x5165;&amp;#x65B0;&amp;#x884C;&amp;#x5E76;&amp;#x4E14;&amp;#x5237;&amp;#x65B0;&amp;#x8F93;&amp;#x51FA;&amp;#x6D41;&lt;/li&gt;
+&lt;li&gt;&amp;#x63D2;&amp;#x5165;&amp;#x7A7A;&amp;#x5B57;&amp;#x7B26;&amp;#xFF0C;&amp;#x8DF3;&amp;#x8FC7;&amp;#x7A7A;&amp;#x683C;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; oct&amp;#x3001;dec&amp;#x3001;hex&amp;#x3001;setbase&amp;#xFF08;&amp;#xFF09;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x8F93;&amp;#x51FA;&amp;#x6570;&amp;#x5B57;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; precision&amp;#x3001;setprecision &amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x8F93;&amp;#x51FA;&amp;#x6D6E;&amp;#x70B9;&amp;#x6570;&amp;#x7684;&amp;#x5C0F;&amp;#x6570;&amp;#x4F4D;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; width &amp;#x65B9;&amp;#x6CD5;&amp;#x3001;setw &amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x8F93;&amp;#x5165;&amp;#x8F93;&amp;#x51FA;&amp;#x5BBD;&amp;#x5EA6;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; skipws &amp;#x6765;&amp;#x8DF3;&amp;#x8FC7;&amp;#x7A7A;&amp;#x683C;&amp;#x952E;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528; noskipws &amp;#x6765;&amp;#x91CD;&amp;#x7F6E;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; left&amp;#x3001;right &amp;#x6765;&amp;#x8C03;&amp;#x6574;&amp;#x5728;&amp;#x57DF;&amp;#x4E2D;&amp;#x5B57;&amp;#x7B26;&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; internal &amp;#x6765;&amp;#x4F7F;&amp;#x586B;&amp;#x5145;&amp;#x5B57;&amp;#x7B26;&amp;#x51FA;&amp;#x73B0;&amp;#x5728;&amp;#x7B26;&amp;#x53F7;&amp;#x548C;&amp;#x6570;&amp;#x5B57;&amp;#x4E2D;&amp;#x95F4;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; showbase &amp;#x6765;&amp;#x5C55;&amp;#x793A;&amp;#x6570;&amp;#x5B57;&amp;#x7684; base&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; showpos &amp;#x6765;&amp;#x663E;&amp;#x793A;&amp;#x6570;&amp;#x5B57;&amp;#x7684;&amp;#x7B26;&amp;#x53F7;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528; booleanValue &amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x5E03;&amp;#x5C14;&amp;#x503C;&amp;#x7684;&amp;#x6570;&amp;#x5B57;&amp;#x5F62;&amp;#x5F0F;&amp;#xFF1B;&amp;#x4F7F;&amp;#x7528; booleanpha &amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x5E03;&amp;#x5C14;&amp;#x503C;&amp;#x7684;&amp;#x82F1;&amp;#x6587;&amp;#x5F62;&amp;#x6001;&lt;/p&gt;
+&lt;p&gt;&amp;#x4FDD;&amp;#x5B58;&amp;#x539F;&amp;#x6765;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#xFF1A; ios_base::fmtflags originalFormat = cout.flags ()&lt;/p&gt;
+&lt;p&gt;&amp;#x6062;&amp;#x590D;&amp;#x539F;&amp;#x6765;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#xFF1A;cout.flags (originalFormal)&lt;/p&gt;
+&lt;p&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x5B9A;&amp;#x4E49;&amp;#x8F93;&amp;#x51FA;&amp;#x6D41;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ostream &amp;amp; space(ostream&amp;amp; cout){&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  cout&amp;lt;&amp;lt;&amp;apos; &amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  return cout;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#x4E0D;&amp;#x80FD;&lt;strong&gt;&amp;#x88AB;&amp;#x91CD;&amp;#x8F7D;&lt;/strong&gt;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x7B26;&amp;#xFF1A; ?:  ::  .   .*&lt;/li&gt;
+&lt;li&gt;++ &amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x91CD;&amp;#x8F7D;&amp;#xFF1A;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ins&gt;A: member: A &amp;amp; operator&lt;/ins&gt; ();  global: A &amp;amp; operator++(A &amp;amp;); &amp;#x8FD4;&amp;#x56DE;&amp;#x53EF;&amp;#x4FEE;&amp;#x6539;&amp;#x7684;&amp;#x5DE6;&amp;#x503C;&lt;/li&gt;
+&lt;li&gt;A++: meMber: A operator++(int);  global: A operator++(A &amp;amp;, int); &amp;#x8FD4;&amp;#x56DE;&amp;#x4E0D;&amp;#x53EF;&amp;#x4FEE;&amp;#x6539;&amp;#x7684;&amp;#x53F3;&amp;#x503C;&amp;#xFF0C; &amp;#x6CE8;&amp;#x610F;&amp;#x8981;&amp;#x6709;&amp;#x865A;&amp;#x53C2; int&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;static &amp;#x6210;&amp;#x5458;&amp;#x53D8;&amp;#x91CF;&amp;#x548C;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x6709;&amp;#x4ED6;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684; class scope&lt;/li&gt;
+&lt;li&gt;&amp;#x7236;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x6307;&amp;#x5411;&amp;#x5B50;&amp;#x7C7B;&amp;#xFF0C;&amp;#x53EA;&amp;#x80FD;&amp;#x8C03;&amp;#x7528;&amp;#x7236;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x81EA;&amp;#x5DF1;&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x548C;&amp;#x6210;&amp;#x5458;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function  template&lt;/th&gt;
+&lt;th&gt;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6A21;&amp;#x677F;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x5177;&amp;#x4F53;&amp;#x5316;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Template function&lt;/td&gt;
+&lt;td&gt;&amp;#x6A21;&amp;#x677F;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x7531;&amp;#x7F16;&amp;#x8BD1;&amp;#x5668;&amp;#x6839;&amp;#x636E;&amp;#x6A21;&amp;#x677F;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x51FD;&amp;#x6570;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Class Template&lt;/td&gt;
+&lt;td&gt;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x5177;&amp;#x4F53;&amp;#x5316;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Template Class&lt;/td&gt;
+&lt;td&gt;&amp;#x6A21;&amp;#x677F;&amp;#x7C7B;&amp;#xFF0C;&amp;#x7531;&amp;#x7F16;&amp;#x8BD1;&amp;#x5668;&amp;#x6839;&amp;#x636E;&amp;#x6A21;&amp;#x677F;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x7C7B;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Const Point&lt;/td&gt;
+&lt;td&gt;&amp;#x5E38;&amp;#x91CF;&amp;#x7684;&amp;#x6307;&amp;#x9488;&amp;#xFF0C;&amp;#x6307;&amp;#x5411;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FEE;&amp;#x6539;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Point Const&lt;/td&gt;
+&lt;td&gt;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x5E38;&amp;#x91CF;&amp;#xFF0C;&amp;#x6307;&amp;#x9488;&amp;#x4E0D;&amp;#x80FD;&amp;#x6307;&amp;#x5411;&amp;#x522B;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#xFF0C;&amp;#x5373;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x503C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FEE;&amp;#x6539;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&amp;#x6A21;&amp;#x677F;&amp;#x4E0E;&amp;#x7EE7;&amp;#x627F;&amp;#xFF1A;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x53EF;&amp;#x4EE5;&amp;#x4ECE;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x4E13;&amp;#x7528;&amp;#x5316;&amp;#x6D3E;&amp;#x751F;&lt;/li&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x53EF;&amp;#x4EE5;&amp;#x4ECE;&amp;#x975E;&amp;#x6A21;&amp;#x677F;&amp;#x7C7B;&amp;#x6D3E;&amp;#x751F;&lt;/li&gt;
+&lt;li&gt;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x4E13;&amp;#x7528;&amp;#x5316;&amp;#x53EF;&amp;#x4EE5;&amp;#x4ECE;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x4E13;&amp;#x7528;&amp;#x5316;&amp;#x6D3E;&amp;#x751F;&lt;/li&gt;
+&lt;li&gt;&amp;#x975E;&amp;#x6A21;&amp;#x677F;&amp;#x7C7B;&amp;#x53EF;&amp;#x4EE5;&amp;#x4ECE;&amp;#x7C7B;&amp;#x6A21;&amp;#x677F;&amp;#x4E13;&amp;#x7528;&amp;#x5316;&amp;#x6D3E;&amp;#x751F;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;&amp;#x591A;&amp;#x6001;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#&amp;#x591A;&amp;#x6001;&#34;&gt;#&lt;/a&gt; &amp;#x591A;&amp;#x6001;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x591A;&amp;#x6001;&amp;#x53D1;&amp;#x751F;&amp;#x5728;&amp;#x8FD0;&amp;#x884C;&amp;#x65F6;&amp;#xFF0C;&amp;#x800C;&amp;#x4E0D;&amp;#x662F;&amp;#x7F16;&amp;#x8BD1;&amp;#x65F6;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x591A;&amp;#x6001;&amp;#x901A;&amp;#x8FC7;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&amp;#x548C;&amp;#x52A8;&amp;#x6001; binding &amp;#x5B9E;&amp;#x73B0;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x57FA;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x7528;&amp;#x6765;&amp;#x8C03;&amp;#x7528;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x52A8;&amp;#x6001;&amp;#x7ED1;&amp;#x5B9A;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x662F;&amp;#x901A;&amp;#x8FC7;&amp;#x7236;&amp;#x7C7B;&amp;#x6307;&amp;#x9488;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#xFF0C;&amp;#x6240;&amp;#x6709;&amp;#x8981;&amp;#x4F7F;&amp;#x7528; -&amp;gt; &amp;#x6765;&amp;#x8C03;&amp;#x7528;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;base-class reference &amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x8C03;&amp;#x7528;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x521B;&amp;#x5EFA;&amp;#x62BD;&amp;#x8C61;&amp;#x7C7B;&amp;#x7684;&amp;#x5F15;&amp;#x7528;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x62BD;&amp;#x8C61;&amp;#x7C7B;&amp;#x53EF;&amp;#x4EE5;&amp;#x58F0;&amp;#x660E;&amp;#x4E3A;&amp;#x6307;&amp;#x9488;&amp;#xFF1B;&amp;#x4F46;&amp;#x4E0D;&amp;#x53EF;&amp;#x4EE5;&amp;#x521B;&amp;#x5EFA;&amp;#x62BD;&amp;#x8C61;&amp;#x7C7B;&amp;#x7684;&amp;#x5B9E;&amp;#x4F8B;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x9759;&amp;#x6001;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x53EA;&amp;#x80FD;&amp;#x8BBF;&amp;#x95EE;&amp;#x9759;&amp;#x6001;&amp;#x6210;&amp;#x5458;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x9759;&amp;#x6001;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x4E3A;&amp;#x6240;&amp;#x6709;&amp;#x7C7B;&amp;#x6240;&amp;#x5171;&amp;#x6709;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x4E5F;&amp;#x53EA;&amp;#x80FD;&amp;#x8C03;&amp;#x7528;&amp;#x6240;&amp;#x6709;&amp;#x7C7B;&amp;#x6240;&amp;#x5171;&amp;#x6709;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#xFF0C;&amp;#x5426;&amp;#x5219;&amp;#x5C31;&amp;#x4F1A;&amp;#x7834;&amp;#x574F;&amp;#x5C01;&amp;#x88C5;&amp;#x6027;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x628A;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#x5F53;&amp;#x505A;&amp;#x4ED6;&amp;#x7684; derived class object &amp;#x6765;&amp;#x4F7F;&amp;#x7528;&amp;#x4F1A;&amp;#x62A5;&amp;#x9519;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;&amp;#x8C03;&amp;#x7528;&amp;#x6D3E;&amp;#x751F;&amp;#x7C7B;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#x6A21;&amp;#x7248;&amp;#x4E0D;&amp;#x80FD;&amp;#x662F;&amp;#x865A;&amp;#x51FD;&amp;#x6570;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="C++" />
+        <updated>2024-06-04T02:48:31.000Z</updated>
+    </entry>
+</feed>
