@@ -363,7 +363,7 @@ Let G be a context-free grammar with start symbol S. Then the language of G is:&
 &lt;li&gt;代码生成器&lt;/li&gt;
 &lt;li&gt;机器代码优化&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;_data%5C%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AAphase.png&#34; alt=&#34;alt text&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%5C%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E4%BB%8B%E7%BB%8DIntroduction%5C%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AAphase.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;11-lexical-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-lexical-analysis&#34;&gt;#&lt;/a&gt; 1.1 lexical analysis&lt;/h3&gt;
 &lt;p&gt;词法分析器读入组成源程序的字符流，并且将它们组成有意义的 lexeme 的序列，输出 token。token = &amp;lt;token-name，attribute-value&amp;gt;。token-name 是符号表中的使用的抽象符号，比如标识符的抽象符号就是 id，attribute-value 对应源字符串在符号表中对应的条目。条目存放该字符串的信息，比如值。词法分析阶段就是把字符流转化为 token 流。&lt;/p&gt;
 &lt;h3 id=&#34;12-syntax-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12-syntax-analysis&#34;&gt;#&lt;/a&gt; 1.2 syntax analysis&lt;/h3&gt;
