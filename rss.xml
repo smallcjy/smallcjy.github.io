@@ -10,8 +10,60 @@
         </author>
         <description></description>
         <language>en</language>
-        <pubDate>Sat, 27 Jul 2024 17:25:07 +0800</pubDate>
-        <lastBuildDate>Sat, 27 Jul 2024 17:25:07 +0800</lastBuildDate>
+        <pubDate>Mon, 05 Aug 2024 14:47:36 +0800</pubDate>
+        <lastBuildDate>Mon, 05 Aug 2024 14:47:36 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/</guid>
+            <title></title>
+            <link>http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/</link>
+            <pubDate>Mon, 05 Aug 2024 14:47:36 +0800</pubDate>
+            <description><![CDATA[ &lt;ol&gt;
+&lt;li&gt;lo 添加网段 127.0.0.0/8，可以通过添加多个 ip 解决，但是其上限为 8，添加整个网段还是无法实现&lt;/li&gt;
+&lt;li&gt;virtonet 网卡的通信问题，os 联网？&lt;/li&gt;
+&lt;li&gt;smoltcp 的 Interface 的 poll？&lt;/li&gt;
+&lt;li&gt;smoltcp 的路由模式？每个 iface 都会对 socket 集中的 socket 进行发送的尝试，&lt;/li&gt;
+&lt;li&gt;virtonet 的 poll 不发 arp？&lt;/li&gt;
+&lt;li&gt;ethernet 如果 ip 或者 route 不在 cache 里，会发 arp。现在 virtonet 发 arp 会卡主，感觉问题出在这。怀疑是 qemu 的网络配置没有配好，导致发出去的 arp 无法接受。&lt;/li&gt;
+&lt;li&gt;smoltcp 黑箱无法输出日志调试问题&lt;/li&gt;
+&lt;li&gt;ping 用户程序仍有问题&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/</guid>
+            <title>一文搞懂Socket</title>
+            <link>http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/</link>
+            <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
+            <category term="计算机网络" scheme="http://smallcjy.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
+            <pubDate>Sat, 03 Aug 2024 20:23:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是套接字socket&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是套接字socket&#34;&gt;#&lt;/a&gt; 什么是套接字 socket&lt;/h2&gt;
+&lt;p&gt;socket 可以被定义描述为两个应用通信通道的端点。一个 Socket 端点可以用 Socket 地址来描述， Socket 地址结构由 IP 地址，端口和使用协议组成（ TCP or UDP ）。socket 介于应用层和传输层之间。但是 socket 作为一 种进程通信机制，操作系统分配唯一一个 socket 号，是依赖于通信协议的，但是这个通信协议不仅仅是 tcp 或 udp，也可以是其它协议。&lt;br&gt;
+![[Pasted image 20240803164124.png]]&lt;/p&gt;
+&lt;p&gt;socke 的引入是为了解决不同计算机的不同进程之间的通信问题，用来让一个进程和其他进程互通信息，当然也可以在同一计算机之间的不同进程间通信。&lt;/p&gt;
+&lt;h3 id=&#34;socket和文件的关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#socket和文件的关系&#34;&gt;#&lt;/a&gt; Socket 和文件的关系&lt;/h3&gt;
+&lt;p&gt;socket 和文件息息相关，socket 调用会创建 socket 同时返回文件描述符，socket 通信是建立的文件的读写的基础上的。所以说，socket 可以称为一种特殊的 io。&lt;/p&gt;
+&lt;h3 id=&#34;服务器端口与连接个数的关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#服务器端口与连接个数的关系&#34;&gt;#&lt;/a&gt; 服务器端口与连接个数的关系&lt;/h3&gt;
+&lt;p&gt;现在我们来聊一下 Socket 如何建立服务端和客户端的通信。服务端应用程序会创建一个 socket，bind 在一个 ip 的端口上进行监听。在同一时刻，一个端口只能建立一个连接，所以会有一个等待队列，让请求连接的客户端等待。客户端也会创建一个 socket，去 connect 服务端 socket 所在的 ip 和端口，建立连接完成后就可以正常工作通信了。&lt;/p&gt;
+&lt;h2 id=&#34;socket建立连接过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#socket建立连接过程&#34;&gt;#&lt;/a&gt; Socket 建立连接过程&lt;/h2&gt;
+&lt;h4 id=&#34;建立socket套接字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#建立socket套接字&#34;&gt;#&lt;/a&gt; 建立 socket 套接字&lt;/h4&gt;
+&lt;p&gt;socket 调用。获得文件描述符&lt;/p&gt;
+&lt;h4 id=&#34;bind-socket&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bind-socket&#34;&gt;#&lt;/a&gt; bind socket&lt;/h4&gt;
+&lt;p&gt;也就是给 socket 赋予 ip 和 port。通常是由服务端进行 bind，然后 listen socket 地址来准备连接。&lt;/p&gt;
+&lt;h4 id=&#34;connect-socket&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#connect-socket&#34;&gt;#&lt;/a&gt; connect socket&lt;/h4&gt;
+&lt;p&gt;客户端来 connect，想目标 socket 请求建立连接。使用服务端的 ip 和 port。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/08/01/Linux%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%AF%E7%94%B1%E7%9B%AE%E7%9A%84%E4%B8%BA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E7%9A%84packet%E7%9A%84/</guid>
+            <title>Linux是如何路由目的为本地地址的packet的</title>
+            <link>http://smallcjy.github.io/2024/08/01/Linux%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%AF%E7%94%B1%E7%9B%AE%E7%9A%84%E4%B8%BA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E7%9A%84packet%E7%9A%84/</link>
+            <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
+            <category term="计算机网络" scheme="http://smallcjy.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
+            <pubDate>Thu, 01 Aug 2024 20:23:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;特殊路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特殊路由&#34;&gt;#&lt;/a&gt; 特殊路由&lt;/h2&gt;
+&lt;p&gt;在 Linux 中有两张路由表，其中一张负责本地地址，所有查找成功的 packet 表明要发送到本地主机。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://smallcjy.github.io/2024/07/27/IcmpSocket%E6%98%AF%E5%90%A6%E5%B1%9E%E4%BA%8E%E5%86%85%E6%A0%B8%E7%9A%84%E8%8C%83%E7%95%B4/</guid>
             <title>icmpSocket是否属于内核范畴</title>
@@ -660,174 +712,6 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;The LL(1) parsing algorithm&lt;/strong&gt;&lt;br&gt;
 &lt;img data-src=&#34;TheLL(1)parsingalgorithm.png&#34; alt=&#34;TheLL(1)parsingalgorithm&#34;&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-C-F-G/</guid>
-            <title>编译原理--C.F.G</title>
-            <link>http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-C-F-G/</link>
-            <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-            <pubDate>Sat, 22 Jun 2024 16:28:41 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;1-context-free-grammar&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-context-free-grammar&#34;&gt;#&lt;/a&gt; 1 Context-free grammar&lt;/h1&gt;
-&lt;p&gt;CFG 上下文无关文法，特殊的语法结构，和正则表达式类似，包含可迭代的规则，是正则表达式的超集。&lt;/p&gt;
-&lt;p&gt;定义：G=(VT, VN, P, S)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;VT 是 terminals 的集合，终止符，the basic symbols from which strings are formed. Terminals are tokens&lt;/li&gt;
-&lt;li&gt;VN 是 nonterminals 的集合，非终止符，names for structures that denote sets of strings&lt;/li&gt;
-&lt;li&gt;P 是 productions 的集合，语法规则，A-&amp;gt;a，where A∈ VN and α∈ (VN∪VT) *.&lt;/li&gt;
-&lt;li&gt;S is a start symbol , S∈VN&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;2-derivationreduction&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-derivationreduction&#34;&gt;#&lt;/a&gt; 2 Derivation/reduction&lt;/h1&gt;
-&lt;p&gt;derivation 推导的作用&lt;/p&gt;
-&lt;p&gt;CFG 规则决定 strings of token 的合法性是通过 derivation 或者 reduction 的。derivation 的过程就是将一个非终止符替换成该 production 的右边的过程的重复过程。&lt;/p&gt;
-&lt;p&gt;CFA 的 language：&lt;br&gt;
-Let G be a context-free grammar with start symbol S. Then the language of G is:&lt;/p&gt;
-&lt;p s∈vt* | there exists s&gt;L(G) =&lt;/p&gt;
-&lt;h1 id=&#34;3-leftmost-derivation&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-leftmost-derivation&#34;&gt;#&lt;/a&gt; 3 leftmost derivation&lt;/h1&gt;
-&lt;p&gt;最左推导：在推导的每一步里优先推导最左边的非终止符，对应对一颗 parse tree 进行前序遍历。&lt;/p&gt;
-&lt;h1 id=&#34;4-rightmost-derivation&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-rightmost-derivation&#34;&gt;#&lt;/a&gt; 4 rightmost derivation&lt;/h1&gt;
-&lt;p&gt;最右推导：在推导的每一步里优先推导最右边的非终止符，它对应于解析树的后序遍历的逆过程&lt;/p&gt;
-&lt;h1 id=&#34;5-sentential-form-and-sentence&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-sentential-form-and-sentence&#34;&gt;#&lt;/a&gt; 5 sentential form and sentence&lt;/h1&gt;
-&lt;p&gt;什么是 sentence？S is the start symbol of G, if S =》 * α, α ∈ (VN∪VT) *, α is a sentential form of G。但如果 a 只有终止符构成，则 a 是 G 的 sentence。注意 sentence form 和 sentence 的区别。&lt;/p&gt;
-&lt;h1 id=&#34;6-parse-tree&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-parse-tree&#34;&gt;#&lt;/a&gt; 6 parse tree&lt;/h1&gt;
-&lt;p&gt;语法树。表示 token 串的结构的工具。如何定义一个 parse tree？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The root node is labeled with the start symbol S&lt;/li&gt;
-&lt;li&gt;Each leaf node is labeled with a terminal or with ε&lt;/li&gt;
-&lt;li&gt;Each nonleaf node is labeled with a nonterminal&lt;/li&gt;
-&lt;li&gt;If a node with label A ∈ VN has n children with labels X1,X2,..,Xn (which may be terminals or nonterminals), then A -》 X1X2…Xn ∈P。一个产生式可以对应一个内部节点的分叉。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;如何输出一个 parse tree 呢？叶子节点的自左向右遍历就是原始输入&lt;/p&gt;
-&lt;h1 id=&#34;7-abstract-syntas-tree&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-abstract-syntas-tree&#34;&gt;#&lt;/a&gt; 7 Abstract syntas tree&lt;/h1&gt;
-&lt;p&gt;parse tree 很多对于编译器生成可执行代码的多余的信息，因此需要抽象语法树来简化。AST 是 parse tree 的压缩，叶子节点是操作对象，内部节点是操作&lt;/p&gt;
-&lt;h1 id=&#34;8-grammars-with-left-recursion-andor-left-factor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#8-grammars-with-left-recursion-andor-left-factor&#34;&gt;#&lt;/a&gt; 8 grammars with left recursion and/or left factor&lt;/h1&gt;
-&lt;p&gt;左递归文法以及如何提取左公因子消除左递归&lt;/p&gt;
-&lt;p&gt;A -&amp;gt; Aa|b1|b2 转换为&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A -&amp;gt; b1A&#39;|b2A&#39;&lt;/li&gt;
-&lt;li&gt;A&#39; -&amp;gt; aA&#39;|e&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;9-ambiguous-grammar&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#9-ambiguous-grammar&#34;&gt;#&lt;/a&gt; 9 ambiguous grammar&lt;/h1&gt;
-&lt;p&gt;歧义：某些文法会对用一个 string 产生不同的 parse tree，也就是最左推导和最右推导产生的语法树是不一样的。&lt;/p&gt;
-&lt;p&gt;如何处理歧义：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Disambiguating rule ：设置规则确认哪一个 parse tree 是正确的&lt;/li&gt;
-&lt;li&gt;Rewriting the grammar：重写文法消除歧义，比如添加优先级、关联性&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Lexical/</guid>
-            <title>编译原理--Lexical</title>
-            <link>http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Lexical/</link>
-            <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-            <pubDate>Sat, 22 Jun 2024 14:27:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;1-write-regular-express-re-写正规表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-write-regular-express-re-写正规表达式&#34;&gt;#&lt;/a&gt; 1 Write regular express RE 写正规表达式&lt;/h2&gt;
-&lt;p&gt;RE 是描述 token 模式的重要表示方法。&lt;/p&gt;
-&lt;p&gt;alphabet 是一个有限的符号集合，字母、数字、标点符号，符号序列称为串 string。空串 empty string 是长度为 0 的 string，用 e 表示&lt;/p&gt;
-&lt;p&gt;正则表达式的三个运算：连接（concatenation）、或（or）、闭包（kleene）&lt;br&gt;
-&lt;img data-src=&#34;%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97.png&#34; alt=&#34;正则表达式运算&#34;&gt;&lt;br&gt;
-闭包分为普通闭包和正闭包，正闭包不包含空串，普通闭包是正闭包加上 e。string 与自身连接称为指数运算，也叫闭包，连接 0 次是 e。或运算时两个 string 的并集。&lt;/p&gt;
-&lt;p&gt;正则表达式的构建：正则表达式是由小的基础的正则表达式使用运算规则&lt;strong&gt;递归的&lt;/strong&gt;构建起来的。&lt;/p&gt;
-&lt;p&gt;归纳基础：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;e 时一个正则表达式，L（e）={e}，说明该语言只包含空串&lt;/li&gt;
-&lt;li&gt;a 是字符集里的一个符号，就是一个大小为 1 的 string 的正则表达式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;构建运算符的优先级：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;* 闭包运算的优先级最高，并且是左结合的&lt;/li&gt;
-&lt;li&gt;连接其次，也是左结合&lt;/li&gt;
-&lt;li&gt;| 优先级最低，左结合&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;正则定义&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;为给某些正则表达式命名，用符号来调用该正则表达式，使用正则定义实现（regular definition）举例：d-&amp;gt;r&lt;/p&gt;
-&lt;p&gt;d 是一个新符号，不在预先规定的字母表中，r 是字母表和别的 di 相并的基础上的正则表达式，任何的 r 都可以替换成只包含原先定义的字母表中的符号，不包含 di，所以 di 也可以替换成只包含的原先定义的字母表的符号，这个过程就是正则定义的过程。&lt;strong&gt;正则定义可以规定某个 string 构建的模式。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;2-the-transition-from-res-to-nfas-正规表达式转nfa&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-the-transition-from-res-to-nfas-正规表达式转nfa&#34;&gt;#&lt;/a&gt; 2 the transition from REs to NFAs 正规表达式转 NFA&lt;/h2&gt;
-&lt;p&gt;什么是 NFA？先了解什么是 fa，fa（finite automata）有穷状态机，fa 是 recognizer，对输入进行是否的判断；fa 分为两类，一类是 nfa，一类是 dfa。nfa（Nondeterministic finite automata）非确定有限状态机。定义规则如下&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个有穷的状态集合 S&lt;/li&gt;
-&lt;li&gt;一个输入符号集合 M（input alphabet），假设 e 不在输入集合内&lt;/li&gt;
-&lt;li&gt;一个是 Transition function，对特性的上输入和状态做出状态转化的反应&lt;/li&gt;
-&lt;li&gt;一个初始状态 S0&lt;/li&gt;
-&lt;li&gt;一个接受状态 F&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;NFA 容易通过正则表达式构建，但很难形成程序结构表示。转化需要一张状态转换表，说明每个状态在不同输入下转化的状态。如果一个输入 string 可以使得 S0 到达 F，说明这个 string 被 NFA 接收，否则 string 被忽略。所有能被接收到集合就是使用正则表达式构建的 NFA 的描述的 string 的集合。&lt;/p&gt;
-&lt;p&gt;下面介绍 &lt;strong&gt;正则表达式 re 转化为 nfa&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给出一个算法，可以把所有的正则表达式转换为 NFA。构造一个 NFA 的规则分为基本规则和归纳规则。基本规则处理不包含运算符的子表达式，归纳规则根据一个给定的表达式的直接&lt;strong&gt;子表达式的 NFA&lt;/strong&gt; 构造这个表达式的 NFA。&lt;/p&gt;
-&lt;p&gt;归纳规则分为三种：连接、或、闭包。&lt;/p&gt;
-&lt;p&gt;连接&lt;br&gt;
-&lt;img data-src=&#34;%E8%BF%9E%E6%8E%A5.png&#34; alt=&#34;连接&#34;&gt;&lt;br&gt;
-或&lt;br&gt;
-&lt;img data-src=&#34;%E6%88%96.png&#34; alt=&#34;或&#34;&gt;&lt;br&gt;
-闭包&lt;br&gt;
-&lt;img data-src=&#34;%E9%97%AD%E5%8C%85.png&#34; alt=&#34;闭包&#34;&gt;&lt;/p&gt;
-&lt;p&gt;正则表达式的递归构建 nfa，先把正则表达式的表达式树写出来，对其进行后序遍历的构造，每个节点根据实际情况分为基本构造和归纳构造，得到的结果就是 NFA。&lt;/p&gt;
-&lt;h2 id=&#34;3-the-transition-from-nfas-to-dfa-nfa转dfa&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-the-transition-from-nfas-to-dfa-nfa转dfa&#34;&gt;#&lt;/a&gt; 3 the transition from NFAs to DFA Nfa 转 Dfa&lt;/h2&gt;
-&lt;p&gt;什么是 DFA？Dfa 同样是 fa 的一种，被称为确定的有限状态机。DFA 是 NFA 的特例，DFA 有几个约束条件：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;没有 e 的边&lt;/li&gt;
-&lt;li&gt;对于一个状态 s 和每个输入符号 a，只有一个标号为 a 的边离开 s，也就是 s 不能射出两个同样标号的边。但是可以射入两个以上的标号为 a 的边。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Dfa 可以容易的使用程序来表示转化过程&lt;/p&gt;
-&lt;p&gt;NFA 构造 DFA 算法：子集构造法&lt;br&gt;
-算法需要使用 NFA 为 DFA 构造一个状态转换表，根据这个转换表可以很容易的实现 DFA 的程序表示。转换表的是表项的 DFA 的状态，是 NFA 的状态集合。算法有三个重要的函数：&lt;br&gt;
-&lt;img data-src=&#34;rfa%E8%BD%ACdfa.png&#34; alt=&#34;rfa转dfa&#34;&gt;&lt;br&gt;
- 注意 s 是一个 nfa 状态，T 是一个 nfa 状态集合。&lt;br&gt;
-&lt;img data-src=&#34;rfa%E8%BD%ACdfa%E7%AE%97%E6%B3%95.png&#34; alt=&#34;rfa转dfa算法&#34;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;找到 NFA 的 S0 的 e 闭包集合作为 DFA 的开始状态&lt;/li&gt;
-&lt;li&gt;对这个开始状态进行对不同输入的 move，得到的结果进行 e 闭包运算，如果这个状态集合还没有归入 DFA 的状态，归入后重复第二步骤&lt;/li&gt;
-&lt;li&gt;一直重复知道没有新的 DFA 的状态出现&lt;/li&gt;
-&lt;li&gt;包含 NFA 的结束状态的状态集合是 DFA 的结束状态&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;4-the-transition-from-fas-to-res-有限状态机转正则表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-the-transition-from-fas-to-res-有限状态机转正则表达式&#34;&gt;#&lt;/a&gt; 4 the transition from FAs to REs 有限状态机转正则表达式&lt;/h2&gt;
-&lt;p&gt;也就是使用状态机来生成正则表达式&lt;/p&gt;
-&lt;h2 id=&#34;5-dfa的最小化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-dfa的最小化&#34;&gt;#&lt;/a&gt; 5 DFA 的最小化&lt;/h2&gt;
-&lt;p&gt;先说明一个概念：Equivalent States&lt;/p&gt;
-&lt;p&gt;当两个状态都是接收状态或者非接受状态，对于字母表中的每个字母，s 和 t 都有相同的 transitions on a to 相同的或者等价的状态，则这两个状态是等价的。&lt;/p&gt;
-&lt;p&gt;最小化算法；&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先把 DFA 状态集合划分会非接受和接收状态集合。&lt;/li&gt;
-&lt;li&gt;使用字母表中的所有字母（所有可能的输入）对 subset 中的状态集合进行划分成等价的状态集合。&lt;/li&gt;
-&lt;li&gt;重复这个过程直到每个集合只有一个元素或者无法被继续划分&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;6-scanner的构建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-scanner的构建&#34;&gt;#&lt;/a&gt; 6 scanner 的构建&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;词法分析的错误处理是 panic mode&lt;/strong&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E4%BB%8B%E7%BB%8DIntroduction/</guid>
-            <title>编译原理--介绍Introduction</title>
-            <link>http://smallcjy.github.io/2024/06/22/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E4%BB%8B%E7%BB%8DIntroduction/</link>
-            <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-            <pubDate>Sat, 22 Jun 2024 13:40:48 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;1-the-phase-of-a-compiler&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-the-phase-of-a-compiler&#34;&gt;#&lt;/a&gt; 1 The Phase Of A Compiler&lt;/h2&gt;
-&lt;p&gt;编译器能够把源程序映射为在语义上等价的目标程序。这个映射过程由两个主要部分构成：&lt;strong&gt;分析部分&lt;/strong&gt; + &lt;strong&gt;综合部分&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;一个 Compiler 的 phase 大致可以分为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;lexical analysis（scan）&lt;/li&gt;
-&lt;li&gt;syntax analysis（parse）&lt;/li&gt;
-&lt;li&gt;semantic analysis 语义分析&lt;/li&gt;
-&lt;li&gt;中间代码生成&lt;/li&gt;
-&lt;li&gt;代码优化&lt;/li&gt;
-&lt;li&gt;代码生成器&lt;/li&gt;
-&lt;li&gt;机器代码优化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AAphase.png&#34; alt=&#34;编译器的各个phase&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;11-lexical-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-lexical-analysis&#34;&gt;#&lt;/a&gt; 1.1 lexical analysis&lt;/h3&gt;
-&lt;p&gt;词法分析器读入组成源程序的字符流，并且将它们组成有意义的 lexeme 的序列，输出 token。token = &amp;lt;token-name，attribute-value&amp;gt;。token-name 是符号表中的使用的抽象符号，比如标识符的抽象符号就是 id，attribute-value 对应源字符串在符号表中对应的条目。条目存放该字符串的信息，比如值。词法分析阶段就是把字符流转化为 token 流。&lt;/p&gt;
-&lt;h3 id=&#34;12-syntax-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12-syntax-analysis&#34;&gt;#&lt;/a&gt; 1.2 syntax analysis&lt;/h3&gt;
-&lt;p&gt;语法分析器使用由词法分析器生成的 token 的第一个元素来构建树形的中间表示，该中间表示给出了 token 流的语法结构，通常使用语法分析树来表示。树的内部节点表示一个运算&lt;/p&gt;
-&lt;h3 id=&#34;13-semantic-analysis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#13-semantic-analysis&#34;&gt;#&lt;/a&gt; 1.3 semantic analysis&lt;/h3&gt;
-&lt;p&gt;语义分析器：只用语法树和符号表中的信息来检查源程序是否和语言定义的语义一致。重要的主题是：类型检查，语义检查&lt;/p&gt;
-&lt;h3 id=&#34;14-中间代码生成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#14-中间代码生成&#34;&gt;#&lt;/a&gt; 1.4 中间代码生成&lt;/h3&gt;
-&lt;p&gt;三地址代码&lt;/p&gt;
-&lt;h2 id=&#34;2-compiler和interpreter的区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-compiler和interpreter的区别&#34;&gt;#&lt;/a&gt; 2 compiler 和 interpreter 的区别&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;interpreter 是直接利用用户提供的输入执行源代码中的指定的操作，把用户的输入映射成输出的过程，并不通过翻译的方法生成目标程序。&lt;/li&gt;
-&lt;li&gt;compiler 是先将源程序翻译成一种能被计算机执行的形式，完成这个翻译过程的软件称为 compiler。&lt;/li&gt;
-&lt;/ul&gt;
  ]]></description>
         </item>
     </channel>
