@@ -7,6 +7,44 @@
     "home_page_url": "http://smallcjy.github.io",
     "items": [
         {
+            "id": "http://smallcjy.github.io/2024/09/04/C++%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/",
+            "url": "http://smallcjy.github.io/2024/09/04/C++%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/",
+            "title": "",
+            "date_published": "2024-09-04T15:41:42.908Z",
+            "content_html": "<h1 id=\"exception-handle\"><a class=\"anchor\" href=\"#exception-handle\">#</a> exception handle</h1>\n",
+            "tags": []
+        },
+        {
+            "id": "http://smallcjy.github.io/2024/09/04/%20%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%AE%9E%E8%B7%B5/",
+            "url": "http://smallcjy.github.io/2024/09/04/%20%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%AE%9E%E8%B7%B5/",
+            "title": "软件架构实践",
+            "date_published": "2024-09-04T12:51:07.000Z",
+            "content_html": "<h2 id=\"第一次课堂作业要求\"><a class=\"anchor\" href=\"#第一次课堂作业要求\">#</a> 第一次课堂作业要求</h2>\n<p><strong>N 皇后问题</strong><br>\n按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。n 皇后问题研究如何将 n 个皇后防治在 nxn 的棋盘上，并且市皇后彼此之间不能攻击，给你一个整数 n，返回所有不同的 n 皇后的解决方案。</p>\n<p>要求：<br>\n* 四种架构模式：管道 - 过滤器风格、调用 / 返回风格、回溯法、黑板风格</p>\n",
+            "tags": [
+                "经验总结"
+            ]
+        },
+        {
+            "id": "http://smallcjy.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/",
+            "url": "http://smallcjy.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/",
+            "title": "数据库系统",
+            "date_published": "2024-09-04T12:51:07.000Z",
+            "content_html": "<h2 id=\"第一章-数据库系统\"><a class=\"anchor\" href=\"#第一章-数据库系统\">#</a> 第一章 数据库系统</h2>\n<h2 id=\"操作及其语法\"><a class=\"anchor\" href=\"#操作及其语法\">#</a> 操作及其语法</h2>\n<h3 id=\"join\"><a class=\"anchor\" href=\"#join\">#</a> Join</h3>\n<h3 id=\"nature-join\"><a class=\"anchor\" href=\"#nature-join\">#</a> Nature Join</h3>\n<h3 id=\"rename\"><a class=\"anchor\" href=\"#rename\">#</a> Rename</h3>\n",
+            "tags": [
+                "数据库"
+            ]
+        },
+        {
+            "id": "http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/",
+            "url": "http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/",
+            "title": "机器学习",
+            "date_published": "2024-09-04T12:51:07.000Z",
+            "content_html": "<h2 id=\"机器学习\"><a class=\"anchor\" href=\"#机器学习\">#</a> 机器学习</h2>\n<h3 id=\"第一堂课\"><a class=\"anchor\" href=\"#第一堂课\">#</a> 第一堂课</h3>\n<p><strong>三个功能：预测 predict、决策 action、执行 conduct</strong></p>\n<h3 id=\"第二堂课linear-regression-and-gradient-descent\"><a class=\"anchor\" href=\"#第二堂课linear-regression-and-gradient-descent\">#</a> 第二堂课：Linear Regression and Gradient Descent</h3>\n<h4 id=\"machine-learning\"><a class=\"anchor\" href=\"#machine-learning\">#</a> Machine Learning</h4>\n<p>基本要素：</p>\n<ul>\n<li>Data：输入</li>\n<li>Model：类似于函数</li>\n<li>Loss Function：抽象的本质的模型</li>\n</ul>\n<p>约等于 Looking for a Function</p>\n<p>steps：</p>\n<ol>\n<li>定义函数集</li>\n<li>给函数评分（Goodness）</li>\n<li>选择最好的函数</li>\n</ol>\n<ul>\n<li>对于预测 y 有一个 function：y=f（x） --》 数据</li>\n<li>Ld (W) = l (yi', yi) 的全数据之和   --》 模型</li>\n</ul>\n<h4 id=\"data数据集\"><a class=\"anchor\" href=\"#data数据集\">#</a> Data 数据集</h4>\n<p><code>D = &#123;(xi, yi)&#125;n i=1</code></p>\n<p>x 是输入，使用列向量表示；</p>\n<p>y 是输出；</p>\n<p>n 是数据的个数</p>\n<h4 id=\"线性回归学习\"><a class=\"anchor\" href=\"#线性回归学习\">#</a> 线性回归学习</h4>\n",
+            "tags": [
+                "机器学习"
+            ]
+        },
+        {
             "id": "http://smallcjy.github.io/2024/08/15/%E5%A4%A7%E4%BA%8C%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/",
             "url": "http://smallcjy.github.io/2024/08/15/%E5%A4%A7%E4%BA%8C%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/",
             "title": "大二学年总结",
@@ -17,19 +55,22 @@
             ]
         },
         {
-            "id": "http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/",
-            "url": "http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/",
-            "title": "",
-            "date_published": "2024-08-05T06:47:36.258Z",
-            "content_html": "<ol>\n<li>lo 添加网段 127.0.0.0/8，可以通过添加多个 ip 解决，但是其上限为 8，添加整个网段还是无法实现</li>\n<li>virtonet 网卡的通信问题，os 联网？</li>\n<li>smoltcp 的 Interface 的 poll？</li>\n<li>smoltcp 的路由模式？每个 iface 都会对 socket 集中的 socket 进行发送的尝试，</li>\n<li>virtonet 的 poll 不发 arp？</li>\n<li>ethernet 如果 ip 或者 route 不在 cache 里，会发 arp。现在 virtonet 发 arp 会卡主，感觉问题出在这。怀疑是 qemu 的网络配置没有配好，导致发出去的 arp 无法接受。</li>\n<li>smoltcp 黑箱无法输出日志调试问题</li>\n<li>ping 用户程序仍有问题</li>\n</ol>\n",
-            "tags": []
-        },
-        {
             "id": "http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/",
             "url": "http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/",
             "title": "一文搞懂Socket",
             "date_published": "2024-08-03T12:23:27.000Z",
-            "content_html": "<h2 id=\"什么是套接字socket\"><a class=\"anchor\" href=\"#什么是套接字socket\">#</a> 什么是套接字 socket</h2>\n<p>socket 可以被定义描述为两个应用通信通道的端点。一个 Socket 端点可以用 Socket 地址来描述， Socket 地址结构由 IP 地址，端口和使用协议组成（ TCP or UDP ）。socket 介于应用层和传输层之间。但是 socket 作为一 种进程通信机制，操作系统分配唯一一个 socket 号，是依赖于通信协议的，但是这个通信协议不仅仅是 tcp 或 udp，也可以是其它协议。<br>\n![[Pasted image 20240803164124.png]]</p>\n<p>socke 的引入是为了解决不同计算机的不同进程之间的通信问题，用来让一个进程和其他进程互通信息，当然也可以在同一计算机之间的不同进程间通信。</p>\n<h3 id=\"socket和文件的关系\"><a class=\"anchor\" href=\"#socket和文件的关系\">#</a> Socket 和文件的关系</h3>\n<p>socket 和文件息息相关，socket 调用会创建 socket 同时返回文件描述符，socket 通信是建立的文件的读写的基础上的。所以说，socket 可以称为一种特殊的 io。</p>\n<h3 id=\"服务器端口与连接个数的关系\"><a class=\"anchor\" href=\"#服务器端口与连接个数的关系\">#</a> 服务器端口与连接个数的关系</h3>\n<p>现在我们来聊一下 Socket 如何建立服务端和客户端的通信。服务端应用程序会创建一个 socket，bind 在一个 ip 的端口上进行监听。在同一时刻，一个端口只能建立一个连接，所以会有一个等待队列，让请求连接的客户端等待。客户端也会创建一个 socket，去 connect 服务端 socket 所在的 ip 和端口，建立连接完成后就可以正常工作通信了。</p>\n<h2 id=\"socket建立连接过程\"><a class=\"anchor\" href=\"#socket建立连接过程\">#</a> Socket 建立连接过程</h2>\n<h4 id=\"建立socket套接字\"><a class=\"anchor\" href=\"#建立socket套接字\">#</a> 建立 socket 套接字</h4>\n<p>socket 调用。获得文件描述符</p>\n<h4 id=\"bind-socket\"><a class=\"anchor\" href=\"#bind-socket\">#</a> bind socket</h4>\n<p>也就是给 socket 赋予 ip 和 port。通常是由服务端进行 bind，然后 listen socket 地址来准备连接。</p>\n<h4 id=\"connect-socket\"><a class=\"anchor\" href=\"#connect-socket\">#</a> connect socket</h4>\n<p>客户端来 connect，想目标 socket 请求建立连接。使用服务端的 ip 和 port。</p>\n",
+            "content_html": "<h2 id=\"什么是套接字socket\"><a class=\"anchor\" href=\"#什么是套接字socket\">#</a> 什么是套接字 socket</h2>\n<p>socket 可以被定义描述为两个应用通信通道的端点。一个 Socket 端点可以用 Socket 地址来描述， Socket 地址结构由 IP 地址，端口和使用协议组成（ TCP or UDP ）。socket 介于应用层和传输层之间。但是 socket 作为一 种进程通信机制，操作系统分配唯一一个 socket 号，是依赖于通信协议的，但是这个通信协议不仅仅是 tcp 或 udp，也可以是其它协议。<br>\n![[Pasted image 20240803164124.png]]</p>\n<p>socke 的引入是为了解决不同计算机的不同进程之间的通信问题，用来让一个进程和其他进程互通信息，当然也可以在同一计算机之间的不同进程间通信。</p>\n<h3 id=\"socket和文件的关系\"><a class=\"anchor\" href=\"#socket和文件的关系\">#</a> Socket 和文件的关系</h3>\n<p>socket 和文件息息相关，socket 调用会创建 socket 同时返回文件描述符，socket 通信是建立的文件的读写的基础上的。所以说，socket 可以称为一种特殊的 io。</p>\n<h3 id=\"服务器端口与连接个数的关系\"><a class=\"anchor\" href=\"#服务器端口与连接个数的关系\">#</a> 服务器端口与连接个数的关系</h3>\n<p>现在我们来聊一下 Socket 如何建立服务端和客户端的通信。服务端应用程序会创建一个 socket，bind 在一个 ip 的端口上进行监听。在同一时刻，一个端口只能建立一个连接，所以会有一个等待队列，让请求连接的客户端等待。客户端也会创建一个 socket，去 connect 服务端 socket 所在的 ip 和端口，建立连接完成后就可以正常工作通信了。</p>\n<h2 id=\"socket建立连接过程\"><a class=\"anchor\" href=\"#socket建立连接过程\">#</a> Socket 建立连接过程</h2>\n<h4 id=\"建立socket套接字\"><a class=\"anchor\" href=\"#建立socket套接字\">#</a> 建立 socket 套接字</h4>\n<p>socket 调用。获得文件描述符</p>\n<h4 id=\"bind-socket\"><a class=\"anchor\" href=\"#bind-socket\">#</a> bind socket</h4>\n<p>也就是给 socket 赋予 ip 和 port。通常是由服务端进行 bind，然后 listen socket 地址来准备连接。</p>\n<h4 id=\"connect-socket\"><a class=\"anchor\" href=\"#connect-socket\">#</a> connect socket</h4>\n<p>客户端来 connect，想目标 socket 请求建立连接。使用服务端的 ip 和 port。</p>\n<h2 id=\"一文搞懂socket缓冲区和socket的读写机制\"><a class=\"anchor\" href=\"#一文搞懂socket缓冲区和socket的读写机制\">#</a> 一文搞懂 socket 缓冲区和 socket 的读写机制</h2>\n<p>每个 socket 被创建之后，都会分配两个缓冲区，输入缓冲区和输出缓冲区。write/send 将数据写到缓冲区中。要想弄清楚 socket 缓冲区有何作用，首先要搞清楚 socket 的读写 api。socket 的速写 api 由读：read/recv/recv_from, 写：write/send/send_to。sendto 用于向任意 socket 发送数据，可以使用在 udp 和未建立连接的 tcp，send 用于已经建立连接的 tcp。</p>\n",
+            "tags": [
+                "操作系统",
+                "计算机网络"
+            ]
+        },
+        {
+            "id": "http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF--epoll/",
+            "url": "http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF--epoll/",
+            "title": "一文搞懂Linux高性能技术--epoll",
+            "date_published": "2024-08-03T12:23:27.000Z",
+            "content_html": "<h2 id=\"stream-流\"><a class=\"anchor\" href=\"#stream-流\">#</a> Stream 流</h2>\n<p>流可以是文件、socket、pipe 等等可以支持 io 操作的对象。流有两端，两端可以进行读写。如果我们此时读，流另一端没有数据传来，该怎么办。处理的方式的这样几种。</p>\n<p>简单的操作是阻塞，读操作将进入阻塞状态等待数据到来。这样实现简单，但是阻塞时线程无法工作，性能太低。阻塞的实现需要依靠缓冲区。缓冲区的引入是为了减少频繁的 io 操作而引起频繁的 Io 调用。</p>\n<p>另一种操作是非阻塞忙轮询，不断地检查是否有数据到来，虽然线程不会进入阻塞状态，但是这样会占用太多 CPU 资源用来做无用的询问，这是无法接受的。</p>\n",
             "tags": [
                 "操作系统",
                 "计算机网络"
@@ -164,44 +205,6 @@
             "content_html": "<p>一个函数有两个版本，一个是另一个的包裹器。实际工作的是另一个包裹器内的函数，而包裹器的作用是保证函数在某些特定的情况下才能被使用，比如上锁。</p>\n",
             "tags": [
                 "编程经验"
-            ]
-        },
-        {
-            "id": "http://smallcjy.github.io/2024/07/18/%E7%8E%AF%E5%BD%A2%E5%88%97%E8%A1%A8%E7%9A%84%E6%8E%A2%E6%9F%A5/",
-            "url": "http://smallcjy.github.io/2024/07/18/%E7%8E%AF%E5%BD%A2%E5%88%97%E8%A1%A8%E7%9A%84%E6%8E%A2%E6%9F%A5/",
-            "title": "环形列表的探查",
-            "date_published": "2024-07-18T03:25:44.000Z",
-            "content_html": "<h2 id=\"环形列表的探查双指针快慢指针\"><a class=\"anchor\" href=\"#环形列表的探查双指针快慢指针\">#</a> 环形列表的探查：双指针（快慢指针）</h2>\n<p>双指针的应用：寻找距离尾部第 K 个节点、寻找环入口、寻找公共尾部入口。</p>\n<p>设置快指针每次前进 2 步，慢指针每次前进 1 步</p>\n<ul>\n<li>快指针和慢指针第一次相遇时，快指针比慢指针快了 N 个环形链表长度。</li>\n<li>此时快指针比慢指针快了 N 倍环的长度，由快慢指针的速度关系可以知道，此时快指针走了 2N 个环形长度，慢指针走了 N 个环形长度。</li>\n<li>令入口节点位于 a，指针前进过程中会每走 a+NL 步会路过一次入口，这里慢指针正好走了 NL 步，慢指针再前进 a 步即可</li>\n<li>令快指针从原点出发，因为原点正好距离入口 a 步。</li>\n</ul>\n<p>代码：<br>\n<figure class=\"highlight cpp\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br><span class=\"line\">5</span><br><span class=\"line\">6</span><br><span class=\"line\">7</span><br><span class=\"line\">8</span><br><span class=\"line\">9</span><br><span class=\"line\">10</span><br><span class=\"line\">11</span><br><span class=\"line\">12</span><br><span class=\"line\">13</span><br><span class=\"line\">14</span><br><span class=\"line\">15</span><br><span class=\"line\">16</span><br><span class=\"line\">17</span><br><span class=\"line\">18</span><br><span class=\"line\">19</span><br><span class=\"line\">20</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"keyword\">class</span> <span class=\"title class_\">Solution</span> &#123;</span><br><span class=\"line\"><span class=\"keyword\">public</span>:</span><br><span class=\"line\">    <span class=\"function\">ListNode *<span class=\"title\">detectCycle</span><span class=\"params\">(ListNode *head)</span> </span>&#123;</span><br><span class=\"line\">        </span><br><span class=\"line\">        ListNode *fast = head;</span><br><span class=\"line\">        ListNode *slow = head;</span><br><span class=\"line\">        <span class=\"keyword\">do</span>&#123;</span><br><span class=\"line\">            <span class=\"keyword\">if</span>(fast == <span class=\"literal\">nullptr</span>|| fast-&gt;next == <span class=\"literal\">nullptr</span>) <span class=\"keyword\">return</span> <span class=\"literal\">nullptr</span>;</span><br><span class=\"line\">            fast = fast-&gt;next-&gt;next;</span><br><span class=\"line\">            slow = slow-&gt;next;</span><br><span class=\"line\">        &#125;<span class=\"keyword\">while</span>(fast != slow);</span><br><span class=\"line\">        fast = head;</span><br><span class=\"line\">        <span class=\"keyword\">while</span>(fast != slow)&#123;    </span><br><span class=\"line\">            fast = fast-&gt;next;</span><br><span class=\"line\">            slow = slow-&gt;next;</span><br><span class=\"line\">        &#125;</span><br><span class=\"line\">        <span class=\"keyword\">return</span> fast;</span><br><span class=\"line\">    &#125;</span><br><span class=\"line\">&#125;;</span><br><span class=\"line\"></span><br></pre></td></tr></table></figure></p>\n",
-            "tags": [
-                "Leetcode"
-            ]
-        },
-        {
-            "id": "http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/",
-            "url": "http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/",
-            "title": "lo网卡注册系统卡滞漏洞分析及其解决",
-            "date_published": "2024-07-12T08:25:35.000Z",
-            "content_html": "<h2 id=\"问题描述\"><a class=\"anchor\" href=\"#问题描述\">#</a> 问题描述：</h2>\n<p>向 kernel 注册 lo 网卡驱动后，启动 kernel 后系统卡滞。</p>\n<h2 id=\"debug过程\"><a class=\"anchor\" href=\"#debug过程\">#</a> Debug 过程：</h2>\n<ul>\n<li>初步发现系统停滞在用户层，怀疑是内核切换成用户态时出现问题</li>\n<li>输出用户态的 init 程序发现 proc_name 输出为空，开始怀疑是 free before use</li>\n<li>free before use 的原因通常为不能正确使用 unsafe 代码块操控内存导致内存错误。</li>\n<li>开始检查 lo 网卡实现代码中有关 unsafe 的部分</li>\n<li>检查到问题出现在驱动包裹器上</li>\n<li>通过输出日志发现代码停滞在 lo 的 NetDerive 层中的 poll 方法，怀疑是内部调用了包裹器内部的驱动的可变引用导致的，这是一个 unsafe 代码</li>\n<li>检查但没发现存在内存错误的可能，重新把目光放回 poll 方法</li>\n<li>发现系统会定时重复调用 poll 方法，存在定期调用网卡的 poll 的机制</li>\n<li>思考如果重复调用 poll 方法，为什么会导致系统停滞</li>\n<li>通过对系统的网络子系统的学习，发现系统如果发现网卡内的 rxqueue 有未接收的数据包会启用中断来接收，怀疑系统认为 lo 网卡内一直存在未接受的数据包，导致一直中断接收数据包。</li>\n<li>认识到系统认为网卡没有数据包的手段是调用网卡内部设备驱动时返回 none，所以在 receive 函数中先检查 queue 是否为空，如果为空返回 none</li>\n<li>重启系统，发现系统正常启动。</li>\n<li>bug 修复完成。</li>\n</ul>\n<h2 id=\"反思\"><a class=\"anchor\" href=\"#反思\">#</a> 反思：</h2>\n<ul>\n<li>问题出现的第一场所不是导致问题的第一场所！！！因为操作系统中存在大量的中断和调度活动，并不是顺序执行的，输出日志所定位到的地方并不一定是问题导致的地方，要重新分析问题，思考系统反常的原因。</li>\n<li>输出日志确实是一个非常有力的工具，但是不能依赖他，不能完全靠他定位！</li>\n</ul>\n",
-            "tags": [
-                "DragonOS"
-            ]
-        },
-        {
-            "id": "http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/",
-            "url": "http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/",
-            "title": "C++网络编程学习-boost(1)",
-            "date_published": "2024-07-10T05:06:52.000Z",
-            "content_html": "",
-            "tags": []
-        },
-        {
-            "id": "http://smallcjy.github.io/2024/06/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Bottom-Up-Paring/",
-            "url": "http://smallcjy.github.io/2024/06/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Bottom-Up-Paring/",
-            "title": "编译原理--Bottom-Up Paring",
-            "date_published": "2024-06-22T17:16:46.000Z",
-            "content_html": "<h2 id=\"1-right-sentential-form\"><a class=\"anchor\" href=\"#1-right-sentential-form\">#</a> 1 Right sentential form</h2>\n<p>最右句型，最右推导产生的句型称为最右句型，最右句型中，句柄的右边一定是终结符</p>\n<h2 id=\"2-handle\"><a class=\"anchor\" href=\"#2-handle\">#</a> 2 Handle</h2>\n<p><strong>reduction 归约：把一个与某产生式的右部相匹配的子串替换成产生式头部的非终结符的过程</strong></p>\n<p><strong>handle 句柄：和某个产生式体匹配的子串，对它归约体现了相应的最右推导</strong>，但不是所有的和产生式体匹配的子串都是句柄，必须对他归约体现最右推导才行。</p>\n<h2 id=\"3-viable-prefix\"><a class=\"anchor\" href=\"#3-viable-prefix\">#</a> 3 Viable prefix</h2>\n<p>可以出现在一个移入 - 归约 语法分析器的栈中的最右句型前缀被称为可行前缀。定义：可行前缀是一个最右句型的前缀，并且没有越过最右句型的最右句柄的右端，所以可以通过向可行前缀的右边添加某些终止符得到最右句型。</p>\n<h2 id=\"4-items-and-states\"><a class=\"anchor\" href=\"#4-items-and-states\">#</a> 4 items and states</h2>\n<p>state 表明我们在语法分析的过程中所处的位置，state 是 item 的集合。增广文法，为了把开始 symbol 也加入分析过程而设计的文法，G 的增广文法 G‘就是在 G 中加上新开始符号 S' 和产生式 S’-&gt;S 而得到的文法。</p>\n<p>项集的闭包 CLOSURE（I）的求法：</p>\n<ol>\n<li>把 I 中的各项加入到 CLOSURE（I）中</li>\n<li>如果 A-&gt;a・Bb 在 CLOSURE（I）中，B-&gt;y 是产生式，并且 B-&gt;・y 不属于闭包中，则添加，一直重复这个过程</li>\n</ol>\n<p>GOTO（I，X），I 是项集，X 是文法符号，移动项集中的产生式的点，如果右边是 X，移动到 X 的后面。并将产生变化是项集中成新的项集 I'</p>\n<p>Dfa of LR（0）items 的求法；</p>\n<ol>\n<li>求 I0 的闭包，I0 初始化为增广文法，闭包作为新的 I0；</li>\n<li>确定 I0 的 GOTO，移动・形成新的项集，求项集的闭包作为新的 Ii，Ij；</li>\n<li>重复步骤二知道没有新的状态产生已经状态之间的 GOTO 关系全部阐明</li>\n</ol>\n<h2 id=\"5-shiftreducelrparsing\"><a class=\"anchor\" href=\"#5-shiftreducelrparsing\">#</a> 5 shift/reduce（LR）parsing</h2>\n<p>移入归约分析，设立一个栈用来保存信息，每一步决定将输入移入或者将栈顶归约，直到得到增广文法符号。</p>\n<h2 id=\"6-lr0parsing\"><a class=\"anchor\" href=\"#6-lr0parsing\">#</a> 6 LR（0）parsing</h2>\n<p>LR 语法分析器<br>\n<img data-src=\"LR%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.png\" alt=\"LR语法分析器\"><br>\n当前输入符号 ai 和栈顶状态 sm，查询 ACTION【sm，ai】了解要执行什么动作。如果是移入就把下一个状态 s 移入，更新输入符号；如果是归约就执行归约动作，先将符号进行归约，然后把栈顶的状态弹出，根据归约后的文法符号查询当前栈顶的 GOTO 函数，把 GOTO 函指向的状态推入栈中；如果是接受则结束分析；如果是报错就报错。</p>\n<p><strong>LR 语法分析算法，需要 parsing table，构建 parsing 的过程：需要知道所有非终结符的 FollowSet</strong></p>\n<ol>\n<li i0，i1，...，in>构造 G' 的规范 LR（0）项集族</li>\n<li>根据 I 构造状态 i，确定状态 i 的语法动作\n<ol>\n<li>GOTO（Ii，a）=Ij，且 Ii 中有・位于 a 前的项，将 ACTION【Ii，a】设为移入 Ij</li>\n<li>A 产生式的体的・位于最后，将 FOLLOW（A）中的所有 a，设置 ACTION【Ii，a】为归约 A-&gt;a</li>\n<li>S’-&gt;S・，设置 $ 为 scc</li>\n</ol>\n</li>\n<li>对于非终止符的 GOTO，设置 GOTO 表项</li>\n<li>所有未填的项为 error</li>\n</ol>\n<p>可以先构造 LR 自动机，方便计算各个表项</p>\n<h2 id=\"7-slr1parsing\"><a class=\"anchor\" href=\"#7-slr1parsing\">#</a> 7 SLR（1）parsing</h2>\n",
-            "tags": [
-                "编译原理"
             ]
         }
     ]

@@ -8,7 +8,77 @@
     <author>
       <name>Cai Junyuan</name>
     </author>
-    <updated>2024-08-15T12:51:07.000Z</updated>
+    <updated>2024-09-04T15:41:42.908Z</updated>
+    <entry>
+        <id>http://smallcjy.github.io/2024/09/04/C++%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/</id>
+        <title></title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/09/04/C++%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/"/>
+        <content type="html">&lt;h1 id=&#34;exception-handle&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exception-handle&#34;&gt;#&lt;/a&gt; exception handle&lt;/h1&gt;
+</content>
+        <updated>2024-09-04T15:41:42.908Z</updated>
+    </entry>
+    <entry>
+        <id>http://smallcjy.github.io/2024/09/04/%20%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%AE%9E%E8%B7%B5/</id>
+        <title>软件架构实践</title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/09/04/%20%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%AE%9E%E8%B7%B5/"/>
+        <content type="html">&lt;h2 id=&#34;第一次课堂作业要求&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一次课堂作业要求&#34;&gt;#&lt;/a&gt; 第一次课堂作业要求&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;N 皇后问题&lt;/strong&gt;&lt;br&gt;
+按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。n 皇后问题研究如何将 n 个皇后防治在 nxn 的棋盘上，并且市皇后彼此之间不能攻击，给你一个整数 n，返回所有不同的 n 皇后的解决方案。&lt;/p&gt;
+&lt;p&gt;要求：&lt;br&gt;
+* 四种架构模式：管道 - 过滤器风格、调用 / 返回风格、回溯法、黑板风格&lt;/p&gt;
+</content>
+        <category term="经验总结" scheme="http://smallcjy.github.io/tags/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" />
+        <updated>2024-09-04T12:51:07.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://smallcjy.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/</id>
+        <title>数据库系统</title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
+        <content type="html">&lt;h2 id=&#34;第一章-数据库系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一章-数据库系统&#34;&gt;#&lt;/a&gt; 第一章 数据库系统&lt;/h2&gt;
+&lt;h2 id=&#34;操作及其语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作及其语法&#34;&gt;#&lt;/a&gt; 操作及其语法&lt;/h2&gt;
+&lt;h3 id=&#34;join&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#join&#34;&gt;#&lt;/a&gt; Join&lt;/h3&gt;
+&lt;h3 id=&#34;nature-join&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nature-join&#34;&gt;#&lt;/a&gt; Nature Join&lt;/h3&gt;
+&lt;h3 id=&#34;rename&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rename&#34;&gt;#&lt;/a&gt; Rename&lt;/h3&gt;
+</content>
+        <category term="数据库" scheme="http://smallcjy.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+        <updated>2024-09-04T12:51:07.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
+        <title>机器学习</title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+        <content type="html">&lt;h2 id=&#34;机器学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#机器学习&#34;&gt;#&lt;/a&gt; 机器学习&lt;/h2&gt;
+&lt;h3 id=&#34;第一堂课&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一堂课&#34;&gt;#&lt;/a&gt; 第一堂课&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;三个功能：预测 predict、决策 action、执行 conduct&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第二堂课linear-regression-and-gradient-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第二堂课linear-regression-and-gradient-descent&#34;&gt;#&lt;/a&gt; 第二堂课：Linear Regression and Gradient Descent&lt;/h3&gt;
+&lt;h4 id=&#34;machine-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#machine-learning&#34;&gt;#&lt;/a&gt; Machine Learning&lt;/h4&gt;
+&lt;p&gt;基本要素：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data：输入&lt;/li&gt;
+&lt;li&gt;Model：类似于函数&lt;/li&gt;
+&lt;li&gt;Loss Function：抽象的本质的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;约等于 Looking for a Function&lt;/p&gt;
+&lt;p&gt;steps：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义函数集&lt;/li&gt;
+&lt;li&gt;给函数评分（Goodness）&lt;/li&gt;
+&lt;li&gt;选择最好的函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;对于预测 y 有一个 function：y=f（x） --》 数据&lt;/li&gt;
+&lt;li&gt;Ld (W) = l (yi&#39;, yi) 的全数据之和   --》 模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;data数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data数据集&#34;&gt;#&lt;/a&gt; Data 数据集&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;D = &amp;#123;(xi, yi)&amp;#125;n i=1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;x 是输入，使用列向量表示；&lt;/p&gt;
+&lt;p&gt;y 是输出；&lt;/p&gt;
+&lt;p&gt;n 是数据的个数&lt;/p&gt;
+&lt;h4 id=&#34;线性回归学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#线性回归学习&#34;&gt;#&lt;/a&gt; 线性回归学习&lt;/h4&gt;
+</content>
+        <category term="机器学习" scheme="http://smallcjy.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+        <updated>2024-09-04T12:51:07.000Z</updated>
+    </entry>
     <entry>
         <id>http://smallcjy.github.io/2024/08/15/%E5%A4%A7%E4%BA%8C%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/</id>
         <title>大二学年总结</title>
@@ -34,23 +104,6 @@
         <updated>2024-08-15T12:51:07.000Z</updated>
     </entry>
     <entry>
-        <id>http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/</id>
-        <title></title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/08/05/SIG-Network%200802%20%20%E4%BC%9A%E8%AE%AE%E8%AE%A8%E8%AE%BA%E8%A6%81%E7%82%B9/"/>
-        <content type="html">&lt;ol&gt;
-&lt;li&gt;lo 添加网段 127.0.0.0/8，可以通过添加多个 ip 解决，但是其上限为 8，添加整个网段还是无法实现&lt;/li&gt;
-&lt;li&gt;virtonet 网卡的通信问题，os 联网？&lt;/li&gt;
-&lt;li&gt;smoltcp 的 Interface 的 poll？&lt;/li&gt;
-&lt;li&gt;smoltcp 的路由模式？每个 iface 都会对 socket 集中的 socket 进行发送的尝试，&lt;/li&gt;
-&lt;li&gt;virtonet 的 poll 不发 arp？&lt;/li&gt;
-&lt;li&gt;ethernet 如果 ip 或者 route 不在 cache 里，会发 arp。现在 virtonet 发 arp 会卡主，感觉问题出在这。怀疑是 qemu 的网络配置没有配好，导致发出去的 arp 无法接受。&lt;/li&gt;
-&lt;li&gt;smoltcp 黑箱无法输出日志调试问题&lt;/li&gt;
-&lt;li&gt;ping 用户程序仍有问题&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-        <updated>2024-08-05T06:47:36.258Z</updated>
-    </entry>
-    <entry>
         <id>http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/</id>
         <title>一文搞懂Socket</title>
         <link rel="alternate" href="http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Socket/"/>
@@ -69,6 +122,21 @@
 &lt;p&gt;也就是给 socket 赋予 ip 和 port。通常是由服务端进行 bind，然后 listen socket 地址来准备连接。&lt;/p&gt;
 &lt;h4 id=&#34;connect-socket&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#connect-socket&#34;&gt;#&lt;/a&gt; connect socket&lt;/h4&gt;
 &lt;p&gt;客户端来 connect，想目标 socket 请求建立连接。使用服务端的 ip 和 port。&lt;/p&gt;
+&lt;h2 id=&#34;一文搞懂socket缓冲区和socket的读写机制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一文搞懂socket缓冲区和socket的读写机制&#34;&gt;#&lt;/a&gt; 一文搞懂 socket 缓冲区和 socket 的读写机制&lt;/h2&gt;
+&lt;p&gt;每个 socket 被创建之后，都会分配两个缓冲区，输入缓冲区和输出缓冲区。write/send 将数据写到缓冲区中。要想弄清楚 socket 缓冲区有何作用，首先要搞清楚 socket 的读写 api。socket 的速写 api 由读：read/recv/recv_from, 写：write/send/send_to。sendto 用于向任意 socket 发送数据，可以使用在 udp 和未建立连接的 tcp，send 用于已经建立连接的 tcp。&lt;/p&gt;
+</content>
+        <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
+        <category term="计算机网络" scheme="http://smallcjy.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
+        <updated>2024-08-03T12:23:27.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF--epoll/</id>
+        <title>一文搞懂Linux高性能技术--epoll</title>
+        <link rel="alternate" href="http://smallcjy.github.io/2024/08/03/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82Linux%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF--epoll/"/>
+        <content type="html">&lt;h2 id=&#34;stream-流&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stream-流&#34;&gt;#&lt;/a&gt; Stream 流&lt;/h2&gt;
+&lt;p&gt;流可以是文件、socket、pipe 等等可以支持 io 操作的对象。流有两端，两端可以进行读写。如果我们此时读，流另一端没有数据传来，该怎么办。处理的方式的这样几种。&lt;/p&gt;
+&lt;p&gt;简单的操作是阻塞，读操作将进入阻塞状态等待数据到来。这样实现简单，但是阻塞时线程无法工作，性能太低。阻塞的实现需要依靠缓冲区。缓冲区的引入是为了减少频繁的 io 操作而引起频繁的 Io 调用。&lt;/p&gt;
+&lt;p&gt;另一种操作是非阻塞忙轮询，不断地检查是否有数据到来，虽然线程不会进入阻塞状态，但是这样会占用太多 CPU 资源用来做无用的询问，这是无法接受的。&lt;/p&gt;
 </content>
         <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
         <category term="计算机网络" scheme="http://smallcjy.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
@@ -516,112 +584,5 @@
 </content>
         <category term="编程经验" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C/" />
         <updated>2024-07-18T04:55:56.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://smallcjy.github.io/2024/07/18/%E7%8E%AF%E5%BD%A2%E5%88%97%E8%A1%A8%E7%9A%84%E6%8E%A2%E6%9F%A5/</id>
-        <title>环形列表的探查</title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/07/18/%E7%8E%AF%E5%BD%A2%E5%88%97%E8%A1%A8%E7%9A%84%E6%8E%A2%E6%9F%A5/"/>
-        <content type="html">&lt;h2 id=&#34;环形列表的探查双指针快慢指针&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环形列表的探查双指针快慢指针&#34;&gt;#&lt;/a&gt; 环形列表的探查：双指针（快慢指针）&lt;/h2&gt;
-&lt;p&gt;双指针的应用：寻找距离尾部第 K 个节点、寻找环入口、寻找公共尾部入口。&lt;/p&gt;
-&lt;p&gt;设置快指针每次前进 2 步，慢指针每次前进 1 步&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;快指针和慢指针第一次相遇时，快指针比慢指针快了 N 个环形链表长度。&lt;/li&gt;
-&lt;li&gt;此时快指针比慢指针快了 N 倍环的长度，由快慢指针的速度关系可以知道，此时快指针走了 2N 个环形长度，慢指针走了 N 个环形长度。&lt;/li&gt;
-&lt;li&gt;令入口节点位于 a，指针前进过程中会每走 a+NL 步会路过一次入口，这里慢指针正好走了 NL 步，慢指针再前进 a 步即可&lt;/li&gt;
-&lt;li&gt;令快指针从原点出发，因为原点正好距离入口 a 步。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;代码：&lt;br&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Solution&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;ListNode *&lt;span class=&#34;title&#34;&gt;detectCycle&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(ListNode *head)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ListNode *fast = head;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ListNode *slow = head;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;do&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(fast == &lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;|| fast-&amp;gt;next == &lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;nullptr&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            fast = fast-&amp;gt;next-&amp;gt;next;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            slow = slow-&amp;gt;next;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(fast != slow);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        fast = head;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(fast != slow)&amp;#123;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            fast = fast-&amp;gt;next;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            slow = slow-&amp;gt;next;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; fast;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-        <category term="Leetcode" scheme="http://smallcjy.github.io/tags/Leetcode/" />
-        <updated>2024-07-18T03:25:44.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/</id>
-        <title>lo网卡注册系统卡滞漏洞分析及其解决</title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/07/12/lo%E7%BD%91%E5%8D%A1%E6%B3%A8%E5%86%8C%E7%B3%BB%E7%BB%9F%E5%8D%A1%E6%BB%9E%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3/"/>
-        <content type="html">&lt;h2 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述：&lt;/h2&gt;
-&lt;p&gt;向 kernel 注册 lo 网卡驱动后，启动 kernel 后系统卡滞。&lt;/p&gt;
-&lt;h2 id=&#34;debug过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#debug过程&#34;&gt;#&lt;/a&gt; Debug 过程：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;初步发现系统停滞在用户层，怀疑是内核切换成用户态时出现问题&lt;/li&gt;
-&lt;li&gt;输出用户态的 init 程序发现 proc_name 输出为空，开始怀疑是 free before use&lt;/li&gt;
-&lt;li&gt;free before use 的原因通常为不能正确使用 unsafe 代码块操控内存导致内存错误。&lt;/li&gt;
-&lt;li&gt;开始检查 lo 网卡实现代码中有关 unsafe 的部分&lt;/li&gt;
-&lt;li&gt;检查到问题出现在驱动包裹器上&lt;/li&gt;
-&lt;li&gt;通过输出日志发现代码停滞在 lo 的 NetDerive 层中的 poll 方法，怀疑是内部调用了包裹器内部的驱动的可变引用导致的，这是一个 unsafe 代码&lt;/li&gt;
-&lt;li&gt;检查但没发现存在内存错误的可能，重新把目光放回 poll 方法&lt;/li&gt;
-&lt;li&gt;发现系统会定时重复调用 poll 方法，存在定期调用网卡的 poll 的机制&lt;/li&gt;
-&lt;li&gt;思考如果重复调用 poll 方法，为什么会导致系统停滞&lt;/li&gt;
-&lt;li&gt;通过对系统的网络子系统的学习，发现系统如果发现网卡内的 rxqueue 有未接收的数据包会启用中断来接收，怀疑系统认为 lo 网卡内一直存在未接受的数据包，导致一直中断接收数据包。&lt;/li&gt;
-&lt;li&gt;认识到系统认为网卡没有数据包的手段是调用网卡内部设备驱动时返回 none，所以在 receive 函数中先检查 queue 是否为空，如果为空返回 none&lt;/li&gt;
-&lt;li&gt;重启系统，发现系统正常启动。&lt;/li&gt;
-&lt;li&gt;bug 修复完成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;反思&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反思&#34;&gt;#&lt;/a&gt; 反思：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;问题出现的第一场所不是导致问题的第一场所！！！因为操作系统中存在大量的中断和调度活动，并不是顺序执行的，输出日志所定位到的地方并不一定是问题导致的地方，要重新分析问题，思考系统反常的原因。&lt;/li&gt;
-&lt;li&gt;输出日志确实是一个非常有力的工具，但是不能依赖他，不能完全靠他定位！&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="DragonOS" scheme="http://smallcjy.github.io/tags/DragonOS/" />
-        <updated>2024-07-12T08:25:35.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/</id>
-        <title>C++网络编程学习-boost(1)</title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/07/10/C-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0-boost-1/"/>
-        <content type="html"></content>
-        <updated>2024-07-10T05:06:52.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://smallcjy.github.io/2024/06/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Bottom-Up-Paring/</id>
-        <title>编译原理--Bottom-Up Paring</title>
-        <link rel="alternate" href="http://smallcjy.github.io/2024/06/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-Bottom-Up-Paring/"/>
-        <content type="html">&lt;h2 id=&#34;1-right-sentential-form&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-right-sentential-form&#34;&gt;#&lt;/a&gt; 1 Right sentential form&lt;/h2&gt;
-&lt;p&gt;最右句型，最右推导产生的句型称为最右句型，最右句型中，句柄的右边一定是终结符&lt;/p&gt;
-&lt;h2 id=&#34;2-handle&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-handle&#34;&gt;#&lt;/a&gt; 2 Handle&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;reduction 归约：把一个与某产生式的右部相匹配的子串替换成产生式头部的非终结符的过程&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;handle 句柄：和某个产生式体匹配的子串，对它归约体现了相应的最右推导&lt;/strong&gt;，但不是所有的和产生式体匹配的子串都是句柄，必须对他归约体现最右推导才行。&lt;/p&gt;
-&lt;h2 id=&#34;3-viable-prefix&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-viable-prefix&#34;&gt;#&lt;/a&gt; 3 Viable prefix&lt;/h2&gt;
-&lt;p&gt;可以出现在一个移入 - 归约 语法分析器的栈中的最右句型前缀被称为可行前缀。定义：可行前缀是一个最右句型的前缀，并且没有越过最右句型的最右句柄的右端，所以可以通过向可行前缀的右边添加某些终止符得到最右句型。&lt;/p&gt;
-&lt;h2 id=&#34;4-items-and-states&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-items-and-states&#34;&gt;#&lt;/a&gt; 4 items and states&lt;/h2&gt;
-&lt;p&gt;state 表明我们在语法分析的过程中所处的位置，state 是 item 的集合。增广文法，为了把开始 symbol 也加入分析过程而设计的文法，G 的增广文法 G‘就是在 G 中加上新开始符号 S&#39; 和产生式 S’-&amp;gt;S 而得到的文法。&lt;/p&gt;
-&lt;p&gt;项集的闭包 CLOSURE（I）的求法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;把 I 中的各项加入到 CLOSURE（I）中&lt;/li&gt;
-&lt;li&gt;如果 A-&amp;gt;a・Bb 在 CLOSURE（I）中，B-&amp;gt;y 是产生式，并且 B-&amp;gt;・y 不属于闭包中，则添加，一直重复这个过程&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;GOTO（I，X），I 是项集，X 是文法符号，移动项集中的产生式的点，如果右边是 X，移动到 X 的后面。并将产生变化是项集中成新的项集 I&#39;&lt;/p&gt;
-&lt;p&gt;Dfa of LR（0）items 的求法；&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;求 I0 的闭包，I0 初始化为增广文法，闭包作为新的 I0；&lt;/li&gt;
-&lt;li&gt;确定 I0 的 GOTO，移动・形成新的项集，求项集的闭包作为新的 Ii，Ij；&lt;/li&gt;
-&lt;li&gt;重复步骤二知道没有新的状态产生已经状态之间的 GOTO 关系全部阐明&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;5-shiftreducelrparsing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-shiftreducelrparsing&#34;&gt;#&lt;/a&gt; 5 shift/reduce（LR）parsing&lt;/h2&gt;
-&lt;p&gt;移入归约分析，设立一个栈用来保存信息，每一步决定将输入移入或者将栈顶归约，直到得到增广文法符号。&lt;/p&gt;
-&lt;h2 id=&#34;6-lr0parsing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-lr0parsing&#34;&gt;#&lt;/a&gt; 6 LR（0）parsing&lt;/h2&gt;
-&lt;p&gt;LR 语法分析器&lt;br&gt;
-&lt;img data-src=&#34;LR%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.png&#34; alt=&#34;LR语法分析器&#34;&gt;&lt;br&gt;
-当前输入符号 ai 和栈顶状态 sm，查询 ACTION【sm，ai】了解要执行什么动作。如果是移入就把下一个状态 s 移入，更新输入符号；如果是归约就执行归约动作，先将符号进行归约，然后把栈顶的状态弹出，根据归约后的文法符号查询当前栈顶的 GOTO 函数，把 GOTO 函指向的状态推入栈中；如果是接受则结束分析；如果是报错就报错。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;LR 语法分析算法，需要 parsing table，构建 parsing 的过程：需要知道所有非终结符的 FollowSet&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li i0，i1，...，in&gt;构造 G&#39; 的规范 LR（0）项集族&lt;/li&gt;
-&lt;li&gt;根据 I 构造状态 i，确定状态 i 的语法动作
-&lt;ol&gt;
-&lt;li&gt;GOTO（Ii，a）=Ij，且 Ii 中有・位于 a 前的项，将 ACTION【Ii，a】设为移入 Ij&lt;/li&gt;
-&lt;li&gt;A 产生式的体的・位于最后，将 FOLLOW（A）中的所有 a，设置 ACTION【Ii，a】为归约 A-&amp;gt;a&lt;/li&gt;
-&lt;li&gt;S’-&amp;gt;S・，设置 $ 为 scc&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;对于非终止符的 GOTO，设置 GOTO 表项&lt;/li&gt;
-&lt;li&gt;所有未填的项为 error&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;可以先构造 LR 自动机，方便计算各个表项&lt;/p&gt;
-&lt;h2 id=&#34;7-slr1parsing&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-slr1parsing&#34;&gt;#&lt;/a&gt; 7 SLR（1）parsing&lt;/h2&gt;
-</content>
-        <category term="编译原理" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-        <updated>2024-06-22T17:16:46.000Z</updated>
     </entry>
 </feed>
