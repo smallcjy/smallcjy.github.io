@@ -7,6 +7,16 @@
     "home_page_url": "http://smallcjy.github.io",
     "items": [
         {
+            "id": "http://smallcjy.github.io/2024/10/10/9%E6%9C%88%E4%BB%BDOKR%E6%80%BB%E7%BB%93/",
+            "url": "http://smallcjy.github.io/2024/10/10/9%E6%9C%88%E4%BB%BDOKR%E6%80%BB%E7%BB%93/",
+            "title": "9月份OKR总结",
+            "date_published": "2024-10-10T11:08:08.000Z",
+            "content_html": "<h2 id=\"9月份okr工作内容介绍\"><a class=\"anchor\" href=\"#9月份okr工作内容介绍\">#</a> 9 月份 OKR 工作内容介绍</h2>\n<p>9 月份工作周期的工作内容主要是完成网络子系统中关于 unix stream socket 的重构工作。主线上的原版关于 unix stream socket 的实现有些简陋，因此需要进行重构工作。目前基本上完成 stream socket 的重构，首先是重构了 stream socket 的设计，采用类似 tcp 状态机的设计来实现 stream socket，使其能够进行通信前的三次握手。实现状态机时，引入了一些新的设施来解决存在的问题，比如抽象出 Unix Socket Buffer，提高复用率和可扩展性；还有为了能够通过文件地址拿到 socket inode，建立了 id 映射 socket 的哈希表等等。然后就是实现了 socket 的阻塞式读写，补齐了 socket 接口调用。目前是能通过测试程序，后续仍然需要进行进一步的开发，比如添加虚拟抽象地址空间，支持 unix socket 的异步读写等等。</p>\n",
+            "tags": [
+                "经验总结"
+            ]
+        },
+        {
             "id": "http://smallcjy.github.io/2024/09/24/dragonOS_unix_socket%E6%96%87%E6%A1%A3/",
             "url": "http://smallcjy.github.io/2024/09/24/dragonOS_unix_socket%E6%96%87%E6%A1%A3/",
             "title": "",
@@ -183,16 +193,6 @@
             "title": "内存问题之 use-after-free 问题",
             "date_published": "2024-07-27T08:25:35.000Z",
             "content_html": "<h2 id=\"介绍\"><a class=\"anchor\" href=\"#介绍\">#</a> 介绍：</h2>\n<p>“use-after-free” 指的是 free 了某块内存后，程序继续使用了已释放的内存区域。发生的主要原因是当程序的某个对象释放后，其指针未被正常的清理，导致程序误以为该内存区域仍然可用。</p>\n<p>free 调用的过早导致内存错乱</p>\n",
-            "tags": [
-                "DragonOS"
-            ]
-        },
-        {
-            "id": "http://smallcjy.github.io/2024/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%89%E8%B6%A3%E7%9A%84bug/",
-            "url": "http://smallcjy.github.io/2024/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%89%E8%B6%A3%E7%9A%84bug/",
-            "title": "记录一次有趣的bug",
-            "date_published": "2024-07-27T08:25:35.000Z",
-            "content_html": "<h2 id=\"描述\"><a class=\"anchor\" href=\"#描述\">#</a> 描述</h2>\n<p>这是个非常抽象的 bug，如果你曾在网络中听说过这样的段子：不要删除某注释，不然会引发 bug。而我遇到的 bug 是，不要删除某日志输出，不然会引发 bug。</p>\n",
             "tags": [
                 "DragonOS"
             ]
