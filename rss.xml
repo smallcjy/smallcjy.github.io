@@ -37,6 +37,56 @@
 &lt;li&gt;取得了什么结果&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在描述中尽可能量化你的项目信息，而不是泛泛而谈。比如你的开源项目有多少 star 等。&lt;/p&gt;
+&lt;h2 id=&#34;fab-mode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fab-mode&#34;&gt;#&lt;/a&gt; FAB mode&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature：你做了什么&lt;/li&gt;
+&lt;li&gt;Advantage：你的优势&lt;/li&gt;
+&lt;li&gt;Benefit：你的优势会为公司带来了什么好处&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/11/06/ePubFile/</guid>
+            <title>ePubFile</title>
+            <link>http://smallcjy.github.io/2024/11/06/ePubFile/</link>
+            <category term="ePub" scheme="http://smallcjy.github.io/tags/ePub/" />
+            <pubDate>Wed, 06 Nov 2024 16:49:42 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;epub-crate-example&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epub-crate-example&#34;&gt;#&lt;/a&gt; epub crate example&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight rust&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//open&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;use&lt;/span&gt; epub::doc::EpubDoc;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;doc&lt;/span&gt; = EpubDoc::&lt;span class=&#34;title function_ invoke__&#34;&gt;new&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;path/to/file.epub&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;assert!&lt;/span&gt;(doc.&lt;span class=&#34;title function_ invoke__&#34;&gt;is_ok&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;doc&lt;/span&gt; = doc.&lt;span class=&#34;title function_ invoke__&#34;&gt;unwrap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//get doc metadata&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;title&lt;/span&gt; = doc.&lt;span class=&#34;title function_ invoke__&#34;&gt;mdata&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;epub-crate&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epub-crate&#34;&gt;#&lt;/a&gt; epub crate&lt;/h2&gt;
+&lt;h3 id=&#34;doc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#doc&#34;&gt;#&lt;/a&gt; doc&lt;/h3&gt;
+&lt;p&gt;EpubDoc 结构体：控制 epub 文档的结构体&lt;br&gt;
+ &lt;figure class=&#34;highlight rust&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;EpubDoc&lt;/span&gt;&amp;lt;R: Read + Seek&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// spine ids&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; spine: &lt;span class=&#34;type&#34;&gt;Vec&lt;/span&gt;&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// resource id -&amp;gt; (path, mime)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; resources: HashMap&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;, (PathBuf, &lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;)&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// table of content, list of NavPoint in the toc.ncx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; toc: &lt;span class=&#34;type&#34;&gt;Vec&lt;/span&gt;&amp;lt;NavPoint&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; metadata: HashMap&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;, &lt;span class=&#34;type&#34;&gt;Vec&lt;/span&gt;&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;gt;&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// root file base path&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; root_base: PathBuf,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// root file full path&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; root_file: PathBuf,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; extra_css: &lt;span class=&#34;type&#34;&gt;Vec&lt;/span&gt;&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; unique_identifier: &lt;span class=&#34;type&#34;&gt;Option&lt;/span&gt;&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pub&lt;/span&gt; cover_id: &lt;span class=&#34;type&#34;&gt;Option&lt;/span&gt;&amp;lt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;/* private fields */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;File -&amp;gt; Cursor -&amp;gt; EpubDoc&lt;br&gt;
+&lt;figure class=&#34;highlight rust&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;mut &lt;/span&gt;&lt;span class=&#34;variable&#34;&gt;file&lt;/span&gt; = File::&lt;span class=&#34;title function_ invoke__&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;test.epub&amp;quot;&lt;/span&gt;).&lt;span class=&#34;title function_ invoke__&#34;&gt;unwrap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;mut &lt;/span&gt;&lt;span class=&#34;variable&#34;&gt;buffer&lt;/span&gt; = &lt;span class=&#34;type&#34;&gt;Vec&lt;/span&gt;::&lt;span class=&#34;title function_ invoke__&#34;&gt;new&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file.&lt;span class=&#34;title function_ invoke__&#34;&gt;read_to_end&lt;/span&gt;(&amp;amp;&lt;span class=&#34;keyword&#34;&gt;mut&lt;/span&gt; buffer).&lt;span class=&#34;title function_ invoke__&#34;&gt;unwrap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;cursor&lt;/span&gt; = Cursor::&lt;span class=&#34;title function_ invoke__&#34;&gt;new&lt;/span&gt;(buffer);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;doc&lt;/span&gt; = EpubDoc::&lt;span class=&#34;title function_ invoke__&#34;&gt;from_reader&lt;/span&gt;(cursor);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;assert!&lt;/span&gt;(doc.&lt;span class=&#34;title function_ invoke__&#34;&gt;is_ok&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;doc&lt;/span&gt; = doc.&lt;span class=&#34;title function_ invoke__&#34;&gt;unwrap&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;epub文件结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epub文件结构&#34;&gt;#&lt;/a&gt; ePub 文件结构&lt;/h2&gt;
+&lt;p&gt;ePub 文件相当于电子书文件内容和提供索引、书本信息的文件的压缩包。主要包括以下三个部分：META-INF、OEBPS、mimetype。ePub 解析包括对这三部分的解析。mimetype 指定 MIME 媒体类型；META—INF 存放 container.xml，定义.opf 文件的路径及 media-type；OEBPS 存放电子书内容，包括章节内容（xhtml 文件），书本信息（content.opf 文件），图片内容，目录索引（toc.ncx）等等。&lt;/p&gt;
+&lt;h2 id=&#34;epub书籍解析设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epub书籍解析设计&#34;&gt;#&lt;/a&gt; ePub 书籍解析设计&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;主要元数据（位于 content.opf）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;metadata 标签&lt;/li&gt;
+&lt;li&gt;manifest 标签&lt;/li&gt;
+&lt;li&gt;spine 标签&lt;/li&gt;
+&lt;li&gt;guide 标签&lt;/li&gt;
+&lt;li&gt;tour 标签&lt;/li&gt;
+&lt;li&gt;ncx 目录文件&lt;/li&gt;
+&lt;li&gt;css 样式表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;解析流程&lt;br&gt;
+解析 ePub 书籍主要流程：章节目录列表的建立，样式表的读取、章节文件的读取。对于每块元数据的读取提供 api。&lt;br&gt;
+首先读取 META-INF/container.xml 文件得到 content.opf 文件路径，解析.opf 文件进行 epub 书籍的元数据的创建和初始化；&lt;br&gt;
+解析 toc 目录文件 ncx，建立树形目录结构；&lt;br&gt;
+解析.css 样式表文件，建议与 xhtml 章节文件的映射关系；&lt;br&gt;
+解析章节内容，基于 spine 顺序的 xhtml 文件的集合，顺序解析各个文件，将文件进行指定格式的解析储存，方便前端进行格式解析渲染&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;epub模块api设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epub模块api设计&#34;&gt;#&lt;/a&gt; ePub 模块 api 设计&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ePub 文件的上传和元数据的解析 (FileService)&lt;br&gt;
+&lt;figure class=&#34;highlight md&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;### 上传书本，支持格式：epub [POST /api/file/v1/upload]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;+&lt;/span&gt; Request (multipart/form-data)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;    +&lt;/span&gt; Attributes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;        +&lt;/span&gt; file: (file, required) - 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;+&lt;/span&gt; Response 200 (application/json)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;    +&lt;/span&gt; Attributes (BaseResponse[string])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
  ]]></description>
         </item>
         <item>
@@ -151,7 +201,7 @@
             <guid isPermalink="true">http://smallcjy.github.io/2024/10/21/docker%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid>
             <title>docker代理设置</title>
             <link>http://smallcjy.github.io/2024/10/21/docker%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link>
-            <category term="编程经验" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C/" />
+            <category term="编程经验、运维" scheme="http://smallcjy.github.io/tags/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E3%80%81%E8%BF%90%E7%BB%B4/" />
             <pubDate>Mon, 21 Oct 2024 23:22:57 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;docker-pull-代理设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#docker-pull-代理设置&#34;&gt;#&lt;/a&gt; docker pull 代理设置&lt;/h2&gt;
 &lt;p&gt;step1：修改 docker 配置文件&lt;br&gt;
@@ -315,6 +365,14 @@
             <description><![CDATA[  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/09/20/Qemu%E4%B8%AD%E4%BD%BF%E7%94%A8tun-tap%E8%BF%9B%E8%A1%8C%E6%BB%A1%E8%A1%80%E7%89%88%E8%81%94%E7%BD%91/</guid>
+            <title>Qemu中使用tun\tap进行满血版联网</title>
+            <link>http://smallcjy.github.io/2024/09/20/Qemu%E4%B8%AD%E4%BD%BF%E7%94%A8tun-tap%E8%BF%9B%E8%A1%8C%E6%BB%A1%E8%A1%80%E7%89%88%E8%81%94%E7%BD%91/</link>
+            <category term="运维" scheme="http://smallcjy.github.io/tags/%E8%BF%90%E7%BB%B4/" />
+            <pubDate>Fri, 20 Sep 2024 16:49:42 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://smallcjy.github.io/2024/09/20/docker-miniconda-jupyternote%E9%9B%86%E6%88%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</guid>
             <title>docker+miniconda+jupyternote+vscode远程连接集成机器学习环境部署</title>
             <link>http://smallcjy.github.io/2024/09/20/docker-miniconda-jupyternote%E9%9B%86%E6%88%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</link>
@@ -371,14 +429,10 @@
             <link>http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
             <category term="机器学习" scheme="http://smallcjy.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
             <pubDate>Wed, 04 Sep 2024 20:51:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;机器学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#机器学习&#34;&gt;#&lt;/a&gt; 机器学习&lt;/h2&gt;
-&lt;h3 id=&#34;第一堂课&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一堂课&#34;&gt;#&lt;/a&gt; 第一堂课&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;三个功能：预测 predict、决策 action、执行 conduct&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;第二堂课linear-regression-and-gradient-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第二堂课linear-regression-and-gradient-descent&#34;&gt;#&lt;/a&gt; 第二堂课：Linear Regression and Gradient Descent&lt;/h3&gt;
-&lt;h4 id=&#34;machine-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#machine-learning&#34;&gt;#&lt;/a&gt; Machine Learning&lt;/h4&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;machine-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#machine-learning&#34;&gt;#&lt;/a&gt; Machine Learning&lt;/h1&gt;
 &lt;p&gt;基本要素：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Data：输入&lt;/li&gt;
+&lt;li&gt;Data：输入，不同的应用有不同的数据&lt;/li&gt;
 &lt;li&gt;Model：类似于函数&lt;/li&gt;
 &lt;li&gt;Loss Function：抽象的本质的模型&lt;/li&gt;
 &lt;/ul&gt;
@@ -393,12 +447,66 @@
 &lt;li&gt;对于预测 y 有一个 function：y=f（x） --》 数据&lt;/li&gt;
 &lt;li&gt;Ld (W) = l (yi&#39;, yi) 的全数据之和   --》 模型&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;data数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data数据集&#34;&gt;#&lt;/a&gt; Data 数据集&lt;/h4&gt;
+&lt;h2 id=&#34;data数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data数据集&#34;&gt;#&lt;/a&gt; Data 数据集&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;D = &amp;#123;(xi, yi)&amp;#125;n i=1&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;x 是输入，使用列向量表示；&lt;/p&gt;
 &lt;p&gt;y 是输出；&lt;/p&gt;
 &lt;p&gt;n 是数据的个数&lt;/p&gt;
-&lt;h4 id=&#34;线性回归学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#线性回归学习&#34;&gt;#&lt;/a&gt; 线性回归学习&lt;/h4&gt;
+&lt;h2 id=&#34;损失函数loss-function&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#损失函数loss-function&#34;&gt;#&lt;/a&gt; 损失函数 Loss function&lt;/h2&gt;
+&lt;p&gt;对值的预测：&lt;img data-src=&#34;image.png&#34; alt=&#34;predict y&#34;&gt;&lt;br&gt;
+ 损失函数定义：数据集中的所有数据值的预测值和真实值之间的差值的求和&lt;br&gt;
+&lt;img data-src=&#34;image-1.png&#34; alt=&#34;LossFunction&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;supervised-learning-监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#supervised-learning-监督学习&#34;&gt;#&lt;/a&gt; Supervised Learning 监督学习&lt;/h2&gt;
+&lt;p&gt;使用 labeled training data 来训练模型，模型的目标是预测新的数据的输出值。监督学习的特征是训练数据是带有标签的数据。&lt;/p&gt;
+&lt;h2 id=&#34;unsupervised-learning-无监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unsupervised-learning-无监督学习&#34;&gt;#&lt;/a&gt; Unsupervised Learning 无监督学习&lt;/h2&gt;
+&lt;p&gt;Learning the inner connection between different training samples , but without specific labels/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型通过比较得到数据集隐藏的结构&lt;/li&gt;
+&lt;li&gt;K-means clustering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reinforcement-learning-强化学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#reinforcement-learning-强化学习&#34;&gt;#&lt;/a&gt; Reinforcement Learning 强化学习&lt;/h2&gt;
+&lt;p&gt;强化学习包括下面几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Agent：智能体，决策者&lt;/li&gt;
+&lt;li&gt;Environment：环境，智能体所处的环境&lt;/li&gt;
+&lt;li&gt;Action：智能体在环境中的行为&lt;/li&gt;
+&lt;li&gt;Reward：智能体在环境中的行为的反馈&lt;/li&gt;
+&lt;li&gt;State：智能体在环境中的状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;#&lt;/a&gt; 1 Linear Regression and Gradient Descent 线性回归与梯度下降&lt;/h1&gt;
+&lt;p&gt;Challenges in Learning: Uncertainty and Unlinear&lt;br&gt;
+ 线性回归是一种线性模型，通过线性回归模型可以预测连续值的输出。线性回归模型的目标是找到一条直线，使得数据集中的所有数据点到直线的距离之和最小。线性回归模型的损失函数是均方误差，均方误差是预测值和真实值之间的差值的平方的求和。&lt;br&gt;
+两种损失函数：&lt;br&gt;
+absolute loss function：L(y&#39;, y) = |y&#39; - y|&lt;br&gt;
+squared loss function：L(y&#39;, y) = (y&#39; - y)^2 / 2&lt;br&gt;
+Total loss function：&lt;br&gt;
+&lt;img data-src=&#34;image-2.png&#34; alt=&#34;total loss function&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regression&#34;&gt;#&lt;/a&gt; Regression&lt;/h2&gt;
+&lt;p&gt;Find the best f by solvig the following optimization problem:&lt;br&gt;
+&lt;img data-src=&#34;image-3.png&#34; alt=&#34;最小优化问题&#34;&gt;&lt;br&gt;
+即找到一个函数 f 使得 total loss function 最小&lt;/p&gt;
+&lt;p&gt;这个 f 如何定义呢？&lt;br&gt;
+&lt;img data-src=&#34;image-4.png&#34; alt=&#34;model function&#34;&gt;&lt;br&gt;
+ 找到合适的 W 向量和 b 值使得 total loss function 最小&lt;br&gt;
+根据这个 f 可以将 total loss function 转化为：&lt;br&gt;
+&lt;img data-src=&#34;image-5.png&#34; alt=&#34;new total loss function&#34;&gt;&lt;br&gt;
+ 那么如何找到这个 W 和 b 呢？&lt;/p&gt;
+&lt;h2 id=&#34;closed-form-solution&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#closed-form-solution&#34;&gt;#&lt;/a&gt; Closed-form Solution&lt;/h2&gt;
+&lt;p&gt;solution:&lt;br&gt;
+&lt;img data-src=&#34;image-6.png&#34; alt=&#34;closed-form&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;regularized-least-squares-regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regularized-least-squares-regression&#34;&gt;#&lt;/a&gt; Regularized Least Squares Regression&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-7.png&#34; alt=&#34;RLS&#34;&gt;&lt;br&gt;
+𝜆 is called trade-off parameter or regularization parameter&lt;/p&gt;
+&lt;p&gt;得到的 solution：&lt;br&gt;
+&lt;img data-src=&#34;image-8.png&#34; alt=&#34;RLS solution&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gradient-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gradient-descent&#34;&gt;#&lt;/a&gt; Gradient Descent&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-9.png&#34; alt=&#34;algorithm&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;#&lt;/a&gt; 2 Linear Classifcation and Stochastic Gradient Descent 线性分类、支持向量机、随机梯度算法&lt;/h1&gt;
+&lt;h1 id=&#34;3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;#&lt;/a&gt; 3 Logistic Regression and Ensemble Methods 逻辑回归与集成学习算法&lt;/h1&gt;
+&lt;h1 id=&#34;4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;#&lt;/a&gt; 4 Overfitting, Underfitting, Regularization and Cross-Validation 过拟合、欠拟合、正则化和交叉验证&lt;/h1&gt;
+&lt;h1 id=&#34;5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;#&lt;/a&gt; 5 Multiclass Classification and Cross-entropy Loss 多类分类和交叉熵损失函数&lt;/h1&gt;
+&lt;h1 id=&#34;6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;#&lt;/a&gt; 6 Neural Networks and Deep Learning 神经网络与深度学习&lt;/h1&gt;
+&lt;h1 id=&#34;7-rnn-transformer-bert&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-rnn-transformer-bert&#34;&gt;#&lt;/a&gt; 7 RNN、Transformer、BERT&lt;/h1&gt;
  ]]></description>
         </item>
         <item>
@@ -748,33 +856,78 @@ A relation schema R 是 &lt;em&gt;3NF&lt;/em&gt; 的，如果对于 R 的每一�
 &lt;p&gt;简单的操作是阻塞，读操作将进入阻塞状态等待数据到来。这样实现简单，但是阻塞时线程无法工作，性能太低。阻塞的实现需要依靠缓冲区。缓冲区的引入是为了减少频繁的 io 操作而引起频繁的 Io 调用。&lt;/p&gt;
 &lt;p&gt;另一种操作是非阻塞忙轮询，不断地检查是否有数据到来，虽然线程不会进入阻塞状态，但是这样会占用太多 CPU 资源用来做无用的询问，这是无法接受的。&lt;/p&gt;
 &lt;h2 id=&#34;epoll&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epoll&#34;&gt;#&lt;/a&gt; epoll&lt;/h2&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/08/01/Linux%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%AF%E7%94%B1%E7%9B%AE%E7%9A%84%E4%B8%BA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E7%9A%84packet%E7%9A%84/</guid>
-            <title>Linux是如何路由目的为本地地址的packet的</title>
-            <link>http://smallcjy.github.io/2024/08/01/Linux%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%AF%E7%94%B1%E7%9B%AE%E7%9A%84%E4%B8%BA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E7%9A%84packet%E7%9A%84/</link>
-            <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
-            <category term="计算机网络" scheme="http://smallcjy.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
-            <pubDate>Thu, 01 Aug 2024 20:23:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;特殊路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特殊路由&#34;&gt;#&lt;/a&gt; 特殊路由&lt;/h2&gt;
-&lt;p&gt;在 Linux 中有两张路由表，其中一张负责本地地址，所有查找成功的 packet 表明要发送到本地主机。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/07/27/IcmpSocket%E6%98%AF%E5%90%A6%E5%B1%9E%E4%BA%8E%E5%86%85%E6%A0%B8%E7%9A%84%E8%8C%83%E7%95%B4/</guid>
-            <title>icmpSocket是否属于内核范畴</title>
-            <link>http://smallcjy.github.io/2024/07/27/IcmpSocket%E6%98%AF%E5%90%A6%E5%B1%9E%E4%BA%8E%E5%86%85%E6%A0%B8%E7%9A%84%E8%8C%83%E7%95%B4/</link>
-            <category term="操作系统" scheme="http://smallcjy.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
-            <pubDate>Sat, 27 Jul 2024 17:25:07 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;icmpSocket 并不是在内核中实现的，Linux 标准下的 socket 调用中的 type 中并不包含 icmpSocket 类型的。那现实中的所谓的 icmpSocket 是如何实现的呢？&lt;/p&gt;
-&lt;p&gt;答案是 udpSocket + icmpPacket。&lt;/p&gt;
-&lt;h2 id=&#34;icmp&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#icmp&#34;&gt;#&lt;/a&gt; icmp&lt;/h2&gt;
-&lt;p&gt;互联网控制消息协议 (ICMP) 是网络设备用来诊断网络通信问题的&lt;a href=&#34;https://www.cloudflare.com/learning/network-layer/what-is-the-network-layer/&#34;&gt;网络层&lt;/a&gt;协议。ICMP 主要用于确定数据是否及时到达其预期目的地。通常，ICMP &lt;a href=&#34;https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/&#34;&gt;协议&lt;/a&gt;用于网络设备，例如&lt;a href=&#34;https://www.cloudflare.com/learning/network-layer/what-is-a-router/&#34;&gt;路由器&lt;/a&gt;。ICMP 是进行错误报告和测试的关键，但它也可以用于&lt;a href=&#34;https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/&#34;&gt;分布式拒绝服务 (DDoS) 攻击&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;icmp-packet&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#icmp-packet&#34;&gt;#&lt;/a&gt; icmp Packet&lt;/h2&gt;
-&lt;p&gt;ICMP 数据包是使用 ICMP 协议的数据包。 ICMP 数据包在正常的 IP 头之后包括一个 ICMP 头。 当路由器或服务器需要发送错误信息时，ICMP 数据包主体或数据部分总是包含一份导致错误的数据包的 IP 头的副本。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;如果需要向一个地址发送 icmp 数据包， 可以向系统申请 udpSocket，向 socket 发送 icmp 数据包。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在其他系统中则是使用 rawSocket&lt;/p&gt;
+&lt;p&gt;epoll 在 Linux 内核实现异步操作中被提出，广泛应用于高并发的 web 服务器中。可以同时对多个服务提供服务的技术称为 io 多路复用。io 复用的基本思想是事件驱动，服务端同时保持有多个客户端 IO 连接，但某个客户端在请求某项服务时，服务器响应服务。Linux 中使用 select、poll 和 epoll 实现。epoll 是所有该并发服务器的基础。&lt;/p&gt;
+&lt;h3 id=&#34;epoll原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epoll原理&#34;&gt;#&lt;/a&gt; epoll 原理&lt;/h3&gt;
+&lt;p&gt;再介绍 epoll 原理之前先介绍一下多路复用 IO 模型。网络 IO 的本质是对 socket 的读取，需要等到流数据准备就绪和内核向进程复制数据。如果是非阻塞调用，进程会一直保持运行态，一直轮询，如果能将这个轮询的过程外包给另外的进程，负责在数据到来的时候唤醒等待的进程，这就是多路复用 IO 模型。&lt;/p&gt;
+&lt;p&gt;多路复用有两个特殊的调用：select 和 poll。select 调用是内核级别，select 会监听多个 socket，但其中一个 socket 的数据准备好了的时候，唤醒进程进行 recvfrom，接收数据的过程是阻塞的，要一点一点读。&lt;/p&gt;
+&lt;p&gt;函数详解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;select 函数&lt;br&gt;
+ TODO:&lt;/li&gt;
+&lt;li&gt;poll 函数&lt;br&gt;
+ TODO:&lt;/li&gt;
+&lt;li&gt;epoll 函数&lt;br&gt;
+函数原型：&lt;br&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//epoll_data保存触发事件相关的数据。(数据类型与具体使用方式有关)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;union&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_data&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;void&lt;/span&gt;* ptr;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; fd;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;_uint32_t&lt;/span&gt; u32;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;_uint64_t&lt;/span&gt; u64;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125; &lt;span class=&#34;type&#34;&gt;epoll_data_t&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//保存感兴趣的事件和被触发的事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_event&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;_uint32_t&lt;/span&gt; events;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;type&#34;&gt;epoll_data_t&lt;/span&gt; data;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;events 是枚举类型，是一系列事件类型的集合。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EPOLLIN : 表示关联的 fd 可以进行读操作&lt;/li&gt;
+&lt;li&gt;EPOLLOUT : 表示关联的 fd 可以进行写操作&lt;/li&gt;
+&lt;li&gt;EPOLLRDHUP (2.6.17 之后): 表示套接字关闭了连接，或关闭了正写的一半的连接&lt;/li&gt;
+&lt;li&gt;EPOLLPRI : 表示关联的 fd 有紧急优先事件可以进行读操作。&lt;/li&gt;
+&lt;li&gt;EPOLLERR : 表示关联的 fd 发生了错误，epoll_wait 会一直等待这个事件，所以一般没有必要设置这个属性&lt;/li&gt;
+&lt;li&gt;EPOLLHUP : 表示关联的 fd 被挂起，epoll_wait 会一直等待这个事件，所以一般没有必要设置这个属性&lt;/li&gt;
+&lt;li&gt;EPOLLET : 设置关联的 fd 为 ET 的工作方式，即边缘触发&lt;/li&gt;
+&lt;li&gt;EPOLLONESHOT : 设置关联的 fd 为 one-shot 工作方式，表示只监听一次事件，如果要再次监听，需要把 socket 放入到 epoll 队列中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;epoll 相关的函数有三个：&lt;br&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_create&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; size)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_ctl&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; epfd, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; op, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; fd, &lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; epoll_event *event)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_wait&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; epfd, &lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; epoll_event *events, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; maxevents, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; timeout)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;epoll_create : 创建一个 epoll 句柄，注意创建 epoll 句柄会占用一个文件描述符，在使用完之后需要关闭。否则可能会导致文件描述符耗尽。
+&lt;ul&gt;
+&lt;li&gt;size : size 为最大的监听文件描述符数，监听的文件描述符的个数不能超过 size 可以手动指定，但是这个数值可以达到系统可以开的最大的文件描述符数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;epoll_ctl : epoll 的事件注册函数，它不同于 select 的是，它不是在监听事件的时候告诉内核要监听什么类型的时间，而是先注册要监听的事件类型。
+&lt;ul&gt;
+&lt;li&gt;epfd : epoll 文件描述符，即 epoll_ create 的返回值，表示该 epoll 描述符注册事件&lt;/li&gt;
+&lt;li&gt;op : 注册事件的类型包括以下三类。
+&lt;ul&gt;
+&lt;li&gt;EPOLL_CTL_ADD : 注册行的 fd 到 epfd 中&lt;/li&gt;
+&lt;li&gt;EPOLL_CTL_MOD : 修改已经注册的 fd 的事件类型&lt;/li&gt;
+&lt;li&gt;EPOLL_CTL_DEL : 删除已经注册的 fd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;fd : 注册的文件描述符&lt;/li&gt;
+&lt;li&gt;event : 注册的时间的类型，告诉内核需要监听什么事件，类型包括上面几种。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;epoll_wait :　收集 epoll 监控的时间中已经就绪的事件，若调用成功，返回就绪的文件描述符的个数，返回 0 表示超时。
+&lt;ul&gt;
+&lt;li&gt;epfd : epoll 的文件描述符&lt;/li&gt;
+&lt;li&gt;events : 已经就绪的事件集合。内核不分配内存，需要程序自己分配内存传给内核，内核只负责将书复制到这里&lt;/li&gt;
+&lt;li&gt;maxevents : events 数组的大小。&lt;/li&gt;
+&lt;li&gt;timeout : 超时时间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;水平触发（LT）和边缘触发（ET）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;LT： 当被监控的文件描述符上有可读可写的事件时，epoll_wait () 会通知用户处理程序去读写。如何程序没有一次性把缓冲区的数据读完或写完，那么下次调用 epoll_wait 时仍然通知可读写，如果一直不写，那么会一直通知你，进而降低效率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ET：和 LT 的区别就是缓冲区如果在一次 wait 通知有读写后没完成，之后调用 wait 就不会通知你，知道有下一个可读写事件的到来。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;介绍完 epoll 的使用，该介绍下 epoll 的底层实现。&lt;/p&gt;
+&lt;p&gt;epoll 在内核初始化的时候会向内核注册个文件系统，用户储存被监控的文件描述符的信息。同时在初始化的时候在内核开辟出一块 cache，用红黑树的结构储存监听的 fd 信息。&lt;/p&gt;
+&lt;p&gt;epoll fd 在内核中可以查找到的数据如下：&lt;br&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;eventpoll&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;spin_lock_t&lt;/span&gt;       lock;        &lt;span class=&#34;comment&#34;&gt;//对本数据结构的访问&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;mutex&lt;/span&gt;      &lt;span class=&#34;title&#34;&gt;mtx&lt;/span&gt;;&lt;/span&gt;         &lt;span class=&#34;comment&#34;&gt;//防止使用时被删除&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;wait_queue_head_t&lt;/span&gt;     wq;      &lt;span class=&#34;comment&#34;&gt;//sys_epoll_wait() 使用的等待队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;wait_queue_head_t&lt;/span&gt;   poll_wait;       &lt;span class=&#34;comment&#34;&gt;//file-&amp;gt;poll()使用的等待队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;list_head&lt;/span&gt;    &lt;span class=&#34;title&#34;&gt;rdllist&lt;/span&gt;;&lt;/span&gt;        &lt;span class=&#34;comment&#34;&gt;//事件满足条件的链表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;rb_root&lt;/span&gt;      &lt;span class=&#34;title&#34;&gt;rbr&lt;/span&gt;;&lt;/span&gt;            &lt;span class=&#34;comment&#34;&gt;//用于管理所有fd的红黑树（树根）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epitem&lt;/span&gt;      *&lt;span class=&#34;title&#34;&gt;ovflist&lt;/span&gt;;&lt;/span&gt;       &lt;span class=&#34;comment&#34;&gt;//将事件到达的fd进行链接起来发送至用户空间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当你向系统中添加一个 fd 时，就创建一个 epitem 结构体，这是内核管理 epoll 的基本数据：&lt;br&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epitem&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;rb_node&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;rbn&lt;/span&gt;;&lt;/span&gt;        &lt;span class=&#34;comment&#34;&gt;//用于主结构管理的红黑树&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;list_head&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;rdllink&lt;/span&gt;;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;//事件就绪队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epitem&lt;/span&gt;  *&lt;span class=&#34;title&#34;&gt;next&lt;/span&gt;;&lt;/span&gt;       &lt;span class=&#34;comment&#34;&gt;//用于主结构体中的链表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_filefd&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;ffd&lt;/span&gt;;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;//这个结构体对应的被监听的文件描述符信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;  nwait;                 &lt;span class=&#34;comment&#34;&gt;//poll操作中事件的个数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;list_head&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;pwqlist&lt;/span&gt;;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;//双向链表，保存着被监视文件的等待队列，功能类似于select/poll中的poll_table&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;eventpoll&lt;/span&gt;  *&lt;span class=&#34;title&#34;&gt;ep&lt;/span&gt;;&lt;/span&gt;      &lt;span class=&#34;comment&#34;&gt;//该项属于哪个主结构体（多个epitm从属于一个eventpoll）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;list_head&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;fllink&lt;/span&gt;;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;//双向链表，用来链接被监视的文件描述符对应的struct file。因为file里有f_ep_link,用来保存所有监视这个文件的epoll节点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;epoll_event&lt;/span&gt;  &lt;span class=&#34;title&#34;&gt;event&lt;/span&gt;;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;//注册的感兴趣的事件,也就是用户空间的epoll_event&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;用户调用 cli 去添加监听的 fd，会放在红黑树当中&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
