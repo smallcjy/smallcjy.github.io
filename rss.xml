@@ -10,8 +10,15 @@
         </author>
         <description></description>
         <language>en</language>
-        <pubDate>Tue, 12 Nov 2024 19:04:47 +0800</pubDate>
-        <lastBuildDate>Tue, 12 Nov 2024 19:04:47 +0800</lastBuildDate>
+        <pubDate>Tue, 26 Nov 2024 21:08:29 +0800</pubDate>
+        <lastBuildDate>Tue, 26 Nov 2024 21:08:29 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://smallcjy.github.io/2024/11/26/%E8%AE%B0%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84bug/</guid>
+            <title></title>
+            <link>http://smallcjy.github.io/2024/11/26/%E8%AE%B0%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84bug/</link>
+            <pubDate>Tue, 26 Nov 2024 21:08:29 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://smallcjy.github.io/2024/11/12/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E6%8A%80%E6%9C%AF%E7%AE%80%E5%8E%86/</guid>
             <title>如何写好技术简历</title>
@@ -107,8 +114,8 @@
             <link>http://smallcjy.github.io/2024/11/04/modernCpp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
             <category term="cpp" scheme="http://smallcjy.github.io/tags/cpp/" />
             <pubDate>Mon, 04 Nov 2024 20:51:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;rall惯用法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rall惯用法&#34;&gt;#&lt;/a&gt; RALL 惯用法&lt;/h2&gt;
-&lt;p&gt;RALL：Resource Acquisition Is Initialization，资源获取即初始化。在 C++ 中，RAII 是一种资源管理的技术，通过在对象的构造函数中获取资源，然后在对象的析构函数中释放资源，来管理资源的生命周期。RAII 的核心思想是：将资源的生命周期与对象的生命周期绑定在一起，通过对象的构造和析构来管理资源的生命周期。&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;raii惯用法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#raii惯用法&#34;&gt;#&lt;/a&gt; RAII 惯用法&lt;/h2&gt;
+&lt;p&gt;RAII：Resource Acquisition Is Initialization，资源获取即初始化。在 C++ 中，RAII 是一种资源管理的技术，通过在对象的构造函数中获取资源，然后在对象的析构函数中释放资源，来管理资源的生命周期。RAII 的核心思想是：将资源的生命周期与对象的生命周期绑定在一起，通过对象的构造和析构来管理资源的生命周期。&lt;/p&gt;
 &lt;p&gt;简单来说就是资源的获取都在构造函数中执行，资源的释放都在析构函数中执行，从而达到内存自动管理的兄啊过&lt;/p&gt;
 &lt;h2 id=&#34;pimpl惯用法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pimpl惯用法&#34;&gt;#&lt;/a&gt; pimpl 惯用法&lt;/h2&gt;
 &lt;p&gt;pimpl：pointer to Implementation&lt;br&gt;
@@ -256,6 +263,57 @@ decltype 是让编译器自己推导 deletor 的类型&lt;/p&gt;
  同样的道理，在头文件中当使用智能指针对象作为类成员变量时，也应该优先使用前置声明去引用智能指针对象的包裹类，而不是直接包含包裹类的头文件。&lt;br&gt;
 &lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//Test.h&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;memory&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//智能指针包裹类A，这里优先使用A的前置声明，而不是直接包含A.h&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;A&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;Test&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ~&lt;span class=&#34;built_in&#34;&gt;Test&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;private&lt;/span&gt;:  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    std::unique_ptr&amp;lt;A&amp;gt;  m_spA;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h1 id=&#34;c多线程从入门到入土&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c多线程从入门到入土&#34;&gt;#&lt;/a&gt; C++ 多线程从入门到入土&lt;/h1&gt;
+&lt;p&gt;多线程编程的原因无非就是使多核技术得到充分利用，提高程序性能。多核编程能力不仅仅是后台开发需要的基本功，更是所有软件开发需要的基本功，锤炼自己的多线程编程能力，至关重要！&lt;/p&gt;
+&lt;h2 id=&#34;1-thread-basic-concept&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-thread-basic-concept&#34;&gt;#&lt;/a&gt; 1 thread basic concept&lt;/h2&gt;
+&lt;p&gt;线程是在进程中创建的，进程是执行一个程序的基本环境，拥有自己的地址空间和上下文堆栈。而线程是进程的实际执行执行单元，进程默认至少有一个线程，即主线程。同时进程可以创建多个线程，这些线程和主线程共享进程的地址空间和上下文堆栈。&lt;/p&gt;
+&lt;p&gt;在 window 系统中，主线程如果执行完毕，此时仍有支线程没有执行完毕，支线程会被强制退出。解决方案就是主线程在推出前需要检查创建的支线程有没有全部执行完毕，如果没有，主线程需要等待支线程执行完毕后再退出。&lt;/p&gt;
+&lt;p&gt;在 Linux 系统中，主线程退出后，支线程不会被强制退出，支线程会继续执行。这是因为 Linux 系统中，主线程和支线程是平等的，没有主次之分。但是如果主线程退出，支线程会变成孤儿线程（僵尸线程），这时候支线程会被 init 进程接管，init 进程会回收孤儿线程的资源。实际开发中要尽可能避免孤儿线程的出现。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;提问：当某个线程崩溃，会对其他线程产生影响吗？&lt;/strong&gt;&lt;br&gt;
+每个线程都是独立执行的单位，每个线程有自己的上下文堆栈，所以某个线程的崩溃不会对其他线程造成影响。但是线程的崩溃会产生一个 Segment Fault 错误，这个错误会发出一个信号，系统捕捉这个信号的回调函数就是结束整个进程，其他的正常工作的线程也会被强制退出。&lt;/p&gt;
+&lt;h2 id=&#34;2-cpp-并发教程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-cpp-并发教程&#34;&gt;#&lt;/a&gt; 2 cpp 并发教程&lt;/h2&gt;
+&lt;h3 id=&#34;21-线程的创建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#21-线程的创建&#34;&gt;#&lt;/a&gt; 2.1 线程的创建&lt;/h3&gt;
+&lt;p&gt;在开始多线程编程之前，首先要了解自己所使用的多线程库如何创建线程。这里&lt;/p&gt;
+&lt;h4 id=&#34;linux线程创建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux线程创建&#34;&gt;#&lt;/a&gt; Linux 线程创建。&lt;/h4&gt;
+&lt;p&gt;api：pthread_create&lt;br&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;pthread_create&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;pthread_t&lt;/span&gt; *thread,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;function&#34;&gt;                   &lt;span class=&#34;type&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;pthread_attr_t&lt;/span&gt; *attr,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;function&#34;&gt;                   &lt;span class=&#34;type&#34;&gt;void&lt;/span&gt; *(*start_routine) (&lt;span class=&#34;type&#34;&gt;void&lt;/span&gt; *),&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;function&#34;&gt;                   &lt;span class=&#34;type&#34;&gt;void&lt;/span&gt; *arg)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;thread：指向线程标识符的指针，线程标识符是线程的唯一标识，用于操作线程。&lt;/li&gt;
+&lt;li&gt;attr: 指定该线程的属性，一般设置为 NULL，表示使用默认属性。&lt;/li&gt;
+&lt;li&gt;start_routine：线程的入口函数，线程创建后会执行该函数。注意这个函数的调用必须是 &lt;code&gt;**_cdecl&lt;/code&gt;  调用约定，这是函数定义的默认方式。&lt;br&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;void&lt;/span&gt;* __cdecl &lt;span class=&#34;title&#34;&gt;start_routine&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;void&lt;/span&gt;* args)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;arg：传递给线程入口函数的参数。&lt;/li&gt;
+&lt;li&gt;返回值：如果成功创建线程，返回 0；创建失败会返回错误码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;cpp11提供的stdthread&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpp11提供的stdthread&#34;&gt;#&lt;/a&gt; Cpp11 提供的 std::thread&lt;/h4&gt;
+&lt;p&gt;std::thread 是 C++11 标准库提供的线程库，使用 std::thread 创建线程非常方便，不需要关心线程的属性，只需要传入线程入口函数和参数即可。不用向 linux 线程一样需要自定义大量的参数和属性。&lt;/p&gt;
+&lt;p&gt;在使用 thread 库时需要注意线程对象需要在线程退出前保持有效（保持有效的意思就是不能被释放）。如何解决呢？thread 库提供 detach 方法，这个方法会让线程对象与线程函数脱离关系。&lt;br&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;type&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;std::thread &lt;span class=&#34;title&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(thread_func)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    t.&lt;span class=&#34;built_in&#34;&gt;detach&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是不希望这么做，因为我们在主线程还希望通过 t 去操作管理线程的运行和生命周期。&lt;/p&gt;
+&lt;h3 id=&#34;22-线程id&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#22-线程id&#34;&gt;#&lt;/a&gt; 2.2 线程 ID&lt;/h3&gt;
+&lt;h2 id=&#34;cpp使用现代特性避免使用虚函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpp使用现代特性避免使用虚函数&#34;&gt;#&lt;/a&gt; Cpp 使用现代特性避免使用虚函数&lt;/h2&gt;
+&lt;h3 id=&#34;线程池添加任务并获取返回值代码剖析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#线程池添加任务并获取返回值代码剖析&#34;&gt;#&lt;/a&gt; 线程池添加任务并获取返回值代码剖析&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;template&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; F, &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;... Args&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;ThreadPool::add&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(F&amp;amp;&amp;amp; f, Args&amp;amp;&amp;amp;... args)&lt;/span&gt; -&amp;gt; std::future&amp;lt;&lt;span class=&#34;keyword&#34;&gt;typename&lt;/span&gt; std::result_of&amp;lt;&lt;span class=&#34;title&#34;&gt;F&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(Args...)&lt;/span&gt;&amp;gt;::type&amp;gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; return_type = &lt;span class=&#34;keyword&#34;&gt;typename&lt;/span&gt; std::result_of&amp;lt;&lt;span class=&#34;built_in&#34;&gt;F&lt;/span&gt;(Args...)&amp;gt;::type;  &lt;span class=&#34;comment&#34;&gt;//返回值类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; task = std::make_shared&amp;lt; std::packaged_task&amp;lt;&lt;span class=&#34;built_in&#34;&gt;return_type&lt;/span&gt;()&amp;gt; &amp;gt;(  &lt;span class=&#34;comment&#34;&gt;//使用智能指针&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            std::&lt;span class=&#34;built_in&#34;&gt;bind&lt;/span&gt;(std::forward&amp;lt;F&amp;gt;(f), std::forward&amp;lt;Args&amp;gt;(args)...)  &lt;span class=&#34;comment&#34;&gt;//完美转发参数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        );  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    std::future&amp;lt;return_type&amp;gt; res = task-&amp;gt;&lt;span class=&#34;built_in&#34;&gt;get_future&lt;/span&gt;();  &lt;span class=&#34;comment&#34;&gt;// 使用期约&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;   &lt;span class=&#34;comment&#34;&gt;//队列锁作用域&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;function&#34;&gt;std::unique_lock&amp;lt;std::mutex&amp;gt; &lt;span class=&#34;title&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(tasks_mtx)&lt;/span&gt;&lt;/span&gt;;   &lt;span class=&#34;comment&#34;&gt;//加锁&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(stop)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;throw&lt;/span&gt; std::&lt;span class=&#34;built_in&#34;&gt;runtime_error&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;enqueue on stopped ThreadPool&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        tasks.&lt;span class=&#34;built_in&#34;&gt;emplace&lt;/span&gt;([task]()&amp;#123; (*task)(); &amp;#125;);  &lt;span class=&#34;comment&#34;&gt;//将任务添加到任务队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    cv.&lt;span class=&#34;built_in&#34;&gt;notify_one&lt;/span&gt;();    &lt;span class=&#34;comment&#34;&gt;//通知一次条件变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; res;     &lt;span class=&#34;comment&#34;&gt;//返回一个期约&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;函数模板&lt;br&gt;
+ &lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;template&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; F, &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;... Args&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;ThreadPool::add&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(F&amp;amp;&amp;amp; f, Args&amp;amp;&amp;amp;... args)&lt;/span&gt; -&amp;gt; std::future&amp;lt;&lt;span class=&#34;keyword&#34;&gt;typename&lt;/span&gt; std::result_of&amp;lt;&lt;span class=&#34;title&#34;&gt;F&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(Args...)&lt;/span&gt;&amp;gt;::type&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
+ 函数模板定义可以接收调用对象和参数集合，F 可以是函数，函数对象，lambda 表达式等，Args 是参数集合。返回值是一个期约，期约是一个异步操作的结果，可以通过 get 方法获取异步操作的结果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;返回类型 后置返回类型&lt;br&gt;
+ &lt;code&gt;std::result_of&amp;lt;F(Args...)&amp;gt;::type&lt;/code&gt; &lt;br&gt;
+ 这是 C++11 中的类型萃取工具，用于推导 F 的调用结果类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例如，如果 F 是一个函数 int foo (int)，且 Args... 是 (int)，那么 std::result_of&amp;lt;F (Args...)&amp;gt;::type 是 int。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;创建任务对象&lt;br&gt;
+ &lt;figure class=&#34;highlight cpp&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; task = std::make_shared&amp;lt;std::packaged_task&amp;lt;&lt;span class=&#34;built_in&#34;&gt;return_type&lt;/span&gt;()&amp;gt;&amp;gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    std::&lt;span class=&#34;built_in&#34;&gt;bind&lt;/span&gt;(std::forward&amp;lt;F&amp;gt;(f), std::forward&amp;lt;Args&amp;gt;(args)...)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
+ 这里使用 std::packaged_task 包装任务，std::packaged_task 是一个模板类，它可以包装一个可调用对象，允许其返回值与 future 相关联，然后通过 std::future 来获取该可调用对象的返回值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;std::forward&lt;/code&gt;  完美转发，避免不必要的拷贝&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[task]()&amp;#123; (*task)(); &amp;#125;&lt;/code&gt; ：lambda 表达式，用于捕捉函数闭包，捕获变量 task，传入到 lambda 中。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -592,92 +650,9 @@ decltype 是让编译器自己推导 deletor 的类型&lt;/p&gt;
 按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。n 皇后问题研究如何将 n 个皇后防治在 nxn 的棋盘上，并且市皇后彼此之间不能攻击，给你一个整数 n，返回所有不同的 n 皇后的解决方案。&lt;/p&gt;
 &lt;p&gt;要求：&lt;br&gt;
 * 四种架构模式：管道 - 过滤器风格、调用 / 返回风格、回溯法、黑板风格&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-            <title>机器学习</title>
-            <link>http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
-            <category term="机器学习" scheme="http://smallcjy.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
-            <pubDate>Wed, 04 Sep 2024 20:51:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;machine-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#machine-learning&#34;&gt;#&lt;/a&gt; Machine Learning&lt;/h1&gt;
-&lt;p&gt;基本要素：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Data：输入，不同的应用有不同的数据&lt;/li&gt;
-&lt;li&gt;Model：类似于函数&lt;/li&gt;
-&lt;li&gt;Loss Function：抽象的本质的模型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;约等于 Looking for a Function&lt;/p&gt;
-&lt;p&gt;steps：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;定义函数集&lt;/li&gt;
-&lt;li&gt;给函数评分（Goodness）&lt;/li&gt;
-&lt;li&gt;选择最好的函数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;对于预测 y 有一个 function：y=f（x） --》 数据&lt;/li&gt;
-&lt;li&gt;Ld (W) = l (yi&#39;, yi) 的全数据之和   --》 模型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;data数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data数据集&#34;&gt;#&lt;/a&gt; Data 数据集&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;D = &amp;#123;(xi, yi)&amp;#125;n i=1&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;x 是输入，使用列向量表示；&lt;/p&gt;
-&lt;p&gt;y 是输出；&lt;/p&gt;
-&lt;p&gt;n 是数据的个数&lt;/p&gt;
-&lt;h2 id=&#34;损失函数loss-function&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#损失函数loss-function&#34;&gt;#&lt;/a&gt; 损失函数 Loss function&lt;/h2&gt;
-&lt;p&gt;对值的预测：&lt;img data-src=&#34;image.png&#34; alt=&#34;predict y&#34;&gt;&lt;br&gt;
- 损失函数定义：数据集中的所有数据值的预测值和真实值之间的差值的求和&lt;br&gt;
-&lt;img data-src=&#34;image-1.png&#34; alt=&#34;LossFunction&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;supervised-learning-监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#supervised-learning-监督学习&#34;&gt;#&lt;/a&gt; Supervised Learning 监督学习&lt;/h2&gt;
-&lt;p&gt;使用 labeled training data 来训练模型，模型的目标是预测新的数据的输出值。监督学习的特征是训练数据是带有标签的数据。&lt;/p&gt;
-&lt;h2 id=&#34;unsupervised-learning-无监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unsupervised-learning-无监督学习&#34;&gt;#&lt;/a&gt; Unsupervised Learning 无监督学习&lt;/h2&gt;
-&lt;p&gt;Learning the inner connection between different training samples , but without specific labels/&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;模型通过比较得到数据集隐藏的结构&lt;/li&gt;
-&lt;li&gt;K-means clustering&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;reinforcement-learning-强化学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#reinforcement-learning-强化学习&#34;&gt;#&lt;/a&gt; Reinforcement Learning 强化学习&lt;/h2&gt;
-&lt;p&gt;强化学习包括下面几个部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Agent：智能体，决策者&lt;/li&gt;
-&lt;li&gt;Environment：环境，智能体所处的环境&lt;/li&gt;
-&lt;li&gt;Action：智能体在环境中的行为&lt;/li&gt;
-&lt;li&gt;Reward：智能体在环境中的行为的反馈&lt;/li&gt;
-&lt;li&gt;State：智能体在环境中的状态&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;#&lt;/a&gt; 1 Linear Regression and Gradient Descent 线性回归与梯度下降&lt;/h1&gt;
-&lt;p&gt;Challenges in Learning: Uncertainty and Unlinear&lt;br&gt;
- 线性回归是一种线性模型，通过线性回归模型可以预测连续值的输出。线性回归模型的目标是找到一条直线，使得数据集中的所有数据点到直线的距离之和最小。线性回归模型的损失函数是均方误差，均方误差是预测值和真实值之间的差值的平方的求和。&lt;br&gt;
-两种损失函数：&lt;br&gt;
-absolute loss function：L(y&#39;, y) = |y&#39; - y|&lt;br&gt;
-squared loss function：L(y&#39;, y) = (y&#39; - y)^2 / 2&lt;br&gt;
-Total loss function：&lt;br&gt;
-&lt;img data-src=&#34;image-2.png&#34; alt=&#34;total loss function&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regression&#34;&gt;#&lt;/a&gt; Regression&lt;/h2&gt;
-&lt;p&gt;Find the best f by solvig the following optimization problem:&lt;br&gt;
-&lt;img data-src=&#34;image-3.png&#34; alt=&#34;最小优化问题&#34;&gt;&lt;br&gt;
-即找到一个函数 f 使得 total loss function 最小&lt;/p&gt;
-&lt;p&gt;这个 f 如何定义呢？&lt;br&gt;
-&lt;img data-src=&#34;image-4.png&#34; alt=&#34;model function&#34;&gt;&lt;br&gt;
- 找到合适的 W 向量和 b 值使得 total loss function 最小&lt;br&gt;
-根据这个 f 可以将 total loss function 转化为：&lt;br&gt;
-&lt;img data-src=&#34;image-5.png&#34; alt=&#34;new total loss function&#34;&gt;&lt;br&gt;
- 那么如何找到这个 W 和 b 呢？&lt;/p&gt;
-&lt;h2 id=&#34;closed-form-solution&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#closed-form-solution&#34;&gt;#&lt;/a&gt; Closed-form Solution&lt;/h2&gt;
-&lt;p&gt;solution:&lt;br&gt;
-&lt;img data-src=&#34;image-6.png&#34; alt=&#34;closed-form&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;regularized-least-squares-regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regularized-least-squares-regression&#34;&gt;#&lt;/a&gt; Regularized Least Squares Regression&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-7.png&#34; alt=&#34;RLS&#34;&gt;&lt;br&gt;
-𝜆 is called trade-off parameter or regularization parameter&lt;/p&gt;
-&lt;p&gt;得到的 solution：&lt;br&gt;
-&lt;img data-src=&#34;image-8.png&#34; alt=&#34;RLS solution&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;gradient-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gradient-descent&#34;&gt;#&lt;/a&gt; Gradient Descent&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-9.png&#34; alt=&#34;algorithm&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;#&lt;/a&gt; 2 Linear Classifcation and Stochastic Gradient Descent 线性分类、支持向量机、随机梯度算法&lt;/h1&gt;
-&lt;h1 id=&#34;3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;#&lt;/a&gt; 3 Logistic Regression and Ensemble Methods 逻辑回归与集成学习算法&lt;/h1&gt;
-&lt;h1 id=&#34;4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;#&lt;/a&gt; 4 Overfitting, Underfitting, Regularization and Cross-Validation 过拟合、欠拟合、正则化和交叉验证&lt;/h1&gt;
-&lt;h1 id=&#34;5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;#&lt;/a&gt; 5 Multiclass Classification and Cross-entropy Loss 多类分类和交叉熵损失函数&lt;/h1&gt;
-&lt;h1 id=&#34;6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;#&lt;/a&gt; 6 Neural Networks and Deep Learning 神经网络与深度学习&lt;/h1&gt;
-&lt;h1 id=&#34;7-rnn-transformer-bert&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-rnn-transformer-bert&#34;&gt;#&lt;/a&gt; 7 RNN、Transformer、BERT&lt;/h1&gt;
+&lt;h2 id=&#34;课程讨论汇报-故障管理与检测机制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#课程讨论汇报-故障管理与检测机制&#34;&gt;#&lt;/a&gt; 课程讨论汇报 --- 故障管理与检测机制&lt;/h2&gt;
+&lt;p&gt;先讲讲 FTA 分析原理、组成。再讲讲如何针对一个故障进行 FTA 分析。最后讲讲如何针对一个故障进行 FTA 分析。&lt;/p&gt;
+&lt;p&gt;如何进行 FTA 故障分析&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -967,26 +942,410 @@ A relation schema R 是 &lt;em&gt;3NF&lt;/em&gt; 的，如果对于 R 的每一�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://smallcjy.github.io/2024/08/15/%E5%A4%A7%E4%BA%8C%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
-            <title>大二学年总结</title>
-            <link>http://smallcjy.github.io/2024/08/15/%E5%A4%A7%E4%BA%8C%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
-            <category term="经验总结" scheme="http://smallcjy.github.io/tags/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" />
-            <pubDate>Thu, 15 Aug 2024 20:51:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;大二一年我到底做了什么&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大二一年我到底做了什么&#34;&gt;#&lt;/a&gt; 大二一年我到底做了什么&lt;/h2&gt;
-&lt;h3 id=&#34;记实录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#记实录&#34;&gt;#&lt;/a&gt; 记实录&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;大二学年一共 8 个月，从 2023 年的 9 月到 2024 年的 7 月。&lt;/strong&gt;&lt;/p&gt;
+            <guid isPermalink="true">http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+            <title>机器学习</title>
+            <link>http://smallcjy.github.io/2024/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+            <category term="机器学习" scheme="http://smallcjy.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+            <pubDate>Wed, 04 Sep 2024 20:51:07 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;machine-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#machine-learning&#34;&gt;#&lt;/a&gt; Machine Learning&lt;/h1&gt;
+&lt;p&gt;基本要素：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;大二上学期 9 月&lt;/strong&gt;：真正意义上地踏入计算机的世界，应该是从这个月开始的。九月份是开学之际，经过暑假不算太努力的准备，参加了数模国赛，得到的成绩也马马虎虎，优胜奖。开始学习计算机领域的专业课知识，数据结构，计算机组成，Cpp，离散数学等等，也算开始对计算机有了初步的了解。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二上学期 10 月&lt;/strong&gt;：随着数据结构的学习深入，第一次知道&lt;strong&gt;刷题&lt;/strong&gt;这个概念，兴致冲冲地注册 Leetcode 和洛谷账号，开始一天一题的刷题之旅（虽然落下很多天。还加入了电诊社团，对电脑硬件有了一些了解，知道一台电脑有什么部分组成，CPU 是什么，GPU 是什么，主板有什么作用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二上学期 11 月&lt;/strong&gt;：开始有寻求项目经验的意识。开始在 GitHub 上浏览一些有趣的开源项目，去尝试读懂它们的源码，虽然这是一件蛮困难的事情。同时也开始进行一些专业课的实验，编程也不再局限于做题，尝试实现一些具体的东西，比如手搓一些数据结构，写了个 Ai 五子棋，详见我的 GitHub 上的仓库。第一次了解到 Linux，对于之前对于操作系统认知停留在 Windows 的我产生不小的震撼，开始去掌握一些 Linux 命令，了解 Linux 特性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大学上学期 12 月&lt;/strong&gt;：专业课学习即将结束，开始进入期末复习的阶段。由于学期有很多时间花在学习一些课外的知识，专业课的复习也是十分繁重的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大学上学期 1 月&lt;/strong&gt;：寒假开始，机缘巧合下，开始 game101 和 mitS.6081。因为对图形学和操作系统有一些兴趣，所以尝试啃些国外知名专业课认识一下。game101 浅尝了一下，6081 对我的影响很深远。我是第一次接触对代码量极大、结构复杂的源码进行二次开发，这也是 6081 实验的特性，在课上掌握知识的基础上，对现成的 xv6 进行一些特性的实现。学到很多源码阅读（比如对一个特性的实现的认识，可以尝试从其函数调用栈入手），c 代码编写规范的经验。同时由于啃源码时会读到很多的博客，对我产生很多的帮助，开始对写技术博客这个兴趣埋下种子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 3 月&lt;/strong&gt;：大二下学期是我编写代码能力快速增长的半年，这学期实践了许多许多。这个月尝试去参加 DragonOS 的招新面试，面试的考核内容是手搓一个虚拟文件系统。学习了 rust，第一次面向万行级别的项目进行二次编程。这个过程给我带来的感悟颇深。面向大型项目，可以学习前辈的代码习惯和思路，可以学习一些设计模式，比如解耦合、内部可变性。快速掌握一门新语言，并投入实践之中，更让我意识到语言的作用在于其特性，每个语言特性不同，适合开发的内容不同，并不存在所谓的优劣之分。而编程思想，软件设计模式，数据结构使用，时空友好的算法才是重点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 4 月&lt;/strong&gt;：这是我在 DragonOS 工作的第一个月，组内分发给我开发 SYS_ALARM 调用的任务。刚接手这个任务，真可以说无从下手。但是在组内前辈的指点下，慢慢地掌握阅读&lt;strong&gt; Linux 内核相同调用源码 -&amp;gt; 阅读 rcore 和 asterinas 相同调用源码 -&amp;gt; 设计如何适配到 DragonOS-&amp;gt; 编写 -&amp;gt;bedug-&amp;gt; 测试 -&amp;gt;pr&lt;/strong&gt;，开发全过程。这是我第一次在 GitHub 上进行正规的协同开发，也是第一次走完完整的开发一个功能的流程。解耦合思想、抽象思想、不可变引用的内部可变性带来的内存控制的安全、自旋锁和互斥锁的使用，防止死锁等等，很多之前无法接触的概念和方法，融入我的开发之中。虽然过程非常痛苦，不断重复经历受挫思考解决的过程，非常折磨人，好在还是在一个月里把 alarm 调用成功开发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 5 月&lt;/strong&gt;：之前埋下的写技术博客的种子，在这个月得到发芽。我尝试使用 hexo 框架和 GitHub 博客托管，搭建了第一个博客，并托管在 GitHub 上，可以在互联网上访问。把这几个月的心得写成文章发布在博客上。接到 DragonOS 的第二个任务：Loopback 环回网卡的开发。这个任务由于接下来的几个月实在过于忙碌，推迟到暑假在开发完毕。这个月还与实验室的伙伴们参与了光元锥杯的比赛，从头参与开发在线协作文档编辑器的网站，具体可看 GitHub 上的 WanXiangEditor 仓库。这次网站开发前后端都有负责，也掌握了基本的前后端的技术、框架。本人负责的模块是 pdf 文件前端预览以及后端上传保存下载功能、还解决了多页面切换动态渲染的问题。最终获得了三等奖。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 6 月&lt;/strong&gt;：6 月是这学期最忙碌的一个月，繁杂的课程实验压得我喘不过气。操作系统实验、计网实验、软件设计实验等等。还需要完成两个实训任务，一个是 Cpp 开发俄罗斯方块小游戏的实训任务，一个是邮件网站开发的实训任务。这两个实训学习到很多现在市场上使用的技术和框架，具体可以看我的博客分享。同时还要准备月底的期末考，这个强度是不是非常可怕。一个月瘦了 10 斤～～&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 7 月&lt;/strong&gt;：暑假开始了，闲暇的时间多了，得开始准备继续开发 Loopback 回环网卡的开发任务。相比上一个任务，有经验的我显然更加游刃有余，花了差不多 10 天便完成开发任务。这个过程中，不仅了解了驱动设备这种设计思想，了解了 DragonOS 网络栈如何工作，了解了 socket 通信过程等等。收获也是很多，也坚定我在 DragonOS 内的负责模块 -- 网络。在测试 Lo 时，还随手写了 ping 用户程序，最后也 merge 进了项目，也算是第三个项目了，了解了多线程编程。这个月还把之前的刷题习惯重新拿起来，为之后的实习面试做准备。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大二下学期 8 月&lt;/strong&gt;：移植 wget，了解了什么是 GNUmake，了解了交叉编译、静态编译，wget 的移植工作仍在进行，临近大三开学，也确实有些松懈。马上又要参与 DragonOS 的网络子系统重构，大三这一年也要充实地忙碌地度过！&lt;/li&gt;
+&lt;li&gt;Data：输入，不同的应用有不同的数据&lt;/li&gt;
+&lt;li&gt;Model：类似于函数&lt;/li&gt;
+&lt;li&gt;Loss Function：抽象的本质的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;约等于 Looking for a Function&lt;/p&gt;
+&lt;p&gt;steps：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义函数集&lt;/li&gt;
+&lt;li&gt;给函数评分（Goodness）&lt;/li&gt;
+&lt;li&gt;选择最好的函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;对于预测 y 有一个 function：y=f（x） --》 数据&lt;/li&gt;
+&lt;li&gt;Ld (W) = l (yi&#39;, yi) 的全数据之和   --》 模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;data数据集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#data数据集&#34;&gt;#&lt;/a&gt; Data 数据集&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;D = &amp;#123;(xi, yi)&amp;#125;n i=1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;x 是输入，使用列向量表示；&lt;/p&gt;
+&lt;p&gt;y 是输出；&lt;/p&gt;
+&lt;p&gt;n 是数据的个数&lt;/p&gt;
+&lt;h2 id=&#34;损失函数loss-function&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#损失函数loss-function&#34;&gt;#&lt;/a&gt; 损失函数 Loss function&lt;/h2&gt;
+&lt;p&gt;对值的预测：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image.png&#34; alt=&#34;predict y&#34;&gt;&lt;br&gt;
+ 损失函数定义：数据集中的所有数据值的预测值和真实值之间的差值的求和&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-1.png&#34; alt=&#34;LossFunction&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;supervised-learning-监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#supervised-learning-监督学习&#34;&gt;#&lt;/a&gt; Supervised Learning 监督学习&lt;/h2&gt;
+&lt;p&gt;使用 labeled training data 来训练模型，模型的目标是预测新的数据的输出值。监督学习的特征是训练数据是带有标签的数据。&lt;/p&gt;
+&lt;h2 id=&#34;unsupervised-learning-无监督学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unsupervised-learning-无监督学习&#34;&gt;#&lt;/a&gt; Unsupervised Learning 无监督学习&lt;/h2&gt;
+&lt;p&gt;Learning the inner connection between different training samples , but without specific labels/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型通过比较得到数据集隐藏的结构&lt;/li&gt;
+&lt;li&gt;K-means clustering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reinforcement-learning-强化学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#reinforcement-learning-强化学习&#34;&gt;#&lt;/a&gt; Reinforcement Learning 强化学习&lt;/h2&gt;
+&lt;p&gt;强化学习包括下面几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Agent：智能体，决策者&lt;/li&gt;
+&lt;li&gt;Environment：环境，智能体所处的环境&lt;/li&gt;
+&lt;li&gt;Action：智能体在环境中的行为&lt;/li&gt;
+&lt;li&gt;Reward：智能体在环境中的行为的反馈&lt;/li&gt;
+&lt;li&gt;State：智能体在环境中的状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-linear-regression-and-gradient-descent线性回归与梯度下降&#34;&gt;#&lt;/a&gt; 1 Linear Regression and Gradient Descent 线性回归与梯度下降&lt;/h1&gt;
+&lt;p&gt;Challenges in Learning: Uncertainty and Unlinear&lt;br&gt;
+ 线性回归是一种线性模型，通过线性回归模型可以预测连续值的输出。线性回归模型的目标是找到一条直线，使得数据集中的所有数据点到直线的距离之和最小。线性回归模型的损失函数是均方误差，均方误差是预测值和真实值之间的差值的平方的求和。&lt;/p&gt;
+&lt;p&gt;两种损失函数：&lt;br&gt;
+absolute loss function：L(y&#39;, y) = |y&#39; - y|&lt;br&gt;
+squared loss function：L(y&#39;, y) = (y&#39; - y)^2 / 2&lt;br&gt;
+Total loss function：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-2.png&#34; alt=&#34;total loss function&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regression&#34;&gt;#&lt;/a&gt; Regression&lt;/h2&gt;
+&lt;p&gt;Find the best f by solvig the following optimization problem:&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-3.png&#34; alt=&#34;最小优化问题&#34;&gt;&lt;br&gt;
+即找到一个函数 f 使得 total loss function 最小&lt;/p&gt;
+&lt;p&gt;这个 f 如何定义呢？&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-4.png&#34; alt=&#34;model function&#34;&gt;&lt;br&gt;
+ 找到合适的 W 向量和 b 值使得 total loss function 最小&lt;br&gt;
+根据这个 f 可以将 total loss function 转化为：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-5.png&#34; alt=&#34;new total loss function&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;C:%5CUsers%5C26280%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20241127201729420.png&#34; alt=&#34;image-20241127201729420&#34;&gt;&lt;/p&gt;
+&lt;p&gt;那么如何找到这个 W 和 b 呢？&lt;/p&gt;
+&lt;h2 id=&#34;closed-form-solution&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#closed-form-solution&#34;&gt;#&lt;/a&gt; Closed-form Solution&lt;/h2&gt;
+&lt;p&gt;闭式解也称为解析解&lt;/p&gt;
+&lt;p&gt;solution:&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-6.png&#34; alt=&#34;closed-form&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;regularized-least-squares-regression&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#regularized-least-squares-regression&#34;&gt;#&lt;/a&gt; Regularized Least Squares Regression&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-7.png&#34; alt=&#34;RLS&#34;&gt;&lt;br&gt;
+𝜆 is called trade-off parameter or regularization parameter&lt;/p&gt;
+&lt;p&gt;得到的 solution：&lt;br&gt;
+&lt;img data-src=&#34;image-8.png&#34; alt=&#34;RLS solution&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gradient-descent-随机梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gradient-descent-随机梯度下降&#34;&gt;#&lt;/a&gt; Gradient Descent 随机梯度下降&lt;/h2&gt;
+&lt;p&gt;原理：通过不断在损失函数递减的方向上更新参数来降低误差，由于每次更新 w 参数需要在全部数据集上更新计算，性能低。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-9.png&#34; alt=&#34;algorithm&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由此出现随机梯度算法：&lt;/p&gt;
+&lt;h3 id=&#34;随机梯度算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#随机梯度算法&#34;&gt;#&lt;/a&gt; 随机梯度算法&lt;/h3&gt;
+&lt;p&gt;每次更新只选取一小部分数据集来更新 w&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;./image-20241127201959360.png&#34; alt=&#34;image-20241127201959360&#34;&gt;&lt;/p&gt;
+&lt;p&gt;n 表示学习率&lt;/p&gt;
+&lt;h1 id=&#34;2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-linear-classifcation-and-stochastic-gradient-descent-线性分类-支持向量机-随机梯度算法&#34;&gt;#&lt;/a&gt; 2 Linear Classifcation and Stochastic Gradient Descent  线性分类、支持向量机、随机梯度算法&lt;/h1&gt;
+&lt;h2 id=&#34;binary-classification-二元分类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#binary-classification-二元分类&#34;&gt;#&lt;/a&gt; Binary Classification 二元分类&lt;/h2&gt;
+&lt;p&gt;（二元分类）是机器学习中的一种基本任务。它指的是将数据分为两个类别之一，例如 “是 / 否”、“成功 / 失败” 或 “正类 / 负类”。&lt;/p&gt;
+&lt;h2 id=&#34;support-vector-machine-支持向量机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#support-vector-machine-支持向量机&#34;&gt;#&lt;/a&gt; support vector machine 支持向量机&lt;/h2&gt;
+&lt;h4 id=&#34;超平面和间隔&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#超平面和间隔&#34;&gt;#&lt;/a&gt; 超平面和间隔&lt;/h4&gt;
+&lt;p&gt;一个超平面由法向量 W 和截距 b 决定，其方程为&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/msup&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;X^TW + b = 0&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.924661em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8413309999999999em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.13889em;&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;什么是 good decision boundary？&lt;/strong&gt;&lt;br&gt;
+一个好的决策边界是在分类问题中能够有效区分不同类别的数据点，并对未见数据具有良好泛化能力的边界。&lt;/p&gt;
+&lt;p&gt;Maximum margin solution（最大化间隔解）是一种在分类任务中追求分类器稳健性的策略，尤其常见于支持向量机（SVM）中。选择两个平行的超平面，使其距离间隔经可能大。&lt;/p&gt;
+&lt;p&gt;二元分类的目标函数 f，选择两条平行的线，使得两条线之间的距离最大，这两条线就是支持向量机的决策边界。同时这两条平行线仍然需要满足能够区分数据集中的正类和负类数据点。这两条线的距离就称为 margin（间隔）。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image.png&#34; alt=&#34;max-margin&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SVM-sketch Derivation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在支持向量机中，分类器的目标是找到一个决策边界（超平面 y = wx + b）, 支持向量是离超平面最近的点，这些点决定了分类边界的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-1.png&#34; alt=&#34;normalization&#34;&gt;&lt;/p&gt;
+&lt;p&gt;已知归一化后的正负类支持向量平面，求解两平面之间的距离，即 margin。&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;/&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;d_{margin} = 2 / ||w||&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.980548em;vertical-align:-0.286108em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.311664em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.286108em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SVM 是对 margin 的最大化&lt;/strong&gt;&lt;br&gt;
+&lt;img data-src=&#34;./image-20241127203625773.png&#34; alt=&#34;image-20241127203625773&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Relaxed Formulation 松弛形式&lt;/strong&gt;&lt;br&gt;
+ Relaxed Formulation（松弛形式）通常指在支持向量机（SVM）或其他优化问题中，为了处理数据非线性可分的情况，对原始的硬性约束（Hard Margin Constraints）进行放松，从而提出的改进版本。&lt;/p&gt;
+&lt;p&gt;在 SVM 中，这种松弛形式被称为 ** 软                                                    ** 支持向量机（Soft Margin SVM）。&lt;/p&gt;
+&lt;p&gt;引入松弛模型后，目标函数变为：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;./image-20241127203943589.png&#34; alt=&#34;image-20241127203943589&#34;&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;gt;0 被称为惩罚参数，C 越小时对误分类参数惩罚越小，反之越大。&lt;/p&gt;
+&lt;p&gt;引入松弛变量&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;ξ&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;ξi&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.04601em;&#34;&gt;ξ&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &amp;gt;=0，则目标函数又可变为：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;./image-20241127204212970.png&#34; alt=&#34;image-20241127204212970&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gradient-descent-梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gradient-descent-梯度下降&#34;&gt;#&lt;/a&gt; Gradient Descent 梯度下降&lt;/h2&gt;
+&lt;p&gt;梯度下降是一种优化算法，用于寻找函数的最小值。在机器学习中，梯度下降被广泛应用于训练模型，例如线性回归、逻辑回归和神经网络。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-6.png&#34; alt=&#34;gradient descent update&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gradient Descent Algorithm&lt;/strong&gt;&lt;br&gt;
+&lt;img data-src=&#34;image-7.png&#34; alt=&#34;gradient descent algorithm1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-8.png&#34; alt=&#34;gradient descent algorithm2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-9.png&#34; alt=&#34;subgradient&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;stochastic-gradient-descent-随机梯度下降&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stochastic-gradient-descent-随机梯度下降&#34;&gt;#&lt;/a&gt; stochastic gradient descent 随机梯度下降&lt;/h2&gt;
+&lt;p&gt;随机梯度下降是梯度下降的一种变体。与梯度下降不同，随机梯度下降在每次迭代中只使用一个样本来计算梯度。这使得随机梯度下降在处理大规模数据集时更加高效。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-10.png&#34; alt=&#34;stochastic&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Minibatch Stochastic Gradient Descent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Mini-Batch Stochastic Gradient Descent (Mini-Batch SGD) 是 随机梯度下降（SGD） 的一种改进版本，它结合了 批量梯度下降（Batch Gradient Descent） 和 随机梯度下降（SGD） 的优点。与传统的 SGD 每次仅使用一个样本来更新模型参数不同，Mini-Batch SGD 使用小批量数据（mini-batch）来进行更新。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-11.png&#34; alt=&#34;mini-batch&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-logistic-regression-and-ensemble-methods-逻辑回归与集成学习算法&#34;&gt;#&lt;/a&gt; 3 Logistic Regression and Ensemble Methods 逻辑回归与集成学习算法&lt;/h1&gt;
+&lt;p&gt;在学习逻辑回归之前，先来了解机器学习的原则目标： Prediction 预测与 Making Decisions 决策&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-12.png&#34; alt=&#34;pipeline of data-driven methods&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;logistic-regression-逻辑回归&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#logistic-regression-逻辑回归&#34;&gt;#&lt;/a&gt; Logistic Regression 逻辑回归&lt;/h2&gt;
+&lt;p&gt;逻辑回归（Logistic Regression） 是一种常见的分类算法，尽管它的名字中包含 “回归”，但它实际上用于分类问题，尤其是二分类问题。它基于统计学和概率论的原理，通过将输入特征映射到一个概率值来预测类别。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;逻辑回归（Logistic Regression）&lt;/strong&gt; 是一种常见的分类算法，尽管它的名字中包含 “回归”，但它实际上用于&lt;strong&gt;分类问题&lt;/strong&gt;，尤其是&lt;strong&gt;二分类问题&lt;/strong&gt;。它基于统计学和概率论的原理，通过将输入特征映射到一个概率值来预测类别。以下是对逻辑回归的详细讲解：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-逻辑回归的基本原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-逻辑回归的基本原理&#34;&gt;#&lt;/a&gt; 1. &lt;strong&gt;逻辑回归的基本原理&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;逻辑回归试图找到一个最佳的决策边界，用于将输入数据分为两个类别（例如，正类和负类）。它的目标是计算给定输入特征 x 时，属于某一类别（通常是类别 1）的概率。所以逻辑回归算法的输出值永远在 0 到 1 之间。&lt;/p&gt;
+&lt;h4 id=&#34;假设&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#假设&#34;&gt;#&lt;/a&gt; 假设&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;假设我们有一个输入向量 x = [x_1, x_2, ..., x_n]，这是我们的特征向量。&lt;/li&gt;
+&lt;li&gt;y 是目标变量，通常为二元标签，表示类别：(y in {0, 1} )。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;逻辑回归模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#逻辑回归模型&#34;&gt;#&lt;/a&gt; 逻辑回归模型&lt;/h4&gt;
+&lt;p&gt;逻辑回归的模型基于线性回归模型的输出，但通过一个 **sigmoid 函数（logistic 函数）** 进行转换，以确保输出值在 0 和 1 之间，可以解释为概率。&lt;/p&gt;
+&lt;p&gt;模型的形式为：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex-display&#34;&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;[&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo stretchy=&#34;false&#34;&gt;]&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;[
+p(y = 1 | x) = sigma(w^T x + b)
+]
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.1413309999999999em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8913309999999999em;&#34;&gt;&lt;span style=&#34;top:-3.113em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.13889em;&#34;&gt;T&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;其中：&lt;br&gt;
+&lt;img data-src=&#34;image-13.png&#34; alt=&#34;wenben&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;目标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标&#34;&gt;#&lt;/a&gt; 目标&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;通过训练学习参数 w 和 b，使得模型能够尽可能准确地预测样本属于类别 1 的概率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-损失函数与优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-损失函数与优化&#34;&gt;#&lt;/a&gt; 2. &lt;strong&gt;损失函数与优化&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;逻辑回归通过最小化&lt;strong&gt;对数似然函数（log-likelihood）&lt;strong&gt;来估计参数 (w) 和 ( b )。对于二分类问题，损失函数通常采用&lt;/strong&gt;交叉熵损失（cross-entropy loss）&lt;/strong&gt;，其公式为：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-16.png&#34; alt=&#34;gongshi&#34;&gt;&lt;/p&gt;
+&lt;p&gt;损失函数的目标是最小化交叉熵损失，意味着我们尽可能将预测概率 p 和真实标签 y 对应的概率接近。&lt;/p&gt;
+&lt;h4 id=&#34;优化方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#优化方法&#34;&gt;#&lt;/a&gt; 优化方法&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;梯度下降&lt;/strong&gt;：通常使用梯度下降算法来优化参数 (w) 和 ( b )。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;梯度计算&lt;/strong&gt;：&lt;br&gt;
+[&lt;br&gt;
+\frac&lt;ruby&gt;\partial J(w, b)}{\partial w} = \frac{1}{m} \sum_{i=1}&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;{m&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt; (p^&lt;ruby&gt;(i)} - y&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;{(i)&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;) x^&lt;ruby&gt;(i)}
+\]
+\[
+\frac{\partial J(w, b)}{\partial b} = \frac{1}{m} \sum_{i=1}&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;{m&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt; (p^&lt;ruby&gt;(i)} - y&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;{(i)&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;)&lt;br&gt;
+]&lt;br&gt;
+ 然后根据这些梯度更新参数 (w) 和 ( b )。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-模型评估与决策边界&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-模型评估与决策边界&#34;&gt;#&lt;/a&gt; 3. &lt;strong&gt;模型评估与决策边界&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;逻辑回归输出的是类别 1 的概率，通常情况下，我们根据某个阈值（例如 0.5）将其转换为具体的类别预测：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果 (p (y = 1 | x) &amp;gt; 0.5 )，则预测为类别 1。&lt;/li&gt;
+&lt;li&gt;如果 (p (y = 1 | x) &amp;lt; 0.5 )，则预测为类别 0。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;决策边界&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#决策边界&#34;&gt;#&lt;/a&gt; 决策边界&lt;/h4&gt;
+&lt;p&gt;逻辑回归的决策边界是一个超平面（线性边界），可以通过求解：&lt;br&gt;
+[&lt;br&gt;
+w^T x + b = 0&lt;br&gt;
+]&lt;br&gt;
+ 来得到。这个边界将数据空间划分为两个区域，预测值大于 0.5 的区域为类别 1，反之为类别 0。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-正则化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-正则化&#34;&gt;#&lt;/a&gt; 4. &lt;strong&gt;正则化&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;为了防止过拟合，逻辑回归通常采用&lt;strong&gt;正则化&lt;/strong&gt;方法，特别是 L2 正则化（也叫 Ridge 正则化）。通过在损失函数中加入正则化项，可以限制模型的复杂度，避免过度拟合训练数据。&lt;/p&gt;
+&lt;p&gt;带正则化的损失函数为：&lt;br&gt;
+&lt;img data-src=&#34;image-17.png&#34; alt=&#34;regularization&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Logistic Loss:&lt;br&gt;
+&lt;img data-src=&#34;image-18.png&#34; alt=&#34;logistic loss&#34;&gt;&lt;/p&gt;
+&lt;p&gt;正则化的目标是平衡模型的复杂度和训练数据的拟合程度，防止过拟合。&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;逻辑回归是一种简单、有效的分类方法，广泛应用于二分类和多分类问题。通过最大化对数似然函数，它能够估计出给定特征时属于某一类别的概率。理解其背后的原理和优化方法有助于在实际应用中有效地使用该模型，同时结合正则化可以避免过拟合，提高泛化能力。&lt;/p&gt;
+&lt;p&gt;如果你有其他问题或需要更具体的代码示例，可以进一步提问！&lt;/p&gt;
+&lt;h2 id=&#34;多类别分类问题的定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#多类别分类问题的定义&#34;&gt;#&lt;/a&gt; 多类别分类问题的定义&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;one vs rest method&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;one vs one method&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DDAG 决策有向无环图&lt;br&gt;
+根二叉有向无环图（Rooted Binary Directed Acyclic Graph，简称 Rooted Binary DAG）是一种特殊类型的有向无环图（DAG），具有以下特点：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;根节点（Root Node）：图中有一个唯一的根节点，所有其他节点都可以通过有向路径从根节点到达。&lt;/p&gt;
+&lt;p&gt;二叉性质（Binary Property）：每个节点最多有两个子节点。&lt;/p&gt;
+&lt;p&gt;有向无环（Directed Acyclic）：图中的边是有方向的，并且不存在从某个节点出发经过若干条边又回到该节点的路径，即图中没有环。&lt;/p&gt;
+&lt;p&gt;这种结构常用于表示决策树、二叉堆等数据结构。&lt;/p&gt;
+&lt;p&gt;预测过程：&lt;br&gt;
+&lt;img data-src=&#34;image-19.png&#34; alt=&#34;ddag&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;K-means algorithm K 均值算法&lt;br&gt;
+ K 均值算法（K-means algorithm）是一种常用的聚类算法，用于将数据集分成 K 个簇。其处理过程如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;初始化：随机选择 K 个初始质心（Centroids）。&lt;/p&gt;
+&lt;p&gt;分配簇：对于数据集中的每个数据点，计算其到每个质心的距离。&lt;br&gt;
+将每个数据点分配到距离其最近的质心所对应的簇。&lt;/p&gt;
+&lt;p&gt;更新质心：计算每个簇中所有数据点的平均值，并将该平均值作为新的质心。&lt;/p&gt;
+&lt;p&gt;重复：重复步骤 2 和步骤 3，直到质心不再发生变化或达到预设的迭代次数。&lt;/p&gt;
+&lt;p&gt;结果：最终得到 K 个簇，每个簇由距离其质心最近的数据点组成。&lt;/p&gt;
+&lt;h1 id=&#34;4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-overfitting-underfitting-regularization-and-cross-validation-过拟合-欠拟合-正则化和交叉验证&#34;&gt;#&lt;/a&gt; 4 Overfitting, Underfitting, Regularization and Cross-Validation 过拟合、欠拟合、正则化和交叉验证&lt;/h1&gt;
+&lt;p&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; Updated upstream: 机器学习 / 机器学习.md&lt;br&gt;
+ 先回顾一下机器学习模型训练的过程:&lt;br&gt;
+&lt;img data-src=&#34;image-20.png&#34; alt=&#34;model train&#34;&gt;&lt;br&gt;
+ 判断 model 的质量需要使用 loss function，loss function 的值越小，model 的质量越好。&lt;/p&gt;
+&lt;p&gt;loss function 有三种类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hinge Loss:&lt;br&gt;
+&lt;img data-src=&#34;image-21.png&#34; alt=&#34;hinge loss&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Logistic Loss:&lt;br&gt;
+&lt;img data-src=&#34;image-22.png&#34; alt=&#34;logistic loss&#34;&gt;&lt;/li&gt;
+&lt;li&gt;soft-max loss:&lt;br&gt;
+&lt;img data-src=&#34;image-23.png&#34; alt=&#34;soft-max&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;知道这几种 loss 函数的定义，那我们又该如何使用这些 loss 函数来判断 model 的质量呢？我们可以使用中学时期学到的最小方差损失判定，但是很多时候模型并不是线性的，所以我们需要使用交叉验证的方法来判断模型的质量。&lt;/p&gt;
+&lt;p&gt;首先介绍两种集： 训练集和测试集&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;训练集：用于拟合模型的数据（70%）&lt;/li&gt;
+&lt;li&gt;测试集：用于评估模型的泛化能力（30%）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在训练集中又被分隔出一块：交叉验证集。为什么需要交叉验证集 validation set 呢&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Business Reason：
+&lt;ul&gt;
+&lt;li&gt;Need to choose the beat model&lt;/li&gt;
+&lt;li&gt;measure accuracy（准确性）/power of the selected model&lt;/li&gt;
+&lt;li&gt;better to measure ROI of the modeling project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Statistical Reason：
+&lt;ul&gt;
+&lt;li&gt;model building techniques are inherently designed to minimize loss or bias&lt;/li&gt;
+&lt;li&gt;to an extent, a model will always fit &amp;quot;noise&amp;quot; as well as signal&lt;/li&gt;
+&lt;li&gt;if you just fit a bunch of models on a givne dataset and choose the &amp;quot;best&amp;quot; one , it will likely be overly optimistic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;过拟合与欠拟合&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#过拟合与欠拟合&#34;&gt;#&lt;/a&gt; 过拟合与欠拟合&lt;/h3&gt;
+&lt;p&gt;UnderFitting：模型无法捕捉到数据的底层趋势&lt;/p&gt;
+&lt;p&gt;OverFitting：模型完美拟合数据，但是也把噪音纳入进来，导致表现形式很繁琐&lt;/p&gt;
+&lt;h3 id=&#34;偏差-方差权衡-bias-variance-tradeoff&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#偏差-方差权衡-bias-variance-tradeoff&#34;&gt;#&lt;/a&gt; 偏差 - 方差权衡 Bias-Variance Tradeoff&lt;/h3&gt;
+&lt;p&gt;对于复杂的模型，可以忽略这个模型再未来数据的准确性。&lt;br&gt;
+&lt;img data-src=&#34;image-24.png&#34; alt=&#34;complex model&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;交叉验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#交叉验证&#34;&gt;#&lt;/a&gt; 交叉验证&lt;/h3&gt;
+&lt;p&gt;使用 validation set 以调优高维参数，然后仅使用 test set 来评估模型的泛化能力。&lt;/p&gt;
+&lt;p&gt;如果我们想减少数据的可变性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用不同分区进行多轮交叉验证&lt;/li&gt;
+&lt;li&gt;对所有轮次的结果进行平均&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;5-非线性机器学习与集成方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-非线性机器学习与集成方法&#34;&gt;#&lt;/a&gt; 5 非线性机器学习与集成方法&lt;/h1&gt;
+&lt;h2 id=&#34;决策树&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#决策树&#34;&gt;#&lt;/a&gt; 决策树&lt;/h2&gt;
+&lt;p&gt;定义：树的分支代表一个可能的决策、结果或者反应，现实表现为父节点的属性值。中间节点表示某种属性，叶子节点表示最终结果。&lt;br&gt;
+那么如何划分决策才是最优的呢？有个评判标准：对于一个 value，可以得到全为正的实例，而其余的 value，可以得到全为负的实例。如果划分后的每一片叶子的区分度都足够大，说明划分方式好。Entropy 熵就是用于表明区分度的。&lt;/p&gt;
+&lt;p&gt;必考：如何求解数据集合 D 的熵  呢？&lt;br&gt;
+口诀：负数、比例 p、Alog2A&lt;/p&gt;
+&lt;p&gt;假设叶子节点内部有 9 个正数节点和 5 个负数节点，可以根据口诀退出熵计算公式：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;entropy(P) = - p+log2p+ - p-log2p-&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;当然叶子节点内部也不一定只有正负两个类别，我们假设有 c 个类别，那么熵的计算公式为：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;entropy(D) = - sum(pclog2pc)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;下面再来介绍 Gain，Gain 用于表示对于某属性 A，其分类可以获得的熵信息增益&lt;br&gt;
+ &lt;code&gt;Gain(D, A) = Entropy(D) - sum(* Entropy(Dv))&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;v 属于属性 A 可以取到的所有可能值的集合&lt;/li&gt;
+&lt;li&gt;Dv 是 D 的子集，表示 A 的值为 v&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;示范把类似打网球的表格转化为决策树&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#示范把类似打网球的表格转化为决策树&#34;&gt;#&lt;/a&gt; 示范：把类似打网球的表格转化为决策树&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-25.png&#34; alt=&#34;decision tree&#34;&gt;&lt;br&gt;
+ 思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;四颗树木（可能的决策树）套公式计算信息密度，发现 Outlook 的 Gain 值最大&lt;/li&gt;
+&lt;li&gt;Overcast 的中间节点没必要拆分（因为叶子节点的值全为正的），只需要拆分 sunny 和 rain 对应&lt;/li&gt;
+&lt;li&gt;对于 sunny 节点，我们可以使用 humidity、wind、temp、继续拆分。&lt;/li&gt;
+&lt;li&gt;对于 Rain 节点，同样使用 humidity、wind、temp、继续拆分、wind 拆分效果最好&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;低偏差：模型在训练集拟合得好&lt;/li&gt;
+&lt;li&gt;高方差：模型更有可能做出错误的决策&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-multiclass-classification-and-cross-entropy-loss-多类分类和交叉熵损失函数&#34;&gt;#&lt;/a&gt; 5 Multiclass Classification and Cross-entropy Loss 多类分类和交叉熵损失函数&lt;/h1&gt;
+&lt;h1 id=&#34;6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;#&lt;/a&gt; 6 Neural Networks and Deep Learning 神经网络与深度学习&lt;/h1&gt;
+&lt;h1 id=&#34;7-rnn-transformer-bert&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-rnn-transformer-bert&#34;&gt;#&lt;/a&gt; 7 RNN、Transformer、BERT&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Stashed changes: 机器学习.md&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;集成学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集成学习&#34;&gt;#&lt;/a&gt; 集成学习&lt;/h2&gt;
+&lt;p&gt;将一系列基础模型合并到一起，从而产生一个更好的预测模型。主要方法：Bagging、Boosting&lt;/p&gt;
+&lt;h3 id=&#34;bagging&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bagging&#34;&gt;#&lt;/a&gt; Bagging&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 bootstrap sampling（重采样）得到 T 个数据集&lt;/li&gt;
+&lt;li&gt;训练 T 个 base learners 通过子数据集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有两种得到结果的方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Majority Voting：对于分类问题，选择 T 个模型中出现最多次数的结果&lt;/li&gt;
+&lt;li&gt;Average：对于回归问题，选择 T 个模型的平均值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;随机森林是 Bagging 的一种实现，它是一种集成学习方法，通过训练多个决策树来提高预测性能。随机森林的基本原理是通过随机选择特征和样本来构建多个决策树，并将这些决策树的预测结果进行平均或投票来得到最终的预测结果。&lt;/p&gt;
+&lt;h2 id=&#34;adaboostadaptive-boosting&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#adaboostadaptive-boosting&#34;&gt;#&lt;/a&gt; AdaBoost（Adaptive Boosting）&lt;/h2&gt;
+&lt;p&gt;原理：通过训练一系列弱分类器（weak learners），每个弱分类器都在前一个分类器的错误上进行学习，最终将这些弱分类器组合成一个强分类器（strong learner）。&lt;/p&gt;
+&lt;p&gt;进行 Time 次循环的时候，每次选择在当前权重下，错误率最小的弱分类机。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;./image-20241128103036889.png&#34; alt=&#34;image-20241128103036889&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;6-无监督学习聚类学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-无监督学习聚类学习&#34;&gt;#&lt;/a&gt; 6 无监督学习：聚类学习&lt;/h1&gt;
+&lt;p&gt;无监督学习的数据集是没有目标值的。&lt;/p&gt;
+&lt;h2 id=&#34;重点k-means聚类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重点k-means聚类&#34;&gt;#&lt;/a&gt; 重点：K-Means 聚类&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;过程：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;随机选取 K 个点作为初始质心（centroid）&lt;/li&gt;
+&lt;li&gt;将每个点分配到最近的质心&lt;/li&gt;
+&lt;li&gt;更新质心&lt;/li&gt;
+&lt;li&gt;重复 2 和 3 直到质心不再变化或者数据点分配情况基本不变&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;层次聚合聚类-hierarchical-agglomerative-clustering&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层次聚合聚类-hierarchical-agglomerative-clustering&#34;&gt;#&lt;/a&gt; 层次聚合聚类 Hierarchical Agglomerative Clustering&lt;/h2&gt;
+&lt;p&gt;层次聚合聚类（Hierarchical Agglomerative Clustering，HAC）是一种无监督学习算法，用于将数据点分层次地聚类。HAC 的基本思想是通过不断合并最相似的簇来构建一个层次结构，直到所有数据点都被合并到一个簇中。以下是 HAC 的详细过程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初始化&lt;/strong&gt;：将每个数据点视为一个单独的簇。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算距离&lt;/strong&gt;：计算所有簇之间的距离。常用的距离度量方法包括欧氏距离、曼哈顿距离等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合并簇&lt;/strong&gt;：找到距离最近的两个簇，并将它们合并成一个新的簇。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更新距离矩阵&lt;/strong&gt;：更新距离矩阵，重新计算新簇与其他簇之间的距离。常用的更新方法包括最小距离（单链接）、最大距离（全链接）、平均距离和质心距离等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重复步骤 3 和 4&lt;/strong&gt;：重复合并和更新距离矩阵的过程，直到所有数据点都被合并到一个簇中，或者达到预定的簇数量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;HAC 的结果通常用树状图（dendrogram）表示，树状图展示了数据点的合并过程和层次结构。通过剪切树状图，可以得到不同数量的簇。&lt;/p&gt;
+&lt;p&gt;HAC 的优点是能够发现数据的层次结构，不需要预先指定簇的数量。缺点是计算复杂度较高，适用于小规模数据集。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;与 K-means 算法的比较：
+&lt;ul&gt;
+&lt;li&gt;不是参数依赖的，而是实例依赖性&lt;/li&gt;
+&lt;li&gt;可以生成任意形状的聚类&lt;/li&gt;
+&lt;li&gt;生成层级的聚类，聚类不只是 “在平面切分的”&lt;/li&gt;
+&lt;li&gt;不需要在聚类之前指定聚类的数量，也不是随机的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;7-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-neural-networks-and-deep-learning-神经网络与深度学习&#34;&gt;#&lt;/a&gt; 7 Neural Networks and Deep Learning 神经网络与深度学习&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-27.png&#34; alt=&#34;neural network&#34;&gt;&lt;br&gt;
+ 使用权重 w 对 x 进行线性变换后带入激活函数得到结果，重复多次的过程是神经网络的基本原理。&lt;/p&gt;
+&lt;h2 id=&#34;前向传播&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前向传播&#34;&gt;#&lt;/a&gt; 前向传播&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-26.png&#34; alt=&#34;Lossfunction set&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;反向传播&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反向传播&#34;&gt;#&lt;/a&gt; 反向传播&lt;/h2&gt;
+&lt;h2 id=&#34;cnn-卷积神经网络&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cnn-卷积神经网络&#34;&gt;#&lt;/a&gt; CNN 卷积神经网络&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;卷积神经网络&lt;/em&gt;（convolutional neural networks，CNN）是机器学习利用自然图像中一些已知结构的创造性方法。卷积神经网络是将&lt;em&gt;空间不变性&lt;/em&gt;（spatial invariance）的这一概念系统化，从而基于这个模型使用较少的参数来学习有用的表示。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;平移不变性&lt;/em&gt;（translation invariance）：不管检测对象出现在图像中的哪个位置，神经网络的前面几层应该对相同的图像区域具有相似的反应，即为 “平移不变性”。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;局部性&lt;/em&gt;（locality）：神经网络的前面几层应该只探索输入图像中的局部区域，而不过度在意图像中相隔较远区域的关系，这就是 “局部性” 原则。最终，可以聚合这些局部特征，以在整个图像级别进行预测。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;图像卷积操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图像卷积操作&#34;&gt;#&lt;/a&gt; 图像卷积操作&lt;/h3&gt;
+&lt;p&gt;卷积层所表达的运算实际是互相关运算（cross-correlation），而不是卷积运算。输入张量和核张量通过互相关运算产生输出张量。&lt;/p&gt;
+&lt;p&gt;已知输入张量为 nhXnw，卷积核为 khXkw，得到输出张量的规格：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;∗&lt;/mo&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;(n_h - k_h + 1)*(n_w-k_w+1)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.33610799999999996em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;h&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.84444em;vertical-align:-0.15em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.33610799999999996em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34;&gt;h&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;∗&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.151392em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.84444em;vertical-align:-0.15em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.151392em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;实例：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;./image-20241127213926417.png&#34; alt=&#34;image-20241127213926417&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stride：卷积核移动的步长&lt;/li&gt;
+&lt;li&gt;Padding：在输入数据周围填充额外的数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;8-rnn-transformer-bert&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#8-rnn-transformer-bert&#34;&gt;#&lt;/a&gt; 8 RNN、Transformer、BERT&lt;/h1&gt;
+&lt;h2 id=&#34;强化学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#强化学习&#34;&gt;#&lt;/a&gt; 强化学习&lt;/h2&gt;
+&lt;p&gt;三个阶段：监督训练、奖励模型训练、强化学习模型训练&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;监督训练：从数据集中采样问题、根据采样问题，人工给出高质量回答、基于问题和回答，对 gpt 进行监督训练&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;奖励模型训练：从数据集采样问题并输入第一阶段训练的 gpt 模型，根据问题和回答，使用奖励模型给出奖励，基于问题和回答，对 gpt 进行奖励训练&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;强化学习模型训练：从数据集采样问题并输入第一阶段训练的 gpt 模型，根据问题和回答，使用强化学习模型给出奖励，基于问题和回答，对 gpt 进行强化学习训练&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
