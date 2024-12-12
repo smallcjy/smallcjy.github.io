@@ -1,0 +1,38 @@
+---
+title: 记录NCX开发的路程
+date: 2024-11-29 16:25:35
+tags: NCX
+---
+
+# debug和思考记录
+## 1 Stream代理技术
+### 场景假设
+现在有个socket在ip1下listen，我们希望访问ip2来连接到ip1的socket。这个过程就是Stream代理过程。那么如何实现这一过程呢？下面将详细介绍！
+### Stream转发思想
+当ip1有socket listen时，通知ip1主动connect到ip2，通知ip2：ip1有listen的socket，可以开始等待连接。这时ip2会创建socket开始监听指定的端口，等待访问ip2的连接。当ip2有连接时，将accept ip1的Stream和accept 外界ip的Stream进行双向流交换，知道外界ip或者ip1的Stream关闭，这时Stream代理结束。以上就是Stream代理的基本思想。
+### Stream双向流交换
+存在需要交换的两个Stream，Stream1 read的数据会write到Stream2，Stream2 read的数据会write到Stream1。直到Stream1或者Stream2关闭，这时双向流交换结束。
+
+
+## 2 客户端发送数据时、服务端登记的监听客户端的fd会被一直唤醒
+epoll唤醒后，fd内的数据需要被读取，不然会一直识别到可读信号导致epollwait一直返回该事件
+
+## 3 Stream 双向流数据传输
+### 设计 exchannel
+
+## 4 Server 调用read时，会一直阻塞
+accept调用返回的fd不会因为对端client socket设置为非阻塞而是非阻塞，需要我们手动设置为非阻塞
+
+## 5 channel update 的时机
+注意每次更新完channel的callback函数后，需要调用channel的update函数，这样才能使callback函数生效，为了防止遗忘，可以在setcallback函数中调用update函数。
+
+# 开发日记
+## 2024-11-30
+今天完成了ncx server的底层架构，ncx server的底层架构的设计主要参考了一个名叫TinyLinuxServer的开源项目。架构设计是这样子的。首先我们要并发的处理客户端请求，并发的处理读写需求，而这些事件的到来可以统一为向文件描述符进行读写，linux提供多路复用技术，通过对文件描述符的监听，当文件描述符有指定事件发生时，会通知并进行回调。linux提供的多路复用技术有三种，分别是select系、poll系、epoll系。epoll系相较于前面两种的思想更为先进，所以这里我们使用epoll调用作为服务器异步并发处理请求的基础。
+
+## 2024-12-09
+前面几天由于课程的答辩任务繁多，耽误了开发进度。今天重新拾起，并且完成了一对连接体的双向数据交换，这个对于内网穿透的实现是最基本的。
+![exchange](image.png)
+交换的实现非常简单，就是对连接体的读回调函数进行重新定义，定义为读后转发。下一步的目标是实现动态的连接体匹配，我希望通过消息队列来实现这一需求。
+
+这天下午马不停蹄的完成zeromq的多生产者单消费者channel的设计，其原理是在消费者处使用bind绑定，在生产者处使用connect连接。zeromq是非常轻量级、高性能的异步消息队列库，在多线程、网络场景中经常使用。

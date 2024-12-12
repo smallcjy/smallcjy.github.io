@@ -1,0 +1,464 @@
+---
+title: 现代cpp及cpp后端架构学习笔记
+date: 2024-11-04 20:51:07
+tags: cpp
+---
+
+## RAII惯用法
+RAII：Resource Acquisition Is Initialization，资源获取即初始化。在C++中，RAII是一种资源管理的技术，通过在对象的构造函数中获取资源，然后在对象的析构函数中释放资源，来管理资源的生命周期。RAII的核心思想是：将资源的生命周期与对象的生命周期绑定在一起，通过对象的构造和析构来管理资源的生命周期。
+
+简单来说就是资源的获取都在构造函数中执行，资源的释放都在析构函数中执行，从而达到内存自动管理的兄啊过
+
+## pimpl惯用法
+pimpl：pointer to Implementation
+使用目的：保持对外接口不变、又能尽量不暴露一些关键性的成员变量和私有函数的实现方法呢？有的！将全部的私有成员和函数用Impl*指针（名字可自定义）代替。这样私有成员对外不可见
+
+```cpp
+// MyClass.h
+#ifndef MYCLASS_H
+#define MYCLASS_H
+
+#include <memory>
+
+class MyClass {
+public:
+    MyClass();
+    ~MyClass();
+
+    void doSomething();
+
+private:
+    class Impl;
+    std::unique_ptr<Impl> pImpl;
+};
+
+#endif // MYCLASS_H
+```
+
+```cpp
+// MyClass.cpp
+#include "MyClass.h"
+#include <iostream>
+
+class MyClass::Impl {
+public:
+    void doSomething() {
+        std::cout << "Doing something in the implementation class." << std::endl;
+    }
+};
+
+MyClass::MyClass() : pImpl(std::make_unique<Impl>()) {}
+
+MyClass::~MyClass() = default;
+
+void MyClass::doSomething() {
+    pImpl->doSomething();
+}
+```
+
+在h文件中暴露出必要的使用接口，将体现接口能够实现的内部实现的成员和函数放入cpp文件中的impl类中。impl是接口类的父类，这是个很棒的设计模式。
+
+* 优点：
+    * 核心数据成员被隐藏
+    * 降低编译依赖，提高编译速度
+    * 实现接口与实现的分离（这很令我心动）
+
+### 使用智能指针
+在C++11中，我们可以使用std::unique_ptr来管理pImpl指针，这样就不需要手动释放内存了。类似rust的arc智能指针，可以计数然后在计数为0的时候进行自动的内存释放。
+
+## 拥抱现代CPP（CPP11以后新增的实用magic）
+### 1 统一的类成员初始化语法与`std::initializer_list<T>`
+
+* 列表类成员初始化：
+```cpp
+class MyClass {
+public:
+   int arr[SIZE];
+   MyClass() : arr{1, 2, 3, 4, 5} {}
+}
+```
+这是如何实现的呢？答案是`std::initializer_list<T>`，下面给出一个例子解释如何是是使用`std::initializer_list<T>`去实现类列表成员的初始化。
+
+```cpp
+class A
+{
+public:
+    A(std::initializer_list<int> integers)
+    {
+        m_vecIntegers.insert(m_vecIntegers.end(), integers.begin(), integers.end());
+    }
+private:
+    std::vector<int> m_vecIntegers;
+};
+```
+可见，`std::initializer_list<T>`是可以视为一个容器，它的模板参数是初始化列表中的元素类型。`std::initializer_list<T>`是一个轻量级的容器，它只提供了最基本的功能，没有提供像`std::vector`那样的复杂功能。`std::initializer_list<T>`的主要作用是用于初始化列表，它的构造函数接受一个初始化列表，然后将初始化列表中的元素拷贝到`std::initializer_list<T>`对象中。
+
+* 类成员初始化：
+```cpp
+class MyClass {
+public:
+   string initS{"init"};
+}
+```
+但仍然建议将类成员的初始化放在构造函数中，这样更加清晰。
+
+## 服务器与事件驱动模型
+在了解事件驱动模型之前，我们先要了解如何能够自由的注册各种事件，并且能识别捕捉到到来的事件类型。这里使用Channel的概念，Channel本质上是对监听的fd以及其注册的epoll event事件的封装。epoll wait返回的事件列表中只有一个个的待处理的fd，我们需要对这些fd注册的事件或者别的信息进行记录，不能仅仅通过fd来区分不同的事件。Channel类可以使用这些信息进行回调函数的处理。
+
+服务器监听epoll上的事件，对不同的事件类型进行不同的处理。这种思想就是事件驱动。这里可以引出服务器开发的两种重要的经典模式：Reactor模式和Proactor模式。这两个模式在后续会继续进行讲解。
+
+由于笔者偏向于Linux服务器开发，针对Linux的系统api，Reactor模式更加适合，下面首先对Reactor模式进行讲解。
+
+### Reactor模式
+Reactor的翻译是反应堆，顾名思义，就是对事件的反应，也就是有事件incoming，Reactor就会对其做出反应，将事件分配给可用的进程进行使用。因此Reactor模式由两个部分组成：
+* Reactor：负责监听事件，当事件到来时，将事件分发给对应的处理程序。也就是观察者
+* Handler：负责处理资源池处理事件
+
+## cpp17 三大使用注解
+* `[[fallthrough]]`
+用于switch-case语句中，当某个case分支执行完毕后如果没有break语句，此时可能是开发者有意为之，即所谓击穿操作，这时可在此处显示标记`[[fallthrough]]`，编译器不会报错。
+```cpp
+case 1:
+    cout << "case 1" << endl;
+    [[fallthrough]];
+```
+* `[[nodiscard]]`
+用于函数声明，表示函数的返回值不应该被忽略。
+```cpp
+[[nodiscard]] int foo() {
+    return 1;
+}
+```
+
+* `[[maybe_unused]]`
+函数参数声明前置该注解时，表示该参数可能不会被使用，编译器不会报警告。
+```cpp
+void foo([[maybe_unused]] int a) {
+    cout << "foo" << endl;
+}
+```
+
+## final/override/=default/=delete auto语法
+* final：final关键字修饰一个类，表示该类不允许被继承。
+```cpp
+class Base final {};
+```
+* override: override关键字修饰一个函数，表示该函数是一个虚函数，用于覆盖基类的虚函数。子类将强制检查子类中是否重写override标记的虚函数。
+
+* =default：在h头文件中简化默认构造函数的写法。而且在cpp文件中无需再次编写
+```cpp
+class MyClass {
+public:
+    MyClass() = default;
+};
+```
+
+* =delete: 和=default相反，=delete用于禁止编译器自动生成构造函数、析构函数、拷贝构造函数。
+比如我们想要一个类不允许被拷贝构造：
+```cpp
+class MyClass {
+    public:
+        MyClass(const MyClass&) = delete;
+        MyClass& operator=(const MyClass&) = delete;
+};
+```
+在工具类中，可以使用delete来禁止四大函数的生成，减少编译时间和可执行文件的大小。
+
+* auto关键字
+auto用于编译器去推导变量的类型，可以减少开发者的心智成本，减少码字量。
+
+## Range-based循环语法
+```cpp
+for(auto& i : vec) {
+    cout << i << endl;
+}
+```
+对于复杂的数据结构，希望尽量使用这种引用原始数据的方式，防止调用拷贝函数带来的时空开销。
+
+如何让自定义的类对象也能支持range-based循环呢？只需要重载begin()和end()函数即可。begin和end函数返回迭代对象Iterator，Iterator类型需要支持++、!=、*操作。
+
+C++17标准对于for-each的定义如下
+```cpp
+1 auto && __range = for-range-initializer;
+2 auto __begin = begin-expr;
+3 auto __end = end-expr;
+4 for ( ; __begin != __end; ++__begin ) {
+5     for-range-declaration = *__begin;
+6     statement;
+7 }
+```
+begin和end可以是不同类型，但要满足可比较性，即begin和end的类型要支持!=操作。
+
+## C++17结构化绑定 Structured Binding
+语法：
+```cpp
+auto [a, b, ...] = expression;
+auto& [a, b, ...] = expression;
+const auto& [a, b, ...] = expression;
+```
+同样为了减少不必要的拷贝开销，尽量使用引用。结构化绑定可以让我们更加优雅的方式去遍历容器。注意结构化绑定不能被binging到constexpr和static上。
+
+## stl容器新增的实用方法介绍
+
+### 1. 原位构造函数emplace_back系列函数
+在向容器中推入元素时，如果元素是某个类的对象，因为push方法通常需要拷贝临时变量，这样会导致大量拷贝构造和析构函数被调用。我们希望直接将创建的元素直接放入容器，这是就需要emplace_back方法。
+```cpp
+vector<Test> vec;
+vec.emplace_back(argv1, ...); //argvn为Test类的构造函数参数
+```
+
+### 2. std::map的try_emplace与insert_or_assign方法
+* try_emplace：尝试插入一个元素，如果元素已经存在，则不插入，返回一个pair，第一个元素是指向元素的迭代器，第二个元素是bool值，表示是否插入成功。
+```cpp
+template <class... Args>
+pair<iterator, bool> try_emplace(const key_type& k, Args&&... args);
+
+template <class... Args>
+pair<iterator, bool> try_emplace(key_type&& k, Args&&... args);
+
+template <class... Args>
+iterator try_emplace(const_iterator hint, const key_type& k, Args&&... args);
+
+template <class... Args>
+iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args);
+```
+参数k表示需要插入的key，args参数是不定参数，表示构造value对象需要传递该构造函数的参数，hint表示插入的位置。前两种签名方式中，try_emplace返回`pair<T1, T2>`其中T2是一个bool类型表示元素是否成功插入map中，T1是一个map的迭代器，如果插入成功，则返回指向插入位置的元素的迭代器，如果插入失败，则返回map中已存在的相同key元素的迭代器。
+
+注意：try_emplace方法的第二个参数只允许创建对象，而不是对象指针。如果容器声明中存在值为指针的元素，使用try_emplace方法时，返回的iter的second的值为空指针。这时候需要将声明中的裸指针改为智能指针，将智能指针传入try_emplace方法，并且在调用时创建新的智能指针并将其所有权转移给iter->second即可接收到指针对象。
+
+## 抛弃裸指针，拥抱智能指针！
+
+C++11中引入三种类型的智能指针：unique_ptr shared_ptr weak_ptr。
+
+### 1 unique_ptr    
+unique_ptr是一个独占所有权的智能指针，它禁止拷贝和赋值，只能通过移动语义来转移所有权。unique_ptr对其指向的堆具有唯一拥有权，也就是引用计数永远是1，类似于rust的Box智能指针。
+使用：
+```cpp
+std::unique_ptr<int> p = std::make_unique<int>(10);
+std::unique_ptr<int> pvec(std::make_unique<int[]>(10));
+```
+unique_ptr禁止复制语义，只能使用移动拷贝构造来转移所有权。
+```cpp
+std::unique_ptr<int> p1 = std::make_unique<int>(10);
+std::unique_ptr<int> p2 = std::move(p1);
+```
+使用std::move将sp1持有的堆内存转移给sp2，此时p1变为空的智能指针。
+
+**自定义智能指针对象持有资源释放函数**
+```cpp
+auto deletor = [](Socket* pSock) {
+    // 释放资源
+    pSocket->close();
+    delete pSocket;
+}
+std::unique_ptr<Socket, decltype(deletor)> pSock(new Socket(), deletor);
+```
+decltype是让编译器自己推导deletor的类型
+
+### 2 shared_ptr
+相比于unique_ptr的所有权独占，shared_ptr是一个共享所有权的智能指针，它使用引用计数来管理资源的生命周期。shared_ptr允许多个shared_ptr指向同一个堆内存，当最后一个shared_ptr被销毁时，引用计数为0，堆内存被释放。类似于rust的arc智能指针。
+
+初始化：
+```cpp
+std::share_ptr<int>sp = std::make_shared<int>(10);
+std::share_ptr<int>spc(sp); //10的引用计数加1
+```
+
+**`enable_shared_from_this<T>`**
+
+实际开发中，有时候需要在类中返回包裹当前对象（this）的一个std::shared_ptr对象给外部使用，C++新标准也为我们考虑到了这一点，有如此需求的类只要继承自**std::enable_shared_from_this<T>**模板对象即可。
+
+```cpp
+#include <iostream>
+#include <memory>
+
+class A : public std::enable_shared_from_this<A>
+{
+public:
+    A()
+    {
+        std::cout << "A constructor" << std::endl;
+    }
+
+    ~A()
+    {
+        std::cout << "A destructor" << std::endl;
+    }
+
+    std::shared_ptr<A> getSelf()
+    {
+        return shared_from_this();
+    }
+};
+
+int main()
+{
+    std::shared_ptr<A> sp1(new A());
+
+    std::shared_ptr<A> sp2 = sp1->getSelf();
+
+    std::cout << "use count: " << sp1.use_count() << std::endl;
+
+    return 0;
+}
+```
+
+在使用share_ptr的时候存在一些使用上的陷阱：
+* 不应该将智能指针指向栈上的对象，智能指针本质上是为了管理堆上的资源。
+* 循环引用：两个对象互相持有对方的shared_ptr，导致引用计数永远不为0，内存泄漏。比如shared_from_this循环引用，对象持有对自己的shared_ptr，导致引用计数永远不为0，进而导致对象无法被析构，内存泄漏。
+
+解决办法是：对象自身持有对自己的weak_ptr。
+
+### 3 weak_ptr
+
+weak_ptr可以从share_ptr降级而来，也可以从另一个weak_ptr拷贝而来。weak_ptr不会增加引用计数，它是为了解决循环引用问题而设计的。weak_ptr不会增加引用计数，当最后一个shared_ptr被销毁时，堆内存被释放，weak_ptr指向的对象变成空指针。
+
+调用`weak_ptr.lock()`获得shared_ptr对象操作资源。因为weak_ptr不能直接调用对象的成员函数，需要先将weak_ptr转换为shared_ptr，也不能直接使用解引用判断所指资源存不存在。
+
+weak_ptr适合使用在资源可用时使用，不可用时不用的场景。比如：网络分层结构中，Session对象（会话对象）利用Connection对象（连接对象）提供的服务来进行工作，但是Session对象不管理Connection对象的生命周期，Session管理Connection的生命周期是不合理的，因为网络底层出错会导致Connection对象被销毁，此时Session对象如果强行持有Connection对象则与事实矛盾。
+
+std::weak_ptr的应用场景，经典的例子是订阅者模式或者观察者模式中。这里以订阅者为例来说明，消息发布器只有在某个订阅者存在的情况下才会向其发布消息，而不能管理订阅者的生命周期。
+
+
+### 智能指针的使用注意事项
+C++新标准提倡的理念之一是不应该再手动调用delete或者free函数去释放内存了，而应该把它们交给新标准提供的各种智能指针对象。C++新标准中的各种智能指针是如此的实用与强大，在现代C++ 项目开发中，读者应该尽量去使用它们。
+
+1. **一旦一个对象使用智能指针管理后，就不该再使用原始裸指针去操作；**
+2. **分清楚场合应该使用哪种类型的智能指针；**通常情况下，如果你的资源不需要在其他地方共享，那么应该优先使用std::unique_ptr，反之使用std::shared_ptr，当然这是在该智能指针需要管理资源的生命周期的情况下；如果不需要管理对象的生命周期，请使用std::weak_ptr。
+3. **认真考虑，避免操作某个引用资源已经释放的智能指针；**前面的例子，一定让读者觉得非常容易知道一个智能指针持有的资源是否还有效，但还是建议在不同场景谨慎一点，有些场景是很容易造成误判的。
+4. 作为类成员变量时，应该优先使用前置声明（forward declarations）
+```cpp
+//Test.h
+//在这里使用A的前置声明，而不是直接包含A.h文件
+class A;
+
+class Test
+{
+public:
+    Test();
+    ~Test();
+
+private:
+    A*      m_pA;
+};
+```
+同样的道理，在头文件中当使用智能指针对象作为类成员变量时，也应该优先使用前置声明去引用智能指针对象的包裹类，而不是直接包含包裹类的头文件。
+``` cpp
+//Test.h
+#include <memory>
+
+//智能指针包裹类A，这里优先使用A的前置声明，而不是直接包含A.h
+class A;
+
+class Test
+{
+public:
+    Test();
+    ~Test();
+
+private:  
+    std::unique_ptr<A>  m_spA;
+};
+```
+
+# C++多线程从入门到入土
+多线程编程的原因无非就是使多核技术得到充分利用，提高程序性能。多核编程能力不仅仅是后台开发需要的基本功，更是所有软件开发需要的基本功，锤炼自己的多线程编程能力，至关重要！
+
+## 1 thread basic concept
+线程是在进程中创建的，进程是执行一个程序的基本环境，拥有自己的地址空间和上下文堆栈。而线程是进程的实际执行执行单元，进程默认至少有一个线程，即主线程。同时进程可以创建多个线程，这些线程和主线程共享进程的地址空间和上下文堆栈。
+
+在window系统中，主线程如果执行完毕，此时仍有支线程没有执行完毕，支线程会被强制退出。解决方案就是主线程在推出前需要检查创建的支线程有没有全部执行完毕，如果没有，主线程需要等待支线程执行完毕后再退出。
+
+在Linux系统中，主线程退出后，支线程不会被强制退出，支线程会继续执行。这是因为Linux系统中，主线程和支线程是平等的，没有主次之分。但是如果主线程退出，支线程会变成孤儿线程（僵尸线程），这时候支线程会被init进程接管，init进程会回收孤儿线程的资源。实际开发中要尽可能避免孤儿线程的出现。
+
+**提问: 当某个线程崩溃，会对其他线程产生影响吗？**
+每个线程都是独立执行的单位，每个线程有自己的上下文堆栈，所以某个线程的崩溃不会对其他线程造成影响。但是线程的崩溃会产生一个Segment Fault错误，这个错误会发出一个信号，系统捕捉这个信号的回调函数就是结束整个进程，其他的正常工作的线程也会被强制退出。
+
+## 2 cpp 并发教程
+### 2.1 线程的创建
+在开始多线程编程之前，首先要了解自己所使用的多线程库如何创建线程。这里
+
+#### Linux线程创建。
+
+api：pthread_create
+```cpp
+int pthread_create(pthread_t *thread,
+                   const pthread_attr_t *attr,
+                   void *(*start_routine) (void *),
+                   void *arg);
+```
+* thread：指向线程标识符的指针，线程标识符是线程的唯一标识，用于操作线程。
+* attr: 指定该线程的属性，一般设置为NULL，表示使用默认属性。
+* start_routine：线程的入口函数，线程创建后会执行该函数。注意这个函数的调用必须是`**_cdecl`调用约定，这是函数定义的默认方式。
+```cpp
+void* __cdecl start_routine(void* args);
+```
+* arg：传递给线程入口函数的参数。
+* 返回值：如果成功创建线程，返回0；创建失败会返回错误码
+
+#### Cpp11提供的std::thread
+std::thread是C++11标准库提供的线程库，使用std::thread创建线程非常方便，不需要关心线程的属性，只需要传入线程入口函数和参数即可。不用向linux线程一样需要自定义大量的参数和属性。
+
+在使用thread库时需要注意线程对象需要在线程退出前保持有效（保持有效的意思就是不能被释放）。如何解决呢？thread库提供detach方法，这个方法会让线程对象与线程函数脱离关系。
+```cpp
+void func() {
+    std::thread t(thread_func);
+    t.detach();
+}
+```
+
+但是不希望这么做，因为我们在主线程还希望通过t去操作管理线程的运行和生命周期。
+
+### 2.2 线程ID
+
+## Cpp使用现代特性避免使用虚函数
+
+
+### 线程池添加任务并获取返回值代码剖析
+```cpp
+template<class F, class... Args>
+auto ThreadPool::add(F&& f, Args&&... args) -> std::future<typename std::result_of<F(Args...)>::type> {
+    using return_type = typename std::result_of<F(Args...)>::type;  //返回值类型
+
+    auto task = std::make_shared< std::packaged_task<return_type()> >(  //使用智能指针
+            std::bind(std::forward<F>(f), std::forward<Args>(args)...)  //完美转发参数
+        );  
+        
+    std::future<return_type> res = task->get_future();  // 使用期约
+    {   //队列锁作用域
+        std::unique_lock<std::mutex> lock(tasks_mtx);   //加锁
+
+        if(stop)
+            throw std::runtime_error("enqueue on stopped ThreadPool");
+
+        tasks.emplace([task](){ (*task)(); });  //将任务添加到任务队列
+    }
+    cv.notify_one();    //通知一次条件变量
+    return res;     //返回一个期约
+}
+```
+
+1. 函数模板
+```cpp
+template<class F, class... Args>
+auto ThreadPool::add(F&& f, Args&&... args) -> std::future<typename std::result_of<F(Args...)>::type>
+```
+函数模板定义可以接收调用对象和参数集合，F可以是函数，函数对象，lambda表达式等，Args是参数集合。返回值是一个期约，期约是一个异步操作的结果，可以通过get方法获取异步操作的结果。
+
+2. 返回类型 后置返回类型
+`std::result_of<F(Args...)>::type`
+这是 C++11 中的类型萃取工具，用于推导 F 的调用结果类型。
+
+例如，如果 F 是一个函数 int foo(int)，且 Args... 是 (int)，那么 std::result_of<F(Args...)>::type 是 int。
+
+3. 创建任务对象
+```cpp
+auto task = std::make_shared<std::packaged_task<return_type()>>(
+    std::bind(std::forward<F>(f), std::forward<Args>(args)...)
+);
+```
+这里使用 std::packaged_task 包装任务，std::packaged_task 是一个模板类，它可以包装一个可调用对象，允许其返回值与future相关联，然后通过 std::future 来获取该可调用对象的返回值。
+
+`std::forward` 完美转发，避免不必要的拷贝
+
+`[task](){ (*task)(); }`：lambda表达式，用于捕捉函数闭包，捕获变量task，传入到lambda中。
