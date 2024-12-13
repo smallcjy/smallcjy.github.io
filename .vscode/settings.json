@@ -26,5 +26,12 @@
   // Run tasks in macOS
   "terminal.integrated.profiles.osx": {
     "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
-  }
+  },
+  //image paste
+  "pasteImage.showFilePathConfirmInputBox": true,
+  "pasteImage.path": "${projectRoot}/assets/img/${currentFileNameWithoutExt}",
+  "pasteImage.basePath": "${projectRoot}",
+  "pasteImage.forceUnixStyleSeparator": true,
+  "pasteImage.prefix": "/"
 }
+
