@@ -32,6 +32,7 @@
   "pasteImage.path": "${projectRoot}/assets/img/${currentFileNameWithoutExt}",
   "pasteImage.basePath": "${projectRoot}",
   "pasteImage.forceUnixStyleSeparator": true,
-  "pasteImage.prefix": "/"
+  "pasteImage.prefix": "/",
+  "markdown.validate.enabled": false
 }
 
