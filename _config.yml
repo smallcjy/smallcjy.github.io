@@ -14,9 +14,9 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Juya Cai's Blog # the main title
+title: Juya Cai # the main title
 
-tagline: Welcome to Juya Cai's World! # it will display as the subtitle
+tagline: Juya Cai's Blog # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A Blog from Juya Cai, where you can read awesome articles about technology, programming, and more.
@@ -98,7 +98,7 @@ theme_mode: light
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: assets/img/favicons/web-app-manifest-512x512.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
