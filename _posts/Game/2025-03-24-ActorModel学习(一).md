@@ -39,7 +39,7 @@ type Connector interface {
 
 现在可以来看看网关的Actor树。
 
-![alt text](assets\img\2025-03-24-ActorModel学习(一)\image.png)
+![alt text](assets/img/2025-03-24-ActorModel学习(一)/image.png)
 
 ```go
 // 客户端抽象
