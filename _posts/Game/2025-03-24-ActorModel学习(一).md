@@ -15,6 +15,8 @@ Actor模型是一种计算的数学理论，基于Actors的概念。Actor是计�
 
 每个actor都有地址 / address。actor有自己的mailbox，表示某条消息的目的地。
 
+注意：**OnReceive调用传入的是自己的actor上下文**
+
 ## 基于Actor模型的分布式游戏后台架构
 
 如何依托Actor模型架构高并发高可用伸缩性强的游戏分布式后端，这是本文谈论的重点。能够落实实践的模型才是好模型，在实践中相信读者才能够更加深刻的理解Actor的精髓，理解为什么Actor天生适合游戏后台开发。
@@ -35,30 +37,20 @@ type Connector interface {
 
 在我的设想中，网关面对客户端大致会处理三种类型的消息，**建立连接消息、用户请求消息、断开连接消息**。
 
-建立连接消息，网关会解析消息体，验证新连接身份，创建用户连接。注意这里存在第二个需要抽象的地方，用户连接会随着业务的变化而变化，但是网关不会关心这些，所以需要对用户连接进行抽象。
+连接器接受连接后，对这个连接我希望把他的读写抽象成两个Actor，读Actor和写Actor。写Actor是读Actor的子Actor，为什么呢，因为读Actor是一个for循环，能够实时监听连接是否断开，而写Actor无法知道连接是否断开。所以在读Actor断开时，写Actor就会自动跟随读Actor被释放。这样就实现自动管理读写Actor的生命周期。
 
-现在可以来看看网关的Actor树。
-
-![alt text](assets/img/2025-03-24-ActorModel学习(一)/image.png)
-
-```go
-// 客户端抽象
-type ClientAgent interface {
-    func OnReceive() // Actor
-
-    func Reader() // 接受并解码数据
-    func Writer() // 发送并编码数据
-
-    func GetSession() // 获取能够标识用户身份的session
-    func GetRoomPath() // 网关需要要将用户请求消息路由到哪个Room Actor
-    func GetGamePath() // 用户连接的游戏
-}
-```
-
-这里不抽象客户端了、改成抽象读写操作。读actor和写actor。
-
-差不多这些、后续开发中会继续补充。
-
-用户请求消息，网关收到这个消息，用户请求消息我的设想是分成两个类型，一个是房间类型，一个是游戏类型，分别对应网关需要转发到的地方。网关识别消息类型，并进行转发。请求中要携带游戏的标记（GameId）和房间的标记（RoomId），网关在初始化的时候，会向注册中心订阅所有的房间和游戏的Actor地址。这样网关在转发的时候，才知道向哪里转发。
+读写Actor的分离的好处是读写并发，两个actor的消息处理不受相互影响，不会相互阻塞。
 
 这里来设计一下网关的消息路由结构。
+
+这里可以先去看看本系列的第二篇，先了解下消息协议如何设计的。我们的分布式游戏后台不同的节点统一通过Message来通信。Message的类型表示这条Message的目的地，比如某条Message的type是MT_ROOM，说明网关需要把这条消息发送给room节点。对于MT_GATE的消息，说明是其他节点发向网关，网关需要将其通过writer发送给客户端。
+
+网关如何识别消息从哪个writer中发出去呢？每一条用户连接都会产生一个固定的session，这个session是reader actor和writer actor的name，同时这个session会保存在message中。网关解析到session就知道是哪个writer actor。这样也避免了网关记录writer actor ref带来的数据竞争的问题。
+
+### Router
+
+Router Actor在设计上是无状态的，所有可以写个Router Group Actor，下面有多个Actor负责转发消息。Router的转发路线仅包括两个方向：
+- socket -> system
+- system ->socket
+
+也就是系统内部各节点的消息路由不由Router负责，需要在自己的节点负责转发。
