@@ -5,6 +5,7 @@ tags: [游戏后台]
 ---
 
 ## Actor Name 地狱
+
 为什么会有ActorName地狱呢，因为在Actor System中，万物皆为Actor，都有自己的Name。这样导致Actor Ref的发现变得非常困难。加上Actor灵活的生成销毁，Actor Name集合是不断处于变化的状态的。
 
 一个简单粗暴的解决方案，就是把主要节点的Name写死在配置文件中。不同的ActorSystem内的节点只能通过配置文件访问到其他节点的主要节点。然后由主要节点和内部节点进行沟通完成业务需求。
