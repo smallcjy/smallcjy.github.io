@@ -33,6 +33,9 @@
   "pasteImage.basePath": "${projectRoot}",
   "pasteImage.forceUnixStyleSeparator": true,
   "pasteImage.prefix": "/",
-  "markdown.validate.enabled": false
+  "markdown.validate.enabled": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
 }
 
