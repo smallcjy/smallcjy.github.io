@@ -1,51 +1,24 @@
+// 动态规划：dp[i]: i个节点组成的二叉树共有dp[i]种情况
+// 思路：因为所有节点的孩子数为0或2，好二叉树的左右子树一定也是好二叉树，所以根据左右子树的好二叉树情况可以组合推断出该节点数的情况。
+
 #include<bits/stdc++.h>
 using namespace std;
-using LL = long long;
+const int MOD = 1e9+7;
 
-void solve() {
-    int n, x;
-    cin >> n >> x;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) cin >> nums[i];
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> dp(n+1, 0); // 偶数节点数的树组不成好二叉树
+    dp[1] = 1; dp[3] = 1; // 初始化
 
-    if(n == 0) {
-        cout << 0 << endl;
-        return;
+    for(int i = 5; i <= n; i += 2) {
+        for(int j = 1; j < i - 1; j += 2) {
+            dp[i] += dp[j] * dp[i - j - 1];
+            dp[i] %= MOD;
+        }
     }
 
-    vector<vector<LL>> dp(n, vector<LL>(2));
-    dp[0][0] = nums[0];  // 不使用修改
-    dp[0][1] = x;        // 使用修改（将第一个元素改为x）
-    LL max_global = max(dp[0][0], dp[0][1]);
-
-    for(int i = 1; i < n; i++) {
-        // 不使用修改的情况
-        dp[i][0] = max(LL(nums[i]), dp[i-1][0] + nums[i]);
-        
-        // 使用修改的情况有两种可能：
-        // 1. 在当前元素使用修改权（将nums[i]改为x）
-        LL case1 = max(LL(x), dp[i-1][0] + x);
-        // 2. 不在当前元素使用修改权（之前已经用过）
-        LL case2 = max(LL(nums[i]), dp[i-1][1] + nums[i]);
-        dp[i][1] = max(case1, case2);
-        
-        // 更新全局最大值
-        max_global = max({max_global, dp[i][0], dp[i][1]});
-    }
-
-    // 确保至少选择一个元素（题目可能允许空子数组和为0）
-    max_global = max(max_global, LL(0));
-    cout << max_global << endl;
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    int t;
-    cin >> t;
-    while(t--) {
-        solve();
-    }
+    cout<<dp[n];
     return 0;
 }
