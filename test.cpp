@@ -1,81 +1,65 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include<limits.h>
 using namespace std;
 
-const int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-struct State {
-    int x, y;
-    int time;
-    // 用于 priority_queue 的比较，时间小的优先
-    bool operator<(const State& other) const {
-        return time > other.time;  // 最小堆
-    }
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
+TreeNode* buildTreeFromLevelOrder(const vector<string>& nodes) {
+    if (nodes.empty() || nodes[0] == "null") return nullptr;
+    
+    TreeNode* root = new TreeNode(stoi(nodes[0]));
+    queue<TreeNode*> q;
+    q.push(root);
+    
+    int i = 1;
+    while (!q.empty() && i < nodes.size()) {
+        TreeNode* curr = q.front();
+        q.pop();
+        
+        if (i < nodes.size() && nodes[i] != "null") {
+            curr->left = new TreeNode(stoi(nodes[i]));
+            q.push(curr->left);
+        }
+        i++;
+        
+        if (i < nodes.size() && nodes[i] != "null") {
+            curr->right = new TreeNode(stoi(nodes[i]));
+            q.push(curr->right);
+        }
+        i++;
+    }
+    
+    return root;
+}
+
+int res = 0;
+
+int dfs(TreeNode* root) {
+    if (!root) return 0;
+    if (!root->left && !root->right) return 1;
+
+    int l = dfs(root->left);
+    int r = dfs(root->right);
+
+    int lv = (root->left && root->val == root->left->val) ? l : 0;
+    int rv = (root->right && root->val == root->right->val) ? r : 0;
+
+    res = max(res, 1 + lv + rv);
+    return 1 + max(lv, rv);
+}
+
 int main() {
-    int m, n;
-    cin >> m >> n;
-    vector<vector<int>> grid(m, vector<int>(n));
-    int j, k;
-    cin >> j >> k;
-
-    // 输入网格
-    for (int i = 0; i < m; i++) {
-        for (int l = 0; l < n; l++) {
-            cin >> grid[i][l];
-        }
-    }
-
-    // Dijkstra 初始化
-    vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
-    priority_queue<State> pq;
-    dist[j][k] = 0;
-    pq.push({j, k, 0});
-
-    while (!pq.empty()) {
-        State cur = pq.top();
-        pq.pop();
-
-        // 如果当前时间已经大于记录的最短时间，跳过
-        if (cur.time > dist[cur.x][cur.y]) {
-            continue;
-        }
-
-        // 遍历四个方向
-        for (auto& dir : dirs) {
-            int nx = cur.x + dir[0];
-            int ny = cur.y + dir[1];
-
-            // 检查边界和是否为空地
-            if (nx < 0 || nx >= m || ny < 0 || ny >= n || grid[nx][ny] == 0) {
-                continue;
-            }
-
-            // 计算新的传播时间
-            int new_time = cur.time + grid[cur.x][cur.y];
-
-            // 如果更优，更新并加入堆
-            if (new_time < dist[nx][ny]) {
-                dist[nx][ny] = new_time;
-                pq.push({nx, ny, new_time});
-            }
-        }
-    }
-
-    // 检查所有信号塔是否可达
-    int max_time = 0;
-    for (int i = 0; i < m; i++) {
-        for (int l = 0; l < n; l++) {
-            if (grid[i][l] != 0) {  // 是信号塔
-                if (dist[i][l] == INT_MAX) {
-                    cout << -1 << endl;
-                    return 0;
-                }
-                max_time = max(max_time, dist[i][l]);
-            }
-        }
-    }
-
-    cout << max_time << endl;
+    int n;
+    cin >> n;
+    vector<string> strs(n);
+    for (int i = 0; i < n; i++) cin >> strs[i];
+    TreeNode* root = buildTreeFromLevelOrder(strs);
+    dfs(root);
+    cout << res; // 输出 res 而非 dfs(root) 的返回值
     return 0;
 }
