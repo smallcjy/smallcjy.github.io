@@ -1,35 +1,66 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+#include <vector>
+
 using namespace std;
 
-int main()
-{
-    int n, m;
-    cin>>n>>m;
-    string str;
-    cin>>str;
+struct Line {
+    pair<double, double> begin, end;
+    double distance;
+};
 
-    for(int i = 0; i < str.size(); i++) {
-        if (str[i] == '?') {
-            bool flag = false;
-            for(char j = 'a'; j < 'a' + m; j++) {
-                if ((i==0 || str[i-1] != j) && (i==str.size()-1 || str[i+1] != j)) {
-                    flag = true;
-                    str[i] = j;
-                }
+double countDis(double x, double y) {
+    return sqrt(x * x + y * y);
+}
 
-                if (!flag) {
-                    str[i] = str[i-1];
-                }
-            }
+int main() {
+    int n, s;
+    cin >> n;
+
+    vector<pair<double, double>> points(n);
+    for (int i = 0; i < n; i++) {
+        cin >> points[i].first >> points[i].second;
+    }
+
+    cin >> s;
+
+    vector<Line> lines;
+    for (int i = 1; i < n; i++) {
+        double dis = countDis(points[i].first - points[i - 1].first, points[i].second - points[i - 1].second);
+        lines.push_back({
+            {points[i - 1].first, points[i - 1].second},
+            {points[i].first, points[i].second},
+            dis
+        });
+    }
+
+    double cur_dis = 0;
+    cout.precision(5);
+    for (int i = 0; i < n - 1; i++) {
+        Line cur_line = lines[i];
+        double dx = cur_line.end.first - cur_line.begin.first;
+        double dy = cur_line.end.second - cur_line.begin.second;
+        double distance = cur_line.distance;
+
+        if (cur_dis < distance) {
+            double ratio = cur_dis / distance;
+            double x = cur_line.begin.first + ratio * dx;
+            double y = cur_line.begin.second + ratio * dy;
+            cout << fixed << x << " " << y << endl;
         }
+
+        while (cur_dis < distance) {
+            cur_dis += s;
+            if (cur_dis > distance) break;
+
+            double ratio = cur_dis / distance;
+            double x = cur_line.begin.first + ratio * dx;
+            double y = cur_line.begin.second + ratio * dy;
+
+            cout << fixed << x << " " << y << endl;
+        }
+        cur_dis -= distance;
     }
 
-    int ans = 0;
-    cout<<str<<endl;
-    for(int i = 0; i < str.size() - 1; i++) {
-        ans += str[i] != str[i+1] ? 1 : 0;
-    }
-
-    cout<<ans;
     return 0;
 }
