@@ -5,6 +5,9 @@
 #include <queue>
 #include <vector>
 #include <thread>
+#include <mutex>
+#include <iostream>
+
 
 const uint64_t SECOND = 1000;
 
@@ -79,21 +82,16 @@ HANDLE run_ms_timer_win(int initial_msec, int interval_msec, TimerCallback cb) {
 
 TimerQueue GTimer;
 
+void printSize(size_t size);
+
+void print(int, int);
+
 // 示例用法
 int main() {
-    std::thread timer_thread([&]() {
-        GTimer.start();
-    });
+    int ptr = 10;
+    int r_ptr = std::move(ptr);
 
-    // 添加定时任务
-    GTimer.add_task(2 * SECOND, [](){
-        printf("Task 1 expired!\n");
-    });
-    GTimer.add_task(5 * SECOND, [](){
-        printf("Task 2 expired!\n");
-    });
-
-    while(true){}
-
+    std::cout<<ptr<<' '<<&ptr<<std::endl;
+    std::cout<<r_ptr<<' '<<&r_ptr;
     return 0;
 }
