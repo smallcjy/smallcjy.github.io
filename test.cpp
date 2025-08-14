@@ -1,21 +1,99 @@
-#include <iostream>
-#include <cmath>
+// Windows下的毫秒级定时器任务
+#include <windows.h>
+#include <functional>
+#include <stdio.h>
+#include <queue>
 #include <vector>
-#include <atomic>
+#include <thread>
 
-#define ADD_FUNC_AND_COUT(x, y) (cout << (x) + (y) << endl)
+const uint64_t SECOND = 1000;
 
-using namespace std;
+// 定时器任务回调类型
+using TimerCallback = std::function<void()>;
+HANDLE run_ms_timer_win(int initial_msec, int interval_msec, TimerCallback cb);
 
-template <typename T>
-concept HasFunc1 = requires(T a) {
-    { a.func1(1, 2) } -> same_as<int>;
-}
-
-class ClassA {
-public :
-    int func1(int, int);
+struct Task {
+    uint64_t tid;
+    uint64_t timestamp;
+    TimerCallback callback;
 };
 
+std::function<bool(const Task&, const Task&)> CMP = [](const Task& a, const Task& b) {
+    return a.timestamp > b.timestamp;
+};
+
+class TimerQueue {
+public:
+    TimerQueue() : task_queue(CMP), next_task_id(1) {}
+    ~TimerQueue() = default;
+
+    void start() {
+        timer_handle = run_ms_timer_win(1, 1, [this](){ update(); });
+    }
+    void update() {
+        auto now = GetTickCount();
+        while (!task_queue.empty()) {
+            Task task = task_queue.top();
+            if (task.timestamp <= now) {
+                task.callback();
+                task_queue.pop();
+            } else {
+                break;
+            }
+        }
+    }
+
+    // 添加定时任务 :  毫秒级
+    uint64_t add_task(uint64_t delay_ms, TimerCallback cb) {
+        uint64_t tid = next_task_id++;
+        uint64_t timestamp = GetTickCount() + delay_ms;
+        task_queue.push({ tid, timestamp, cb });
+        return tid;
+    }
+private:
+    uint64_t next_task_id;
+    HANDLE timer_handle;
+    std::priority_queue<Task, std::vector<Task>, decltype(CMP)> task_queue;
+};
+
+// 首次触发时间，重复间隔，回调函数
+HANDLE run_ms_timer_win(int initial_msec, int interval_msec, TimerCallback cb) {
+    HANDLE hTimer = CreateWaitableTimer(NULL, FALSE, NULL);
+    if (!hTimer) return NULL;
+
+    LARGE_INTEGER liDueTime;
+    liDueTime.QuadPart = -initial_msec * 10000LL; // 负值表示相对时间，单位100纳秒
+
+    // 设置定时器
+    SetWaitableTimer(hTimer, &liDueTime, interval_msec, NULL, NULL, FALSE);
+
+    while (1) {
+        DWORD dwRet = WaitForSingleObject(hTimer, INFINITE);
+        if (dwRet == WAIT_OBJECT_0) {
+            cb(); // 回调
+        }
+    }
+
+    return hTimer;
+}
+
+TimerQueue GTimer;
+
+// 示例用法
 int main() {
+    std::thread timer_thread([&]() {
+        GTimer.start();
+    });
+
+    // 添加定时任务
+    GTimer.add_task(2 * SECOND, [](){
+        printf("Task 1 expired!\n");
+    });
+    GTimer.add_task(5 * SECOND, [](){
+        printf("Task 2 expired!\n");
+    });
+
+    while(true){}
+
+    return 0;
 }
