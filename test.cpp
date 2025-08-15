@@ -1,97 +1,70 @@
-// Windows下的毫秒级定时器任务
-#include <windows.h>
-#include <functional>
-#include <stdio.h>
-#include <queue>
-#include <vector>
-#include <thread>
-#include <mutex>
-#include <iostream>
+/**
+ * Definition for a point.
+ * struct Point {
+ *     int x;
+ *     int y;
+ *     Point() : x(0), y(0) {}
+ *     Point(int a, int b) : x(a), y(b) {}
+ * };
+ */
 
-
-const uint64_t SECOND = 1000;
-
-// 定时器任务回调类型
-using TimerCallback = std::function<void()>;
-HANDLE run_ms_timer_win(int initial_msec, int interval_msec, TimerCallback cb);
-
-struct Task {
-    uint64_t tid;
-    uint64_t timestamp;
-    TimerCallback callback;
+struct Point {
+    int x;
+    int y;
 };
 
-std::function<bool(const Task&, const Task&)> CMP = [](const Task& a, const Task& b) {
-    return a.timestamp > b.timestamp;
-};
+#include<bits/stdc++.h>
+using namespace std;
 
-class TimerQueue {
+const int dirs_x[8] = {1, 1, 2, 2, -1, -1, -2, -2};
+const int dirs_y[8] = {2, -2, 1, -1, 2, -2, 1, -1};
+
+class Solution {
 public:
-    TimerQueue() : task_queue(CMP), next_task_id(1) {}
-    ~TimerQueue() = default;
-
-    void start() {
-        timer_handle = run_ms_timer_win(1, 1, [this](){ update(); });
-    }
-    void update() {
-        auto now = GetTickCount();
-        while (!task_queue.empty()) {
-            Task task = task_queue.top();
-            if (task.timestamp <= now) {
-                task.callback();
-                task_queue.pop();
-            } else {
-                break;
+    /**
+     * @param grid: a chessboard included 0 (false) and 1 (true)
+     * @param source: a point
+     * @param destination: a point
+     * @return: the shortest path 
+     */
+    int shortestPath(vector<vector<bool>> &grid, Point &source, Point &destination) {
+        int n = grid.size(),m = grid[0].size();
+        if (n == 0 || m == 0) {
+            return -1;
+        }
+        
+        int dx[] = {1, 1, 2, 2, -1, -1, -2, -2};
+        int dy[] = {2, -2, 1, -1, 2, -2, 1, -1};
+        queue<Point> q;
+        q.push(source);
+        grid[source.x][source.y] = true;
+        int ans = 0;
+        while (!q.empty()) {
+            int len_q = q.size();
+            for (int k = 0; k < len_q; k++) {
+                Point cur = q.front();
+                q.pop();
+                //到达终点，返回距离
+                if (cur.x == destination.x && cur.y == destination.y) {
+                    return ans;
+                }
+                for (int i = 0; i < 8; i++) {
+                    Point next;
+                    next.x = cur.x + dx[i];
+                    next.y = cur.y + dy[i];
+                    //判断下一跳可否到达
+                    if (is_in_bound(next,n,m) && grid[next.x][next.y] == false) {
+                        q.push(next);
+                        grid[next.x][next.y] = true;
+                    }
+                }
             }
+            ans++;
         }
+        return -1;
     }
-
-    // 添加定时任务 :  毫秒级
-    uint64_t add_task(uint64_t delay_ms, TimerCallback cb) {
-        uint64_t tid = next_task_id++;
-        uint64_t timestamp = GetTickCount() + delay_ms;
-        task_queue.push({ tid, timestamp, cb });
-        return tid;
+    //判断下一跳是否越界
+    bool is_in_bound(Point next,int n,int m) {
+        return 0 <= next.x && next.x < n && 0 <= next.y && next.y < m;
     }
-private:
-    uint64_t next_task_id;
-    HANDLE timer_handle;
-    std::priority_queue<Task, std::vector<Task>, decltype(CMP)> task_queue;
 };
-
-// 首次触发时间，重复间隔，回调函数
-HANDLE run_ms_timer_win(int initial_msec, int interval_msec, TimerCallback cb) {
-    HANDLE hTimer = CreateWaitableTimer(NULL, FALSE, NULL);
-    if (!hTimer) return NULL;
-
-    LARGE_INTEGER liDueTime;
-    liDueTime.QuadPart = -initial_msec * 10000LL; // 负值表示相对时间，单位100纳秒
-
-    // 设置定时器
-    SetWaitableTimer(hTimer, &liDueTime, interval_msec, NULL, NULL, FALSE);
-
-    while (1) {
-        DWORD dwRet = WaitForSingleObject(hTimer, INFINITE);
-        if (dwRet == WAIT_OBJECT_0) {
-            cb(); // 回调
-        }
-    }
-
-    return hTimer;
-}
-
-TimerQueue GTimer;
-
-void printSize(size_t size);
-
-void print(int, int);
-
-// 示例用法
-int main() {
-    int ptr = 10;
-    int r_ptr = std::move(ptr);
-
-    std::cout<<ptr<<' '<<&ptr<<std::endl;
-    std::cout<<r_ptr<<' '<<&r_ptr;
-    return 0;
-}
