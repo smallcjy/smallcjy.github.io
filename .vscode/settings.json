@@ -86,7 +86,22 @@
     "span": "cpp",
     "stop_token": "cpp",
     "text_encoding": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "any": "cpp",
+    "barrier": "cpp",
+    "coroutine": "cpp",
+    "expected": "cpp",
+    "source_location": "cpp",
+    "flat_map": "cpp",
+    "flat_set": "cpp",
+    "generator": "cpp",
+    "latch": "cpp",
+    "print": "cpp",
+    "spanstream": "cpp",
+    "stack": "cpp",
+    "stacktrace": "cpp",
+    "stdfloat": "cpp",
+    "syncstream": "cpp"
   },
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
