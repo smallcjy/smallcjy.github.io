@@ -2,77 +2,41 @@
 #include <vector>
 using namespace std;
 
-struct Node {
-    int val; Node* next;
-    Node(int val_) : val(val_), next(nullptr) {}
-};
-
-Node* build(vector<int>& nums) {
-	Node* dummy = new Node(0);
-   	Node* cur = dummy;
-    for(int n : nums) {
-        cur->next = new Node(n);
-        cur = cur->next;
-    }
-    
-    return dummy->next;
-}
-
-Node* merge(Node* a, Node* b) {
-    Node* dummy = new Node(0);
-    Node* cur = dummy;
-    
-    while(a && b) {
-        if (a->val <= b->val) {
-            cur->next = a;
-            a = a->next;
+vector<int> merge(vector<int>& arr1, vector<int>& arr2) {
+    int n = arr1.size(); int m = arr2.size();
+    vector<int> ans(n+m);
+    int k = 0;
+    int i = 0, j = 0;
+    while(i < n && j < m) {
+        if (arr1[i] < arr2[j]) {
+            ans[k++] = arr1[i++];
         } else {
-            cur->next = b;
-            b = b->next;
+            ans[k++] = arr2[j++];
         }
-       	cur = cur->next;
     }
-    
-    if (a) cur->next =a;
-    else if (b) cur->next = b;
-    return dummy->next;
+    while(i < n) ans[k++] = arr1[i++];
+    while(j < m) ans[k++] = arr2[j++];
+    return ans;
 }
 
-Node* sort(Node* head) {
-    if (!head || !head->next) return head;
-    Node* dummy = new Node(0); dummy->next = head;
-    
-    Node* fast = head;
-    Node* slow = dummy;
-    
-    while(fast && fast->next) {
-        slow = slow->next;
-        fast = fast->next->next;
-    }
-    
-    Node* right = slow->next;
-    slow->next = nullptr;
-    Node* left = head;
-    
-    Node* sortl = sort(left);
-    Node* sortr = sort(right);
-    
-    return merge(sortl, sortr);
+vector<int> mergek(vector<vector<int>>& arrays, int left, int right) {
+    if(left == right) return arrays[left];
+    int mid = (left + right) / 2;
+    vector<int> larr = mergek(arrays, left, mid);
+    vector<int> rarr = mergek(arrays, mid + 1, right);
+    return merge(larr, rarr);
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) cin>>nums[i];
-    Node* head = build(nums);
-    Node* ans = sort(head);
-    
-    while(ans) {
-        cout << ans->val << ' ';
-        ans = ans->next;
-    }
-    
+int main()
+{
+    vector<vector<int>> arrays = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
+    vector<int> merged = mergek(arrays, 0, arrays.size() - 1);
+    for(int x : merged) cout << x << " ";
+
+    cout << endl;
+
+    cout << sizeof(long) << endl;
+    cout << sizeof(long long) << endl;
     return 0;
 }
 // 64 位输出请用 printf("%lld")
